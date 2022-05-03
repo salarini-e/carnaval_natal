@@ -30,16 +30,13 @@ except:
 
 
 INSTALLED_APPS = [
-    'bootstrap5',
-    'widget_tweaks',
-    'qr_code',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'fiscalizacao'
+    'django.contrib.staticfiles',   
+    'core' 
 ]
 
 MIDDLEWARE = [
@@ -117,10 +114,10 @@ STATIC_URL = '/static/'
 # STATIC_ROOT = '/home/turismo/site/turismo/equipamentos/static'
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
-LOGIN_URL='/login'
+LOGIN_URL='/s/login'
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_URL = '/contas/sair'
-LOGOUT_REDIRECT_URL = '/login'
+LOGOUT_URL = '/'
+LOGOUT_REDIRECT_URL = '/s/login'
 
 # JLB para SSL
 

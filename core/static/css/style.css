@@ -1,0 +1,112 @@
+body, html{
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+h1{
+    font-family: 'Londrina Solid', cursive;
+}
+h3{
+    font-family: 'Londrina Solid', cursive;
+}
+h4{
+    font-family: 'Londrina Solid', cursive;
+}
+header .col{
+    display: flex;
+}
+
+header .col .navbar{
+    margin: auto;
+    width: 1156px;
+    display: flex;
+}
+header .col .navbar .nav{
+    margin: auto 0 auto auto;
+}
+header .col .navbar .nav a{
+    color: black;
+    font-family: 'Londrina Solid', cursive;
+    font-size: 16pt;
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 0 10px;
+}
+header .col .navbar .nav a:hover{
+    background-color: rgba(128, 128, 128, 0.137);
+}
+.logo-carnaval{    
+    height: 200px;
+}
+
+#banner{
+    margin-top: 30px;
+}
+#banner .col{
+    display: flex;
+}
+#banner .col img{
+    margin: auto;
+}
+#imagens{
+    width: 1156px;
+    margin: auto;
+}
+#texto{
+    width: 1156px;
+    margin: auto;
+}
+#programacao{
+    width: 1156px;
+    margin: auto;
+}
+#programacao .data{
+    padding: 30px;
+    width: 280px;
+    height: 180px;
+    background-color: #5C6EE2;
+    color: white;
+}
+#programacao .info{
+    margin-left: 35px;
+    padding: 30px;
+    width: 880px;
+    height: 180px;
+    background-color: #D7518B;
+    color: white;
+}
+#programacao .data h1{
+    font-size: 35pt;
+    font-family: 'Londrina Solid', cursive;
+}
+#programacao .data h2{
+    font-size: 26pt;
+    font-family: 'Londrina Solid', cursive;
+}
+#programacao .info h1{
+    font-family: 'Londrina Solid', cursive;
+    font-size: 25pt;
+    margin-bottom: 25px;
+}
+#programacao .info h2{
+    font-size: 14pt;
+    font-weight: 300;
+}
+p{
+    text-indent: 30px;
+    text-align: justify;
+}
+
+.size-15{
+    font-size: 25pt;
+}
+
+.size-18{
+    font-size: 145pt;
+}
+.destaque{
+    color: #24AEFA;
+}
+.redesocial{
+    width: 50px;
+    height: 50px;
+}

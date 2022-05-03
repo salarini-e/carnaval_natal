@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carnaval 2022 - Nova Friburgo</title>
+    <style>
+        html, body{
+            width: 100%;
+            height: 100%;
+            /* background-color: gray; */
+            padding: 0;
+            margin: 0;
+        }
+        header{
+            background-color: white;
+            width: 100%;
+            display: flex;
+        }
+        header img{
+            height: 150px;
+            margin: auto;
+            padding-top: 20px;
+            padding-bottom: 25px;
+        }
+        main #sectionBanner{
+            display: flex;
+            padding: 0 50px;
+        }
+        main section #banner{
+            margin: auto;
+            height: 200px;
+            width: 80%;
+            background-color: brown;
+            padding: 10px 20px;
+        }
+        main section #audio{            
+            margin: auto;
+            height: 200px;
+            width: 20%;
+            background-color: rgb(224, 127, 127);
+            padding: 10px 20px;
+            
+        }
+        main #main_lateral{  
+                     
+            display: flex;                                   
+            background-color: rgb(255, 255, 255);
+            padding: 0 50px;
+            margin: 0;
+            margin-top: 20px; 
+        }
+        main #main_lateral #main{        
+            background-color: rgb(255, 255, 255);
+            width: 78%;            
+        }
+        main #main_lateral #main #fotos_videos{ 
+            display: flex;
+            width: 100%;
+        }
+        main #main_lateral #main #fotos_videos #fotos{ 
+            background-color: gray;
+            width: 400px;
+            height: 200px;
+            padding: 10px 20px;
+        }
+        main #main_lateral #main #fotos_videos #videos{
+            margin-left: auto;
+            background-color: gray;
+            width: 400px;
+            height: 200px;
+            padding: 10px 20px;
+        }
+        main #main_lateral #lateral{            
+            width: 20%;
+        }   
+        main #main_lateral #lateral #agenda{
+            padding: 10px 20px;
+            width: 100%;
+            height: 300px;
+            background-color: brown;
+        }
+        main #main_lateral #lateral #redes{
+            padding: 10px 20px;
+            width: 100%;
+            height: 200px;
+            background-color: rgb(241, 23, 23);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/static/img/logo.png" alt="carnaval 2022 nova friburgo">
+    </header>
+    <main>
+        <section id="sectionBanner">
+            <div id="banner">
+                banner
+            </div>
+            <div id="audio">
+                audio
+            </div>
+        </section>
+        <div id="main_lateral">
+            <section id="main">
+                <div style="width: 100%; background-color: rgb(185, 90, 90); padding: 10px 20px;">
+                    navbar
+                </div>
+
+                <div style="width: 100%; height: 400px; margin-top: 10px; background-color: rgb(185, 90, 90); padding: 10px 20px;">
+                    texto
+                </div>
+                <div id="fotos_videos">
+                    <div id="fotos">
+                        fotos
+                    </div>
+                    <div id="videos">
+                        videos
+                    </div>
+                </div>
+            </section>
+            <section id="lateral">
+             <div id="agenda">
+                 agenda
+             </div>
+             <div id="redes">
+                 redes sociais
+             </div>
+            </section>
+        </div>
+        
+    </main>
+</body>
+</html>

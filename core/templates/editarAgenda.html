@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carnval 2022 - Nova Friburgo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slide.css' %}">
+</head>
+<body class="container-fluid">
+    <div class="">
+        <header class="row">
+            <div class="col d-flex">
+                <div class="navbar">
+                    <img class="logo-carnaval" src="{% static 'img/logo-carnaval.png' %}" alt="">                
+                    <div class="nav">
+                        <a href="/">Início</a>
+                        <a href="/#programacao2">Programação</a>
+                        <a href="#">Agremiações</a>
+                        <a href="#">Eventos</a>
+                        <a href="#">Concursos</a>
+                        <a href="#">Contato</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="row">
+            <div class="col d-flex">
+                <a class="mx-auto" href="/s/agenda">Voltar</a>
+            </div>
+        </div>
+        {% if success %}
+        <h1 class="p-3 bg-success text-center text-white">Alterações salvas!</h1>
+        {% endif %}
+        <form method="POST" class="px-5 mt-5" style="width: 400px;">     
+            {% csrf_token %}
+            {{form}}
+            <button class="btn btn-primary mb-5">Alterar</button>
+        </form>
+        <div class="row">
+            <div class="col border p-3 d-flex">
+                <span class="m-auto">rodapé</span>
+            </div>
+        </div>
+    </div>    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="{% static 'js/slide.js' %}"></script>
+    <script>
+    </script>
+</body>
+</html>
