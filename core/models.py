@@ -16,7 +16,8 @@ class AgendaCarnaval(models.Model):
 class LegendasFotos(models.Model):
     legenda=models.CharField(max_length=40)
     foto=models.CharField(max_length=10)
-#class AgramiacaoCArnaval(models.Model):
-#img
-#escola
-#texto
+
+class AgramiacaoCarnaval(models.Model):
+    img=models.CharField(max_length=54)
+    escola=models.CharField(max_length=54)
+    texto=models.TextField()
