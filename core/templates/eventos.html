@@ -42,21 +42,18 @@
                 <div class="row">
                     <div class="col">
                         <h1 class="pb-3">
-                            Agremiações
-                        </h1>                        
+                            Eventos
+                        </h1>    
+                        <div class="row">
+                            {% for evento in eventos %}
+                            <div class="col d-flex flex-column pb-3" >
+                                <img style="height: 386px; width: 566px;" class="rounded mx-auto" loading="lazy" src="/static/img/eventos/{{evento.img}}" alt="">
+                                <b style="font-size:10pt; color: gray;" class="mx-auto my-2">{{evento.legenda}}</b>
+                            </div>
+                            {% endfor %}
+                        </div>                    
                     </div>
-                </div>                
-                <div class="row">
-                    {% for agremiacao in agremiacoes %}
-                    <div class="col d-flex flex-column px-3">
-                        <img class="mx-auto" style="width: 180px; height: 180px;" src="/static/img/agremiacao/{{agremiacao.img}}" alt="">
-                        <div class="mx-auto mt-2" style="width: 180px;">
-                            <h4>{{agremiacao.escola}}</h4>
-                            <p class="text-break">{{agremiacao.texto}}</p>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>                
+                </div>  
             </section>
         </div>
     </div>

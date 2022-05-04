@@ -1,3 +1,4 @@
+from email.mime import image
 from django.db import models
 
 class InformacoesDoSiteDeCarnaval(models.Model):
@@ -17,7 +18,14 @@ class LegendasFotos(models.Model):
     legenda=models.CharField(max_length=40)
     foto=models.CharField(max_length=10)
 
-class AgramiacaoCarnaval(models.Model):
+class AgremiacaoCarnaval(models.Model):
     img=models.CharField(max_length=54)
     escola=models.CharField(max_length=54)
     texto=models.TextField()
+
+class EventosCarnaval(models.Model):
+    img=models.CharField(max_length=54)
+    legenda=models.CharField(max_length=54)
+
+class ConcursosCarnaval(models.Model):    
+    nome=models.CharField(max_length=54)
