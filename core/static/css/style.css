@@ -2,6 +2,13 @@ body, html{
     height: 100%;
     font-family: 'Poppins', sans-serif;
 }
+html, body{
+    background-image: url(../img/bg.jpg);    
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 h1{
     font-family: 'Londrina Solid', cursive;
 }
@@ -21,10 +28,13 @@ header .col .navbar{
     display: flex;
 }
 header .col .navbar .nav{
-    margin: auto 0 auto auto;
+    margin: 130px 0 auto auto;
 }
 header .col .navbar .nav a{
-    color: black;
+    /* background-color: #e7ac375b; */
+    background-color: #37c4e75b;
+    text-transform: uppercase;
+    color: #0b1aa3;
     font-family: 'Londrina Solid', cursive;
     font-size: 16pt;
     text-decoration: none;
@@ -32,7 +42,8 @@ header .col .navbar .nav a{
     padding: 0 10px;
 }
 header .col .navbar .nav a:hover{
-    background-color: rgba(128, 128, 128, 0.137);
+    background-color: #e7ac3791;
+    cursor: pointer;
 }
 .logo-carnaval{    
     height: 200px;

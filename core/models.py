@@ -9,10 +9,13 @@ class InformacoesDoSiteDeCarnaval(models.Model):
 class AgendaCarnaval(models.Model):
     data=models.DateField()
     dia=models.CharField(max_length=8, default='')
-    titulo=models.CharField(max_length=40)
+    titulo=models.CharField(max_length=50)
     hora=models.CharField(max_length=5)
-    local=models.CharField(max_length=40)
+    local=models.CharField(max_length=50)
 
+class LegendasFotos(models.Model):
+    legenda=models.CharField(max_length=40)
+    foto=models.CharField(max_length=10)
 #class AgramiacaoCArnaval(models.Model):
 #img
 #escola

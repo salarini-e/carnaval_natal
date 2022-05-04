@@ -19,15 +19,15 @@
 </head>
 
 <body class="container-fluid">
-    <div class="row h-100 mx-0">
+    <div>
         <header class="row">
             <div class="col d-flex">
                 <div class="navbar">
                     <img class="logo-carnaval" src="{% static 'img/logo-carnaval.png' %}" alt="">
                     <div class="nav">
                         <a href="/">Início</a>
-                        <a onclick="linkTo('#programacao2')">Programação</a>
-                        <a onclick="linkTo('#conheca')">Conheça</a>
+                        <a href="/#programacao2">Programação</a>
+                        <a href="/#conheca">Conheça</a>
                         <a href="/agremiacao">Agremiações</a>
                         <a href="#">Eventos</a>
                         <a href="#">Concursos</a>
@@ -35,99 +35,28 @@
                     </div>
                 </div>
             </div>
-        </header>
-        <section id="banner" class="row">
-            <div class="col flex-column">
-                <img style="width: 1156px; height: 352px;" id="img-banner" src="/static/img/banner.png" alt="">
-            </div>
-        </section>
+        </header>        
     </div>
-    <h1 class="text-center my-5 pb-3">
-        {{info.titulo01}}
-    </h1>
     <div class="row">
         <div class="col">
             <section id="imagens">
                 <div class="row">
                     <div class="col">
-                        <img style="height: 386px; width: 566px;" class="rounded" src="{% static 'img/carnaval1.jpg' %}"
-                            alt="image carnaval">
-                    </div>
-                    <div class="col">
-                        <img style="height: 386px; width: 566px;" class="rounded" src="{% static 'img/carnaval2.jpg' %}"
-                            alt="image carnaval">
+                        <h1 class="pb-3">
+                            Agremiações
+                        </h1>                        
                     </div>
                 </div>
-
-            </section>
-        </div>
-    </div>
-    <div class="row mt-5">
-        <div class="col d-flex">
-            <section id="texto">
-                <div class="row">
-                    <div class="col d-flex flex-column pe-5">
-                        <div class="m-auto">
-                            <h4>{{info.titulo02}}</h4>
-                            <p style="font-weight: bold;">
-                                {{info.texto02}}
-                            </p>
-
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
-    <h1 id="programacao2" class="text-center my-5">
-        FALTAM <span class="destaque">{{dias}} DIAS</span> PARA O NOSSO CARNAVAL
-    </h1>
-    <div class="row">
-        <div class="col d-flex">
-            <section id="programacao">
-                {% for item in agenda %}
-                <div class="row mb-4">
-                    <div class="col d-flex">
-                        <div class="data d-flex">
-                            <div class="m-auto d-flex flex-column pt-2">
-                                <h1 class="text-center">{{item.data|date:"d/M" }}</h1>
-                                <h2 class="text-center">{{item.dia}}</h2>
-                            </div>
-                        </div>
-                        <div class="info d-flex flex-column">
-                            <h1>{{item.titulo}}</h1>
-                            <h2>{{item.dia}} ({{item.data|date:"d/M" }}) - {{item.hora}}</h2>
-                            <h2>{{item.local}}</h2>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </section>
-        </div>
-    </div>
-    <div id="conheca" class="row mt-5">
-        <div class="col d-flex">
-            <section style="width: 1156px; margin: auto;">
-                <h1>CONHEÇA NOSSO CARNAVAL</h1>
                 <div class="row">
                     <div class="col">
-                        <a href="/fotos">
-                            <img style="height: 366px; width: 566px;" class="rounded my-2" src="{% static 'img/fotos.jpg' %}"
-                            alt="image carnaval">
-                        </a>
-                    </div>  
-                    <div class="col">
-                        <a href="#videos">
-                            <img style="height: 366px; width: 566px;" class="rounded my-2" src="{% static 'img/videos.jpg' %}"
-                            alt="image carnaval">
-                        </a>
-                    </div>              
-                                      
+                        teste
+                    </div>
                 </div>
 
             </section>
         </div>
     </div>
+    
     <div class="row">
         <div class="col d-flex py-5">
             <section id="contato" class="m-auto" style="width: 1156px;">
@@ -175,25 +104,6 @@
     <script>
         function linkTo(value) {
             window.location.href = value
-        }
-        setIndex = 0
-        function slide1() {
-            setIndex = 0
-            document.getElementById('img-banner').src = "/static/img/slide/00.png";
-            setTimeout("slide2()", 5000)
-        }
-        function slide2() {
-            setIndex = 1
-            document.getElementById('img-banner').src = "/static/img/slide/01.png";
-            setTimeout("slide3()", 5000)
-        }
-        function slide3() {
-            setIndex = 2
-            document.getElementById('img-banner').src = "/static/img/slide/02.png";
-            setTimeout("slide1()", 5000)
-        }
-        window.onload = function teste() {
-            slide1()
         }
     </script>
 </body>

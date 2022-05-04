@@ -22,8 +22,7 @@
                     <div class="nav">
                         <a href="/">Início</a>
                         <a href="/#programacao2">Programação</a>
-                        <a href="/#conheca">Conheça</a>
-                        <a href="/agremiacao">Agremiações</a>
+                        <a href="#">Agremiações</a>
                         <a href="#">Eventos</a>
                         <a href="#">Concursos</a>
                         <a href="#">Contato</a>
@@ -31,24 +30,44 @@
                 </div>
             </div>
         </header>
-        
-        <div class="row bg-light">
-            <div class="col d-flex py-4 px-5 border">
-                <h5>Informações</h5>
-                <a class="mx-auto" href="/s/info">Informações do Site</a>
-                <a class="mx-auto" href="/s/agenda">Agenda do Carnaval</a>                    
+        <div class="row">
+            <div class="col d-flex">
+                <a class="mx-auto" href="/s/painel">Voltar ao Painel</a>
             </div>
         </div>
-        
-        <div class="row bg-light">
-            <div class="col d-flex py-4 px-5 border">
-                <h5 class="text-center">Imagens</h5>
-                <a class="mx-auto" href="/s/slide">Imagens do Slide</a>
-                <a class="mx-auto" href="/s/imagens">Imagens do Site</a>
-                <a class="mx-auto" href="/s/fotos">Fotos do Carnaval</a>
+        {% if success %}
+        <h1 class="p-3 bg-success text-center text-white">Alterações salvas!</h1>
+        {% endif %}
+        <div class="row px-5 mt-5">
+            <div class="col px-5 d-flex flex-column">
+                <a href="/s/fotos/enviar" class="btn btn-dark ms-auto">Enviar foto</a>
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Imagem</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>  
+                    {% for foto in fotos %}              
+                      <tr>
+                        <th scope="row">{{foto}}</th>
+                        <td>
+                            <img style="height: 100px;" src="/static/img/fotos/{{foto}}" alt="">
+                        </td>
+                        <td>
+                            <a href="/s/fotos/edit/{{foto}}">Editar ou Apagar</a>
+                        </td>
+                      </tr>
+                    {% endfor %}
+
+                    </tbody>
+        </table>
             </div>
         </div>
-    </div>        
+
+    </div>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="{% static 'js/slide.js' %}"></script>

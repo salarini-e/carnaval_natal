@@ -1,8 +1,9 @@
+from multiprocessing import context
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 
-from .models import InformacoesDoSiteDeCarnaval as Informacoes
+from .models import InformacoesDoSiteDeCarnaval as Informacoes, LegendasFotos
 from .models import AgendaCarnaval as Agenda
 from datetime import date
 
@@ -13,10 +14,10 @@ from carnaval_natal.settings import BASE_DIR
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 
-from .forms import InformacoesForm, AgendaForm
+from .forms import InformacoesForm, AgendaForm, LegendaForm
 def carnaval(request):
     info=Informacoes.objects.get(id=1)
-    agenda=Agenda.objects.all()
+    agenda=Agenda.objects.all().order_by('data')
     today=date.today()
     carnaval=info.primeiro_dia_de_carnaval
     delta=carnaval-today    
@@ -27,6 +28,20 @@ def carnaval(request):
         'dias': delta.days,
     }
     return render(request, 'carnaval.html', context)
+
+def agremiacao(request):
+    return render(request, 'agremiacao.html')
+
+def fotos(request):
+    try:   
+        fotos=os.listdir(os.path.join(BASE_DIR, 'core/static/img/fotos/'))
+        legendas=LegendasFotos.objects.all().order_by('foto')
+    except:
+        fotos=[] 
+    context={
+        'fotos': legendas
+    }
+    return render(request, 'fotos.html', context)
 
 def login_view(request):
     if request.user.is_authenticated:
@@ -146,7 +161,9 @@ def listarImagens(request):
 
 @login_required
 def editarImagens(request, nome):
-        print(nome)
+        context={
+            'id': nome
+        }
         if request.method == 'POST': 
             try:
                 files=[]               
@@ -154,9 +171,68 @@ def editarImagens(request, nome):
                         files.append(request.FILES[item])                                
                 os.remove(str(BASE_DIR)+'/core/static/img/'+nome)
                 path = default_storage.save(str(BASE_DIR)+'/core/static/img/'+nome, ContentFile(files[0].read()))                               
+                context={
+                    'id': nome,
+                    'success': True
+                }
             except Exception as E:
                 print(E)
-        context={
-            'id': nome
-        }
+
         return render(request, 'editarImagem.html', context)
+
+@login_required
+def listarFotos(request):
+    try:   
+        fotos=os.listdir(os.path.join(BASE_DIR, 'core/static/img/fotos/'))
+    except:
+        fotos=[] 
+    context={
+        'fotos': fotos
+    }
+    return render(request, 'listarFotos.html', context)
+
+@login_required
+def enviarFoto(request):   
+        context={}
+        if request.method == 'POST':             
+            try:   
+                fotos=os.listdir(os.path.join(BASE_DIR, 'core/static/img/fotos/'))
+            except:
+                fotos=[] 
+            try:
+                files=[]               
+                for item in request.FILES:                        
+                        files.append(request.FILES[item])                                                
+                legenda=LegendasFotos(legenda=request.POST['legenda'], foto=str(len(fotos))+'.jpg')
+                legenda.save()
+                path = default_storage.save(str(BASE_DIR)+'/core/static/img/fotos/'+str(len(fotos))+'.jpg', ContentFile(files[0].read()))                               
+                context={
+                    'success': True
+                }
+            except Exception as E:
+                print(E)
+        return render(request, 'enviarFoto.html', context)
+
+@login_required
+def editarFoto(request, nome): 
+        legenda=LegendasFotos.objects.get(foto=nome)
+        context={
+            'nome': nome,
+            'form': LegendaForm(instance=legenda)
+        }       
+        if request.method == 'POST': 
+            form=LegendaForm(request.POST)
+            try:
+                files=[]               
+                for item in request.FILES:                        
+                        files.append(request.FILES[item])      
+                os.remove(str(BASE_DIR)+'/core/static/img/fotos/'+nome)                                          
+                path = default_storage.save(str(BASE_DIR)+'/core/static/img/fotos/'+str(nome), ContentFile(files[0].read()))                               
+                context={
+                    'nome': nome,
+                    'form': form,
+                    'success': True
+                }
+            except Exception as E:
+                print(E)
+        return render(request, 'editarFoto.html', context)
