@@ -1,0 +1,622 @@
+body {
+  background-color:#A80000;
+  background-image: url("/static/imgs/FUNDO_NATAL_23.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  overflow-x: hidden;
+  font-family: 'Rubik', sans-serif;
+  /* background: linear-gradient(to top, #A80000 , #770101 90%) bottom; */
+}
+html,
+body {
+  background-attachment: fixed;
+  height: 100%;
+}
+
+/* main{
+  padding: 16px;
+} */
+h1{
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40pt;
+  font-weight: 600;
+  color: #FFEB9A;
+}
+h2{  
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30pt;
+  font-weight: 600;
+  color: #FFEB9A;
+}
+.hero{
+  padding: 0;
+}
+.navbar {
+  color: #e6b572;
+  /* font-family: 'Roboto Slab', serif; */
+  /* color: #383736d8; */
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  font-weight: bold;
+  padding: 0.8vh 1vw;
+  top: 0;
+  /* background-color: #a800002f; */
+  background-color: rgb(27, 5, 5);
+  background: linear-gradient(to top, rgba(107, 18, 18, 0), rgb(128, 8, 8) 45%) bottom;
+
+  /* background-color: #fffffff8; */
+  font-size: 1.2rem;
+  z-index: 9999;
+  height: 6rem;
+}
+/* .showing{
+  background-color: rgba(5, 14, 27, .9);
+  padding: 0 1vw;
+}
+.showingToo{
+  background-color: rgba(5, 14, 27, 0.9);
+} */
+.spin{
+  transform: rotate(90deg);
+}
+.navbar-toggler{
+  width: 4rem;
+  transition: transform 350ms;
+}
+
+.navbar-toggler:focus{
+  box-shadow: 0 0 0 .15rem
+}
+.nav-link{
+  transition: transform 300ms ease-out;
+}
+.nav-link:hover {
+  color: #e6b572;
+  transform: scale(1.2);
+}
+.logo {
+  width: 5rem;
+}
+
+#turismo {
+  filter: brightness(255);
+}
+
+#logoFriburgo {
+  width: 4rem;
+}
+
+.navbar a {
+  color: inherit;
+  margin-right: 1.5rem;
+}
+canvas {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+}
+.album {
+  background-color: #050e1d;
+}
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  /* background-image: url("/static/imgs/FUNDO_NATAL_23.png"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* padding-top: 6rem; */
+  z-index: 99;
+}
+.hero::before{
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 10vh;
+  /* background: linear-gradient(to bottom, rgba(0,0,0,0), #770101 90%) top; */
+  content: "";
+}
+.hero div{ 
+  height: 100%;
+}
+.button {
+  padding: 0.6rem 1.3rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 0px;
+  color: #cf9c60;
+  border: 1px solid #cf9c60;
+  background-position:left bottom;
+  background-color: rgba(255, 255, 255, 0);
+  background-size: 300%;
+  transition: .5s ease-out;
+}
+
+.button:hover {  
+  color: #fff;
+  background-position: left;
+}
+
+.banner {
+  width: 650px;
+  height: 650px;  
+}
+
+.absoluteCenter {
+  position: absolute;
+  top: 100%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  z-index: 99;
+  display: flex;
+  gap: 2rem;
+}
+
+.quotes {
+  padding: 2vw;
+}
+.text-block {
+  max-width: 50em;
+  margin: 10rem auto;
+  text-align: justify;
+  padding: 0 1rem;
+  font-size: 1.2rem;
+}
+
+.slider-container {
+  width: 80%;
+  margin: auto;
+  padding: 2rem 3rem;
+  overflow: hidden;
+  border-radius: 5px;
+  position: relative;
+}
+
+.my-slider {
+  display: flex;
+  position: relative;
+}
+
+.slider-item {
+  border-right: 2px solid #bba81e;
+  padding: 8px;
+  position: relative;
+}
+
+.controls {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: absolute;
+  z-index: 99;
+  left: 0;
+  width: 100%;
+  top: 50%;
+  transform: translatey(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.controls li {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin: 0 0.5rem;
+}
+.controls li:hover {
+  cursor: pointer;
+}
+
+.tns-liveregion {
+  display: none;
+}
+
+.card-carousel {
+  text-align: center;
+  margin: 0 auto;
+  color: #fff;
+  border-radius: 5px;
+  font-family: sans-serif;
+  overflow: hidden;
+  box-shadow: 2px 2px rgba(black, 0.2);
+  position: relative;
+}
+
+.card-carousel img {
+  margin-bottom: 1rem;
+}
+
+.slide-item {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.active-slide {
+  transition: opacity 450ms;
+  opacity: 1;
+}
+
+.slide-to-left {
+  transition: opacity 450ms;
+  opacity: 0;
+}
+
+.slide-to-right {
+  transition: opacity 450ms;
+  opacity: 0;
+}
+
+.slideShow {
+  position: relative;
+  height: 80vh;
+  max-width: 100em;
+  margin: 0 auto;
+}
+
+.slideShow .controls button {
+  color: white;
+  width: 5rem;
+  border: none;
+  margin: 0 1rem;
+}
+
+#backButton {
+  transform: rotate(-180deg);
+}
+
+.slide-item img {
+  width: 100%;
+  height: 100%;
+    /* display: block;
+  max-width:230px;
+  max-height:95px;
+  width: auto;
+  height: auto; */
+}
+#eventos{
+  z-index: 999;
+}
+
+.sobre {
+  max-width: 80em;
+  margin: 10rem auto 0;
+
+  padding: 2rem;
+}
+
+.sobre section {
+  display: grid;
+  grid-template-rows: repeat(2);
+  row-gap: 5vh;
+}
+.sobre section .text-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3vw;
+}
+
+.akaBackground {
+  width: 100%;
+  height: 100%;
+}
+
+.sobre p {
+  width: 100%;
+  font-size: 1.2rem;
+}
+footer {
+  margin: auto auto 0;
+  z-index: 9;
+}
+li .a-footer {
+  color: darkgrey;
+  transition: 150ms;
+}
+li .a-footer:hover {
+  color: #fff;
+}
+.parceiros {
+  margin-bottom: 2rem;
+}
+.parceiros-box-int {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 16px;
+}
+.parceiros-box-int img {
+  width: 100%;
+}
+.box-pat {
+  max-width: 200px;
+  display: flex;
+  align-items: center
+}
+
+.title-papaiNoel {
+  position: absolute;
+  top: -50%;
+  right: 50%;
+  transform: translate(calc(50% + 5rem), -50%);
+  z-index: 99;
+  transition: all 750ms ease-out;
+  font-size: 5rem;
+  font-weight: bolder;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.testemonio{
+  max-width: 520px;
+}
+.testemonio figure{
+  display: flex;
+  flex-direction: column;
+}
+.testemonio figure figcaption{
+  align-self: flex-start;
+}
+.avatar{
+  border-radius: 50%;
+  border: 3px solid white;
+  width: 72px;
+  height: 72px;
+}
+.NOW{
+  top: 50%;
+}
+.footer-inf{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.info-container{
+  display: flex;
+  flex-direction: column;
+}
+.info-links-1{
+  margin-top: 0.5rem;
+}
+.info-links-2{
+  margin-top: 1.6rem;
+}
+/*casa do papai noel*/
+
+.texto{
+  margin: 16px;
+}
+
+.texto p{
+  margin: 0;
+  font-size: 1.7rem;
+  font-weight: 300;
+}
+.texto h3{
+  margin-bottom: 3rem;
+}
+.texto{
+  margin: 0 auto;
+  max-width: 60em;
+  padding: 1rem;
+
+}
+.direcoes{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 16px;
+}
+.icones div section:nth-child(1){
+  flex-direction: column;
+text-align: center;
+}
+.googleMaps{
+  width: 800px;
+  height: 500px;
+  background-color: white;
+}
+
+.icones section img{
+  width: 2rem;
+  filter:  brightness(0) invert(1);
+}
+.icones section span{
+  font-size: 1.3rem;
+}
+.icones section{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 20px auto;
+}
+.icones{ 
+  margin: 2rem 0;
+  padding: 3rem;
+}
+.icones div{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border: 1px solid white;
+  max-width: 60em;
+  padding: 1rem;
+  margin: auto;
+
+}
+#dolar-dolar img{
+  width: 3rem;
+}
+#banner-casa{
+  width: 100vw;
+  height: 85vh;
+  position: relative;
+  background-attachment: fixed;
+  background-image:  url("/static/imgs/papai-noel.png"); 
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.natal-hero{
+  margin-bottom: 4rem;
+
+}
+.feed{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%,50%);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+}
+.feed img{
+  border: 1rem solid #050e1b;
+  width: 30vw;
+  height: 60vh;
+}
+#natal-titulo svg g{
+  background-color: red;
+  
+}
+
+.titulo {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.data {
+  font-size: 1.1rem;
+}
+
+iframe{
+  max-width: 100%;
+}
+/* .modal-prog{
+  margin-top: 20px;
+} */
+/* 1360 */
+@media (max-width: 85em) {
+  .banner {
+    width: 800px;
+    height: 800px;  
+  }
+}
+
+/* 1200 */
+@media(max-width: 75em) {
+.hero{
+  height: 90vh;
+}
+.feed img{
+  height: 50vh;
+}
+}
+
+
+/* 985 */
+@media (max-width: 61em) {
+  .box-pat{
+    width: 10rem ;
+  }
+  .box-pat-ext{
+    width: 50rem;
+  }
+  .quotes{
+    flex-direction: column;
+  }
+  .quotes > .col{
+    width: 25rem;
+    margin: 0.5rem auto;
+    padding: 0 2rem;
+  }
+  .footer-inf{
+    flex-direction: column;
+    align-items: center;
+    justify-content: normal;
+  }
+  .info-container{
+    align-items: center;
+    margin-bottom: 2rem;
+    z-index: 99;
+
+  }
+  .feed img{
+    height: 60vh;
+    width: 40vw;
+  }
+  .banner {
+    width: 600px;
+    height: 600px;  
+  }
+  .papainoel-1{
+    display: none;
+  }
+}
+/* 768 */
+@media (max-width: 48em) {
+  .box-pat{
+    width: 7rem ;
+  }
+  .banner {
+    width: 500px;
+    height: 500px;  
+  }
+  .buttons{
+    flex-direction: column;
+  }
+  .feed img{
+    height: 60vh;
+    width: 80vw;
+  }
+
+  .papainoel-3{
+    display: none;
+  }
+
+  .controls{
+    display: none;
+  }
+
+}
+/* 544 */
+@media (max-width: 34em) {
+  .slideShow {
+    width: 100%;
+    height: 50vh;
+  }
+  .banner {
+    width: 400px;
+    height: 400px;  
+  }
+
+
+
+}
+/* 480 */
+@media (max-width: 30em) {
+
+
+}
+
+.text-justify{
+  text-align: justify;
+  text-indent: 30px;
+}
+
+.video{
+  z-index: 1000;
+  position: relative;
+}
+
+.customize-controls{
+  display: block;
+}

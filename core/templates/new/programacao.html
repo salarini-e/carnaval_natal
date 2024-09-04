@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <!-- basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- mobile metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- site metas -->
+   <title>Carnaval 2023 - Nova Friburgo</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- bootstrap css -->
+   <link rel="stylesheet" type="text/css" href="/static/new/css/bootstrap.min.css">
+   <!-- style css -->
+   <link rel="stylesheet" type="text/css" href="/static/new/css/style.css">
+   <!-- Responsive-->
+   <link rel="stylesheet" href="/static/new/css/responsive.css">
+   <!-- fevicon -->
+   <link rel="icon" href="/static/new/images/favicon.png" type="image/gif" />
+   <!-- Scrollbar Custom CSS -->
+   <link rel="stylesheet" href="/static/new/css/jquery.mCustomScrollbar.min.css">
+   <!-- Tweaks for older IEs-->
+   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   <!-- fonts -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Righteous&display=swap" rel="stylesheet">   
+    <link
+        href="https://fonts.googleapis.com/css2?family=Londrina+Solid&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+      media="screen">
+
+      <style>
+          @media only screen and (min-width: 100px) and (max-width: 767px) {
+            .datas{
+                flex-direction: column;
+            }
+          }
+
+      </style>
+</head>
+
+<body>
+   <div class="header_section_2">
+      <div class="header_main_2">
+         <div class="mobile_menu">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+               <div class="logo_mobile"><a href="/"><img src="/static/new/images/logo1.png"></a></div>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                     <li class="nav-item">
+                        <a class="nav-link" href="/">Início</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#">Agremiações</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#">Eventos</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link " href="#">Concursos</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link " href="#">Programação</a>
+                     </li>
+                  </ul>
+               </div>
+            </nav>
+         </div>
+         <div class="container-fluid d-flex py-0" style="height: 200px">
+            <div class="logo my-auto"><a href="/"><img style="height: 150px;" src="/static/new/images/logo1.png"></a></div>
+            <div class="menu_main m-auto">
+               <ul>
+                  <li><a href="/">Início</a></li>                  
+                  <li><a href="/agremiacao">Agremiações</a></li>
+                  <li><a href="/eventos">Eventos</a></li>
+                  <li><a href="/concursos">Concursos</a></li>
+                  <li class="active"><a href="/programacao">Programação</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="services_section layout_padding">
+      <div class="container px-5 d-flex flex-column">
+        <h1 class="text-center services_taital">
+            PROGRAMAÇÃO
+        </h1>
+
+        <div class="row" id="programacao">
+            <div class="col d-flex">            
+                <section class="m-auto w-100 d-flex flex-column  justify-content-evenly flex-wrap">                                
+                    <h1 class="mt-4">Nossa programação</h1>
+                    <small class="mb-5">(Escolha uma data para ver a programação do dia)</small>
+                    <div class="d-flex justify-content-evenly mx-auto datas flex-wrap">
+                       <div class="d-flex justify-content-center mx-auto flex-wrap">
+                        {% for item in datas %}                    
+                        <div class="data d-flex mb-3" onclick="openEvento('{{item.data|date:'dM'}}')">
+                            <div class="m-auto d-flex flex-column pt-2">
+                                <h1 class="text-center">{{item.data|date:'d/M'}}</h1>
+                                <h2 class="text-center">{{item.dia}}</h2>
+                            </div>
+                        </div>                    
+                {% endfor %}        
+                       </div>
+                    </div>        
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col pt-4 d-flex">
+                <section id="programacao3" class="w-100">
+                    {% for agenda_ in agenda_2 %}
+                    <div class="teste" id="{{agenda_.0.0.data|date:'dM'}}">
+                        <div class="">                        
+                            {% for agenda in agenda_ %}
+                            <div class="data w-100 mt-4" style="padding: 10px 30px; background-color: #af308f;">
+                                <h1>
+                                    {{agenda.0.local}}
+                                </h1>
+                            </div>
+                            {% for item in agenda %}                        
+                            <div class="info border-bottom w-100">
+                                <div class="">
+                                    <h1>{{item.titulo}}</h1>                                    
+                                    {% if item.descricao == '' %}
+                                    {% else %}                            
+                                    <h5 style="margin-top: -25px; margin-bottom: 20px">{{item.descricao}}</h5>
+                                    {% endif %}
+                                    <h2>{{item.dia}} ({{item.data|date:"d/M" }}) - {{item.hora}}</h2>
+                                    <h2>{{item.local}}</h2>
+                                </div>
+                            </div>                        
+                            {% endfor %}
+                            {% endfor %}
+                        </div>
+                    </div>                
+                    {% endfor %}
+                </section>
+            </div>
+        </div>
+
+         <div class="services_section_2">
+            <div class="row">               
+               {% for agremiacao in agremiacoes %}
+                    <div class="col d-flex flex-column px-3">
+                        <img class="mx-auto" style="width: 180px; height: 180px;" src="/static/img/agremiacao/{{agremiacao.img}}" alt="">
+                        <div class="mx-auto mt-2" style="width: 180px;">
+                            <h4>{{agremiacao.escola}}</h4>
+                            <p class="text-break">{{agremiacao.texto}}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
+         </div>
+      </div>
+   </div>   
+
+   <div class="row bg-footer">
+      <div class="col text-dark p-5">
+         <div class="row">
+            <div class="col d-flex py-5">
+                <section id="contato" class="m-auto" style="width: 1156px;">
+                    <div class="d-flex">
+
+                    </div>
+                    <div class="row">
+                     <div class="col d-flex">
+                        <img class="img-fluid mx-auto" src="/static/img/logo_turismo.png" style="height: 250px;" alt="">
+                     </div>
+                    </div>
+                    <div class="row">
+                        <div class="col d-flex flex-column">
+                           <h3 class="text-center">Secretaria de Turismo</h3>
+                           <span class="mx-auto">Email: <a href="mailto:secturnf@gmail.com">secturnf@gmail.com</a></span>
+                           <span class="mx-auto">Telefone: <a href="tel:552225228051">+(55) (22) 2522-8051</a></span>
+                        </div>                     
+                    </div>
+                    <div class="row">
+                     <div class="col d-flex">
+                        <div class="d-flex mx-auto mt-5">
+                           <a class="mx-1" target="_blank" href="https://www.facebook.com/turismodenovafriburgo"><img
+                                   class="redesocial"
+                                   src="https://senhas.novafriburgo.rj.gov.br/static/images/facebook.png" alt=""></a>
+                           <a class="mx-1" target="_blank" href="https://www.instagram.com/turismonovafriburgo/"><img
+                                   class="redesocial"
+                                   src="https://senhas.novafriburgo.rj.gov.br/static/images/instagram.png" alt=""></a>
+                           <a class="mx-1" target="_blank" href="https://www.pmnf.rj.gov.br/turismo/"><img
+                                   class="redesocial" src="https://senhas.novafriburgo.rj.gov.br/static/images/brasao.png"
+                                   alt=""></a>
+                       </div>
+                     </div>
+                    </div>
+    
+    
+                    <h4></h4>
+                </section>
+            </div>
+        </div>
+      </div>
+   </div>
+   <div class="copyright_section">
+      <div class="container d-flex">
+         <img style="height: 200px;" src="/static/new/images/desenvolve.png" alt="">
+         <p class="copyright_text my-auto">© SECRETARIA DE CIÊNCIA, TECNOLOGIA, INOVAÇÃO E EDUCAÇÃO PROFISSIONALIZANTE E SUPERIOR.</p>
+      </div>
+   </div>
+   <script src="/static/new/js/jquery.min.js"></script>
+   <script src="/static/new/js/popper.min.js"></script>
+   <script src="/static/new/js/bootstrap.bundle.min.js"></script>
+   <script src="/static/new/js/jquery-3.0.0.min.js"></script>
+   <script src="/static/new/js/jquery.mCustomScrollbar.concat.min.js"></script>
+   <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+   <script>
+      let setIndex = 0
+      let vClick={
+          {% for i in datas %}
+              "{{i.data|date:'dM'}}": false,
+          {% endfor %}
+      }
+
+      function openEvento(valor){            
+          if (vClick[valor]){
+              closeEventos()
+              for (const [key, value] of Object.entries(vClick)) {
+                  vClick[key]=false
+              }                
+          }else{
+              closeEventos()
+              document.getElementById(valor).style.display='block'                  
+              vClick[valor]=true
+              linkTo('#programacao3')
+          }                        
+      }
+      function closeEventos(){
+          {% for i in datas %}
+              document.getElementById("{{i.data|date:'dM'}}").style.display='none'
+          {% endfor %}
+      }
+
+      function linkTo(value) {
+          window.location.href = value
+      }
+      setIndex = 0
+      
+      window.onload = function teste() {
+          closeEventos()
+      }
+   </script>
+</body>
+
+</html>

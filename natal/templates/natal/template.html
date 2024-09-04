@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+        <link rel="stylesheet" href="/static/css/natal/header.css">
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-27P682BF4X"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-27P682BF4X');
+        </script>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <!-- header web -->
+        <div class="header-wrapper">
+            <div class="count-time-wrapper">
+                <span class="count-time-text"></span>
+            </div>
+            <div class="nav-wrapper">
+                <div class="header-images-wrapper">
+                    <a href="https://www.pmnf.rj.gov.br/site/" target="_blank" class="image-header-logo-pmnf">
+                        <img src="/static/imgs/logo_horizontal_branco.webp" alt="logoPMNF" class="header-images"/>
+                    
+                    </a>
+                    <a href="https://www.pmnf.rj.gov.br/turismo/" target="_blank">
+                        <img src="/static/imgs/logo-turismo2-05.webp" alt="logoTurismo" class="header-images"/>
+                    </a>   
+                </div>
+                <div class="header-links">
+                    <a href="" class="header-link" target="_blank">Início</a>
+                    <a href="" class="header-link" target="_blank">O Reino de Noel</a>
+                    <a href="" class="header-link" target="_blank">Programação</a>
+                    <a href="https://www.novafriburgoturismo.com.br/onde-dormir" class="header-link" target="_blank">Onde Dormir</a>
+                    <a href="https://www.novafriburgoturismo.com.br/onde-comer" class="header-link" target="_blank">Onde Comer</a>
+                    <a href="" class="header-link" target="_blank">Nova Friburgo</a>
+                    <a href="" class="header-link" target="_blank">Notícias</a>  
+                </div>
+            </div>
+        </div>
+        <!-- header mobile -->
+        <div class="header-wrapper-mobile">
+            <div class="count-time-wrapper-mobile">
+                <span class="count-time-text-mobile"></span>
+            </div>
+            <div class="nav-wrapper-mobile">
+                <button class="menu-button" onclick="toggleMenu()">
+                    <span class="menu-icon"></span>
+                    <span class="menu-icon"></span>
+                    <span class="menu-icon"></span>
+                </button>
+                <nav class="nav-menu">
+                    <div class="nav-menu-list">
+                        <a href="" class="header-link-mobile" target="_blank">Início</a>
+                        <a href="" class="header-link-mobile" target="_blank">O Reino de Noel</a>
+                        <a href="" class="header-link-mobile" target="_blank">Programação</a>
+                        <a href="https://www.novafriburgoturismo.com.br/onde-dormir" class="header-link-mobile" target="_blank">Onde Dormir</a>
+                        <a href="https://www.novafriburgoturismo.com.br/onde-comer" class="header-link-mobile" target="_blank">Onde Comer</a>
+                        <a href="" class="header-link-mobile" target="_blank">Nova Friburgo</a>
+                        <a href="" class="header-link-mobile" target="_blank">Notícias</a>  
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <style>
+     
+
+
+
+    </style>
+</body>
+
+<script>
+    function updateCountdown() {
+        // Define a data do Natal deste ano
+        const now = new Date();
+        const year = now.getFullYear();
+        const christmas = new Date(year, 11, 25, 0, 0, 0); // 11 é Dezembro, já que os meses em JS são baseados em 0
+
+        // Se o Natal já passou este ano, definimos para o próximo ano
+        if (now > christmas) {
+            christmas.setFullYear(year + 1);
+        }
+
+        // Calcula a diferença de tempo em milissegundos
+        const diff = christmas - now;
+
+        // Calcula dias, horas, minutos e segundos restantes
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+        // Atualiza o texto da contagem regressiva
+        document.querySelector('.count-time-text').textContent = `FALTAM ${days} DIAS, ${hours} HORAS E ${minutes} MINUTOS`;
+        document.querySelector('.count-time-text-mobile').textContent = `FALTAM ${days} DIAS, ${hours} HORAS E ${minutes} MINUTOS`;
+    }
+
+    // Atualiza a contagem imediatamente
+    updateCountdown();
+
+    // Atualiza a contagem a cada minuto
+    setInterval(updateCountdown, 60000);
+
+    function toggleMenu() {
+        const navMenu = document.querySelector('.nav-menu');
+        const menuButton = document.querySelector('.menu-button');
+        navMenu.classList.toggle('open');
+        menuButton.classList.toggle('open');
+    }
+</script>
+</html>
