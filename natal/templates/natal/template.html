@@ -2,6 +2,9 @@
 <html lang="pt-br">
 <head>
         <link rel="stylesheet" href="/static/css/natal/header.css">
+        <!-- Custom CSS -->
+        {% block css %}
+        {% endblock %}
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-27P682BF4X"></script>
         <script>
@@ -26,7 +29,6 @@
                 <div class="header-images-wrapper">
                     <a href="https://www.pmnf.rj.gov.br/site/" target="_blank" class="image-header-logo-pmnf">
                         <img src="/static/imgs/logo_horizontal_branco.webp" alt="logoPMNF" class="header-images"/>
-                    
                     </a>
                     <a href="https://www.pmnf.rj.gov.br/turismo/" target="_blank">
                         <img src="/static/imgs/logo-turismo2-05.webp" alt="logoTurismo" class="header-images"/>
@@ -54,6 +56,14 @@
                     <span class="menu-icon"></span>
                     <span class="menu-icon"></span>
                 </button>
+                <div class="header-images-wrapper-mobile">
+                    <a href="https://www.pmnf.rj.gov.br/site/" target="_blank" class="link-logo-pmnf-mobile">
+                        <img src="/static/imgs/logoFriburgo.png" alt="logoPMNF" class="header-images-mobile pmnf"/>
+                    </a>
+                    <a href="https://www.pmnf.rj.gov.br/turismo/" target="_blank" class="link-logo-turismo">
+                        <img src="/static/imgs/logoTurismo.png" alt="logoTurismo" class="header-images-mobile"/>
+                    </a>   
+                </div>
                 <nav class="nav-menu">
                     <div class="nav-menu-list">
                         <a href="" class="header-link-mobile" target="_blank">Início</a>
@@ -68,12 +78,6 @@
             </div>
         </div>
     </header>
-    <style>
-     
-
-
-
-    </style>
 </body>
 
 <script>

@@ -1,363 +1,118 @@
-{% extends "natal/template.html" %}
-{% load static %}
-{% block custom_css %}
-<link rel="stylesheet" href="{% static "/css/natal/index.css"%}">
-{% endblock %}
-{% block JSTemplate %}
-{% load extras %}
-<!-- <script
-src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"
-defer
-></script> -->
 
-<script src="/static/js/scripts.js" defer></script>
-<script src="/static/js/neve.js" defer></script>
-<script src="/static/js/carousel.js" defer></script>
-<script src="/static/js/navbar.js" defer></script>
-
-{% endblock %}
-{% block Title%}Natal 2023 - Nova Friburgo{% endblock %}
-{% block main %}
-
-<main>
-  <canvas class="neve"></canvas>
-  
-  <header class="hero">
-
-    <div class="w-100 d-flex pt-3">
-      <img class="m-auto" src="{% static 'imgs/logo.gif' %}" alt="logo natal nova friburgo nova-friburgo 2023 um encanto de natal fabrica de sonhos">
-      <!-- <img class="banner m-auto" src="/static/imgs/NATAL2023LOGO.png" alt="logo natal nova friburgo nova-friburgo 2023 um encanto de natal o espetaculo"/> -->
+    {% extends 'natal/template.html' %}
+    {% block css %}
+        <link rel="stylesheet" href="/static/css/natal/index1.css">
+    {% endblock %}
+    {% block main %}
+    <div class="top-banner">
+        <img src="/static/imgs/01012012-DSCN00602 (cópia).jpg" alt="Banner principal" class="top-banner-image">
     </div>
-  </header>
-  
-  <section id="cidadeIluminada" class="pt-5">
-    <!-- <div class="" style="position: relative;">
-      <img class="" src="{% static 'imgs/engrenagens.png' %}" style="position: absolute; top: -82px; left: 5px; width: 438px; -webkit-transform: scaleX(-1); transform: scaleX(-1);" alt="engrenagens" >
-      <img class="" src="{% static 'imgs/estrela.png' %}" style="position: absolute; width: 80px; right: -16px; bottom: -41px" alt="engrenagens" >
-    </div>
-    <div class="divImgs">      
-      <img src="{% static 'imgs/02122021-DSC_0055.png'%}" alt="Foto da Bola Ilumitada">
-      <img src="{% static 'imgs/02122021-DSC_0055.png'%}" alt="Foto da Bola Ilumitada">
-      <img src="{% static 'imgs/02122021-DSC_0055.png'%}" alt="Foto da Bola Ilumitada">
-    </div>
-    <div class="" style="position: relative;">
-      <img class="" src="{% static 'imgs/engrenagens.png' %}" style="position: absolute; top: -5px; right: 15px; width: 202px; -webkit-transform: scaleY(-1); transform: scaleY(-1);" alt="engrenagens" >
-      <img class="" src="{% static 'imgs/estrela.png' %}" style="position: absolute; width: 102px; left: -28px; bottom: -51px" alt="engrenagens" >
-    </div> -->
-    <img src="{% static 'imgs/banner-papai-noel.png' %}" alt="natal nova friburgo 2023 banner papai noel e mamãe noel">
-    <div>
-      <h1 class="mt-4">Celebração Natalina em Nova Friburgo</h1>
-      <p class="text-justify mt-3">
-        O Natal em Nova Friburgo é um convite a uma experiência imersiva e emocionante na encantadora temática universal natalina. “Um Encanto de Natal” já está na terceira edição e, neste ano, o subtema é “Fábrica de Sonhos”. A proposta é vestir de fantasia o mundo real, proporcionando um tempo e um lugar para sonhar, criar expectativas, resgatar os valores essenciais do Natal e compartilhar de momentos fraternos.
-      </p>
-
-    </div>
-  </section>
-  
-  <section id="programacao" class="py-5 mb-5">
-    <p><strong>De 22 de Novembro de 2023</strong></p>
-    <p><strong>Até 23 de Dezembro de 2023</strong></p>
-    <a href="/programacao" class="border-0 btn" style="z-index: 9999;" type="button" data-toggle="modal" data-target="#staticBackdrop  ">
-      <img src="{% static 'imgs/programacao.png' %}" class="img-fluid" alt="natal nova friburgo 2023">
-    </a>
-  </section>
-  <section id="decoracao" class="d-flex py-5" style="margin-left: 180px; margin-top: 150px;">
-    <div class="d-flex m-auto">
-      <div class="d-fllex">
-        <img class="img-fluid m-auto" style="width: 400px;" src="{% static 'imgs/acender-das-luzes.png' %}" alt="natal nova friburgo 2023">
-      </div>
-      <div style="width: 60%;" class="d-flex flex-column">
-        <div style="position: relative;" class="d-flex"> 
-          <img class="me-auto" src="{% static 'imgs/engrenagens.png' %}" style="position: absolute; left: 30px; top: -35px; width: 338px;" alt="natal nova frfiburgo 2023 engrenagens" >         
-        </div>
-        <div class="mt-5">
-          <h2 style="width: 90%;" class="mx-auto ">Acender das Luzes </h2>
-        </div>
-        <div>
-          <p style="width: 90%; text-indent: 0;" class="mx-auto text-justify">            
-              Não perca o espetáculo diário do "Acender das Luzes" em Nova Friburgo, 
-              um evento mágico que transforma a cidade em um cenário deslumbrante de cores e brilho. Nas noites de quinta e sexta-feira, 20hs, junte-se a nós para testemunhar o encanto que envolve a iluminação festiva de praças, ruas e árvores, criando uma atmosfera acolhedora e festiva. O "Acender das Luzes" é mais do que um simples gesto; é a celebração coletiva da beleza do Natal, proporcionando momentos de alegria e maravilhamento para todos que compartilham desse espetáculo luminoso.            
-          </p>
-        </div>
-        <div style="position: relative;">
-          <p style="width: 90%; font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 600; color: #FFEB9A;" class="mx-auto">Nova Friburgo ganha vida!</p>
-          <img class="me-auto" src="{% static 'imgs/engrenagens-2.png' %}" style="position: absolute; left: 30px; width: 238px; -webkit-transform: scaleY(-1); transform: scaleY(-1);" alt="natal nova friburgo 2023 engrenagens" >
-
-        </div>
-        <div class="pt-5 mt-4">
-          <p style="width: 90%;" class="mx-auto">
-            <img style="width: 250px;" src="{% static 'imgs/logo_branca.png' %}" alt="natal nova friburgo 2023 logo">
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="decoracao2" class="d-flex mt-5 pt-5" style="margin-left: 180px;">
-    <div class="d-flex m-auto">      
-      <div style="width: 60%;" class="d-flex flex-column">
-        <div style="position: relative;" class="d-flex"> 
-          <img class="me-auto" src="{% static 'imgs/engrenagens.png' %}" style="position: absolute; left: 0px; top: -35px; width: 338px;" alt="natal nova friburgo 2023 engrenagens" >         
-        </div>
-        <div class="mt-5">
-          <h2 style="width: 90%;" class="me-auto ">Desfile: Natal na avenida! </h2>
-        </div>
-        <div>
-          <p style="width: 90%; text-indent: 0;" class="me-auto text-justify">Aos sábados, 20hs, prepare-se para ser envolvido pela magia do Natal no nosso aguardado Desfile na Avenida de Nova Friburgo. Este evento grandioso é a culminação de semanas de preparação, com carros alegóricos espetaculares, artistas locais talentosos e personagens festivos que ganham vida ao longo da avenida iluminada. À medida que as luzes cintilam e a música festiva preenche o ar, o desfile torna-se uma experiência inesquecível para todas as idades. Venha se encantar com a alegria e a criatividade que desfilam diante de seus olhos, criando memórias que perdurarão por toda a temporada natalina.</p>
-        </div>
-        <div style="position: relative;">
-          <p style="width: 90%; font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 600; color: #FFEB9A;" class="me-auto">Nova Friburgo ganha vida!</p>
-          <img class="me-auto" src="{% static 'imgs/engrenagens-2.png' %}" style="position: absolute; width: 238px; -webkit-transform: scaleY(-1); transform: scaleY(-1);" alt="natal nova friburgo 2023 engrenagens" >
-
-        </div>
-        <div class="pt-5 mt-4">
-          <p style="width: 90%;" class="me-auto">
-            <img style="width: 250px;" src="{% static 'imgs/logo_branca.png' %}" alt="natal nova friburgo 2023 logo">
-          </p>
-        </div>
-    </div>
-    <div class="d-fllex">
-      <img class="img-fluid m-auto" style="width: 400px;" src="{% static 'imgs/desfile.png' %}" alt="natal nova friburgo 2023">
-    </div>
-  </section>
-  <section id="decoracao" class="d-flex py-5" style="margin-left: 180px; margin-top: 150px;">
-    <div class="d-flex m-auto">
-      <div class="d-fllex">
-        <img class="img-fluid m-auto" style="width: 400px;" src="{% static 'imgs/ceia-solidaria.jpg' %}" alt="natal nova friburgo 2023">
-      </div>
-      <div style="width: 60%;" class="d-flex flex-column">
-        <div style="position: relative;" class="d-flex"> 
-          <img class="me-auto" src="{% static 'imgs/engrenagens.png' %}" style="position: absolute; left: 30px; top: -35px; width: 338px;" alt="engrenagens" >         
-        </div>
-        <div class="mt-5">
-          <h2 style="width: 90%;" class="mx-auto ">Ceia Solidária</h2>
-        </div>
-        <div>
-          <p style="width: 90%; text-indent: 0;" class="mx-auto text-justify"> Em um gesto de solidariedade e generosidade, convidamos você a participar da nossa Ceia Solidária em Nova Friburgo. Este evento especial não apenas celebra a magia do Natal, mas também promove a união e o apoio àqueles que mais precisam em nossa comunidade. Junte-se a nós para compartilhar uma refeição festiva, repleta de calor humano e amizade. A Ceia Solidária é mais do que uma celebração gastronômica; é uma oportunidade de estender a mão ao próximo, fortalecendo os laços que tornam nossa cidade um lugar acolhedor e solidário durante toda a temporada natalina.</p>
-        </div>
-        <div style="position: relative;">
-          <p style="width: 90%; font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 600; color: #FFEB9A;" class="mx-auto">Nova Friburgo ganha vida!</p>
-          <img class="me-auto" src="{% static 'imgs/engrenagens-2.png' %}" style="position: absolute; left: 30px; width: 238px; -webkit-transform: scaleY(-1); transform: scaleY(-1);" alt="engrenagens" >
-
-        </div>
-        <div class="pt-5 mt-4">
-          <p style="width: 90%;" class="mx-auto">
-            <img style="width: 250px;" src="{% static 'imgs/logo_branca.png' %}" alt="natal nova friburgo 2023 logo">
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="decoracao2" class="row d-flex mt-5 pt-5">
-    <div class="d-flex col"> 
-    </div>
-  </section>
-  <!-- <div class="slideShow" id="galeria">
-    <div class="controls">
-      <button id="backButton"><img src="/static/imgs/arrrow.svg"/></button>
-      <button id="nextButton"><img src="/static/imgs/arrrow.svg"/></button>
-    </div>
-
-    {% for galeria_image in galeria_images %}
-      <div class="slide-item ">
-        <img src="{{galeria_image.image.url}}" alt="galeria natal nova friburgo nova-friburgo 2023">
-      </div>
-    {% endfor %}
-
-  </div> -->
-
-  <div class="py-5">
-    <div class="row quotes">
-      {% for testemonio in testemonios %}
-      <div class="col testemonio">
-        <figure>
-          <blockquote class="blockquote">
-            <p>{{testemonio.comentario}}</p>
-          </blockquote>
-          <figcaption class="blockquote-footer">
-            <cite title="Source Title">{{testemonio.autor}}</cite>
-          </figcaption>
-        </figure>
-      </div>
-
-      {% endfor %}
-
-    </div>
-  </div>
-  <!-- <div style="width: 80%; margin: auto;">
-    <h2>Eventos</h2>
-  </div>
-  <div class="slider-container" id="eventos">
-    <ul
-      class="controls"
-      id="customize-controls"
-      aria-label="Carousel Navigation"
-      tabindex="0"
-    >
-      <li
-        class="prev"
-        data-controls="prev"
-        aria-controls="customize"
-        tabindex="-1"
-      >
-        <span>&lt</span>
-      </li>
-      <li
-        class="next"
-        data-controls="next"
-        aria-controls="customize"
-        tabindex="-1"
-      >
-        <span>&gt</span>
-      </li>
-    </ul>
-    <div class="my-slider">
-      {% for evento in eventos %}
-
-      <div class="slider-item">
-        <div class="card-carousel">
-          <img src="{{evento.banner.url}}" alt="eventos natal nova friburgo nova-friburgo 2023"/>
-          <p class="titulo">{{evento.titulo}}</p>
-          <p class="data">{{evento.data}}</p>
-          <p>{{evento.descricao}}</p>
-        </div>
-
-      </div>
-
-      {% endfor %}
-
-    </div>
-  </div> -->
-</main>
-
-  <div style="z-index: 10000;" class="modal fade modal-prog" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
-      <div class="modal-content bg-prog-titulo">
-        <div class="modal-header border-0 bg-prog-titulo2">
-          Programação do Natal 2023
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-dark text-center">
-          <div class="accordion" id="accordionExample">
-            {% for p in programacao %}
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button collapsed bg-prog bg-gradient text-white fw-bolder" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse{{ forloop.counter }}">
-                  {{p.0|date:"d/m/Y - l"}}
-                </button>
-              </h2>
-              <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse border-0" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="accordion-body border-0">
-                  <div class="progIndex border-0">
-                    <div class="progHora"><b>Hora</b></div>
-                    <div class="progLocal col">
-                      <b>Local</b></div>
-                    <div class="progNome col"><b>Nome</b></div>
-                  </div>
-                  {% for item in p.1 %}
-                  <div class="progItem">
-                    <div class="progHora bg-gradient"><span>{{item.hora|ajeitaHora}}</span></div>
-                    <div class="progLocal col bg-gradient">
-                      <span>
-                        {{item.local}}
-                        {% if item.local.link != '' %}
-                        <!-- <a href="{{item.local.link}}" style="color: white; text-decoration: none;">
-
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M408 120c0 54.6-73.1 151.9-105.2 192c-7.7 9.6-22 9.6-29.6 0C241.1 271.9 168 174.6 168 120C168 53.7 221.7 0 288 0s120 53.7 120 120zm8 80.4c3.5-6.9 6.7-13.8 9.6-20.6c.5-1.2 1-2.5 1.5-3.7l116-46.4C558.9 123.4 576 135 576 152V422.8c0 9.8-6 18.6-15.1 22.3L416 503V200.4zM137.6 138.3c2.4 14.1 7.2 28.3 12.8 41.5c2.9 6.8 6.1 13.7 9.6 20.6V451.8L32.9 502.7C17.1 509 0 497.4 0 480.4V209.6c0-9.8 6-18.6 15.1-22.3l122.6-49zM327.8 332c13.9-17.4 35.7-45.7 56.2-77V504.3L192 449.4V255c20.5 31.3 42.3 59.6 56.2 77c20.5 25.6 59.1 25.6 79.6 0zM288 152c22.1 0 40-17.9 40-40s-17.9-40-40-40s-40 17.9-40 40s17.9 40 40 40z"/></svg>
-
-                        </a> -->
-                        {% endif %}
-                      </span></div>
-                    <div class="progNome col bg-gradient"><b>{{item.nome}}</b></div>
-                  </div>
-                  {% endfor %}
-                </div>
-              </div>
+    <section class="novidades">
+        <h2>Novidades no Encanto de Natal</h2>
+        <div class="noticias">
+            <div class="noticia">
+                <a href="link_para_noticia_1">
+                    <div class="overlay"></div>
+                    <h3>Título da Notícia 1</h3>
+                </a>
             </div>
-            {% endfor %}
-          </div>
-
+            <div class="noticia">
+                <a href="link_para_noticia_2">
+                    <div class="overlay"></div>
+                    <h3>Título da Notícia 2</h3>
+                </a>
+            </div>
+            <div class="noticia">
+                <a href="link_para_noticia_3">
+                    <div class="overlay"></div>
+                    <h3>Título da Notícia 3</h3>
+                </a>
+            </div>
+            <div class="noticia">
+                <a href="link_para_noticia_4">
+                    <div class="overlay"></div>
+                    <h3>Título da Notícia 4</h3>
+                </a>
+            </div>
         </div>
-        <div class="modal-footer border-0">
+    </section>
 
+    <!-- O Reino de Noel -->
+        <section class="reino-noel">
+            <h2>O Reino de Noel</h2>
+            <h3>Subtítulo do Reino de Noel</h3>
+            <p>Texto descritivo sobre o Reino de Noel.</p>
+                <a href="link_para_reino_de_noel" class="btn">Saiba Mais</a>
+                <img src="/reino_de_noel.webp" alt="Imagem Reino de Noel">
+        </section>
+    </container>
+
+    <!-- Em alta -->
+    <section class="em-alta">
+        <h2>Em Alta</h2>
+        <div class="streaming-links">
+            <a href="link_para_desfiles">Desfiles</a>
+            <a href="link_para_teatros">Teatros</a>
+            <a href="link_para_casa_papai_noel">Casa do Papai Noel</a>
+            <a href="link_para_decoracoes">Decorações</a>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-<style>
-  .progIndex{
-    display: flex;
-    flex-direction: row;
-    text-align: start;
-  }
-  .progIndex .progHora{
-    width: 75px
-  }
-  .progIndex .progLocal{
-    padding-left: 10px;
-  }
-  .progIndex .progNome{
-    padding-left: 10px;
-  }
-  .progItem .progHora{
-    background-color: #034A8E;
-    width: 75px;
-    margin-top: 5px;
-    color: white;
-  }
-  .progItem .progLocal{
-    background-color: #034A8E;
-    height: 75px;
-    margin: 5px 10px 0 10px;
-    color: white;
-  }
-  .progItem .progNome{
-    background-color: #034A8E;
-    margin-top: 5px;
-    color: white;
-  }
-  .accordion-body .progItem, .accordion-body .progItem div{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-  }
-  .accordion-body .progItem span, .accordion-body .progItem b{
-    width: 100%;
-    margin-top: auto;
-    margin-bottom: auto;
-    text-align: center;
-    padding: 5px;
-  }
-  .bg-prog-titulo{
-    background-color: #ffffff;
-  }
-  .bg-prog-titulo2{
-    background-color: #B0874C;
-  }
-  .bg-prog{
-    background-color: #B0874C;
-  }
-  .accordion-button:not(.collapsed){
-    background-color: #B0874C !important;
-  }
-  .accordion-button::after {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-  }
-  .accordion-button:not(.collapsed)::after {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-    transform: rotate(-180deg);
-  }
-  .accordion-body{
-    background-color: #ffffff;
-  }
-</style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4W62Z5YEG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    </section>
 
-  gtag('config', 'G-Q4W62Z5YEG');
-</script>
+    <!-- Confira a programação completa -->
+    <section class="programacao">
+        <a href="link_para_programacao">
+            <div class="banner-programacao">
+                Confira a programação completa
+            </div>
+        </a>
+    </section>
+
+    <!-- O Encanto de Natal -->
+    <section class="encanto-natal">
+        <h2>O Encanto de Natal</h2>
+        <h3>Subtítulo do Encanto de Natal</h3>
+        <p>Texto descritivo sobre O Encanto de Natal.</p>
+        <a href="link_para_encanto_natal" class="btn">Saiba Mais</a>
+        <video controls>
+            <source src="video_encanto_natal.mp4" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+    </section>
+
+    <!-- Ouça nossa playlist especial de Natal no Spotify -->
+    <section class="playlist">
+        <a href="https://open.spotify.com/playlist/2qRFnJzPgyx0J0nkVVFVKI?si=83ec514e9a454785&pt=c61cf97b5144105fd4b8cd62a3b321c7" target="_blank">
+            Ouça nossa playlist especial de Natal no Spotify
+        </a>
+    </section>
+
+    <!-- Banner de patrocinadores -->
+    <section class="patrocinadores">
+        <a href="link_para_patrocinadores">
+            <div class="banner-patrocinadores">
+                Banner de patrocinadores
+            </div>
+        </a>
+    </section>
+
+    <!-- Integração com Instagram -->
+    <section class="instagram">
+        <a href="https://www.instagram.com/turismonovafriburgo" target="_blank">@turismonovafriburgo</a>
+        <div class="fotos-instagram">
+            <a href="link_para_publicacao_1"><img src="foto_instagram_1.jpg" alt="Foto Instagram 1"></a>
+            <a href="link_para_publicacao_2"><img src="foto_instagram_2.jpg" alt="Foto Instagram 2"></a>
+            <a href="link_para_publicacao_3"><img src="foto_instagram_3.jpg" alt="Foto Instagram 3"></a>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="links">
+            <a href="link_para_home">Home</a>
+            <a href="link_para_programacao">Programação</a>
+            <a href="link_para_patrocinadores">Patrocinadores</a>
+            <a href="link_para_encanto_natal">O Encanto de Natal</a>
+        </div>
+        <a href="https://www.google.com/maps?q=place_id:ChIJc7nRU42KlwARKJIsHv57Bh8" target="_blank">Mapa</a>
+    </footer>
 {% endblock %}

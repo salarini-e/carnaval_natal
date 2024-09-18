@@ -29,7 +29,7 @@ a {
     justify-content: space-between;
     color: white;
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(to top, #a80000, #540000); /* Gradiente do vermelho escuro embaixo para o vermelho mais claro em cima */
+    background: linear-gradient(to left, #a80000, #540000); /* Gradiente do vermelho escuro embaixo para o vermelho mais claro em cima */
     align-items: center;
     padding: 10px 16px;
     height: 80px;
@@ -98,7 +98,7 @@ a {
     justify-content: space-between;
     color: white;
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(to top, #a80000, #540000); /* Gradiente do vermelho escuro embaixo para o vermelho mais claro em cima */
+    background: linear-gradient(to left, #a80000, #540000); /* Gradiente do vermelho escuro embaixo para o vermelho mais claro em cima */
     align-items: center;
     padding: 10px 16px;
     height: 40px;
@@ -192,5 +192,25 @@ a {
     display: block;
 }
 
+.header-images-wrapper-mobile{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
+.header-images-mobile{
+    height: 30px;
+}
+
+.link-logo-pmnf-mobile::after{
+    content: '';
+    display: block;
+    width: 1px;
+    height: 30px;
+    background-color: rgb(212, 212, 212);
+    position: absolute;
+    top: 0px;
+    left: 46%;
+    transform: translateX(-50%);
+}
 
