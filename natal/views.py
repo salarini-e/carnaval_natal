@@ -52,3 +52,6 @@ def casaDoPapaiNoel(req):
 
     }
     return render(req, "natal/casaDoPapaiNoel.html", context)
+
+def reinoNoel(req):
+    return render(req,'natal/reinoNoel.html')
