@@ -5,7 +5,7 @@
 
 .top-banner-image{
     width: 100%;
-    transform: rotateY(180deg);
+    /* transform: rotateY(180deg); */
     height: 98vh;
     padding: 10px 30px 0px 30px;
 }
@@ -14,13 +14,7 @@
     width: 100%; /* Ajuste conforme necessário */
     
 }
-.overlay {
-    position: absolute;
-    top: 10pt;
-    left: 30px;
-    width: 38%; /* Define a largura da overlay do meio até o canto esquerdo */
-    height: 95%;
-}
+
 .mid-banners {
     display: grid;
     grid-template-columns: repeat(4, max-content);
@@ -32,6 +26,7 @@
 }
 
 .mid-banners::after {
+    display: none;
     content: '';
     position: absolute; /* Faz com que a linha seja posicionada em relação à viewport */
     left: 0;
@@ -42,10 +37,17 @@
 }
 
 .mid-banner-card {
+    cursor: pointer;
     background-color: black;
     width: 279px;
     height: 163px;
     border-radius: 5px;
+    transition: transform 0.3s ease-in-out; /* Suaviza a transição */
+    overflow: hidden; /* Caso você adicione conteúdo ou imagem dentro */
+}
+/* Efeito de zoom ao passar o mouse */
+.mid-banner-card:hover {
+    transform: scale(1.1); /* Aplica o zoom ao card */
 }
 @media(max-width: 1320px){
     .mid-banners{
@@ -71,6 +73,16 @@
     .mid-banner-card{
         /* width: 45vw; */
         border-radius: 5px;
+    }
+}
+@media screen and (max-width: 1080px) {
+    .overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Centraliza horizontalmente e verticalmente */
+        width: 90%; /* Ajuste a largura conforme necessário */
+        height: auto; /* Defina a altura automaticamente */
     }
 }
 
@@ -115,6 +127,7 @@
 }
 
 .text-infos-title-previa::after {
+    display: none;
     content: '';
     position: absolute;
     left: 0;
@@ -139,4 +152,144 @@
     width: 100%;
     height: 100%;
     border: 0;
+}
+
+.overlay {
+   
+    position: absolute;
+    top: 30pt;
+    left: 45px;
+    width: 38%; /* Define a largura da overlay do meio até o canto esquerdo */
+    height: 95%;
+}
+
+/* Fonte pequena em amarelo (#FFD700) */
+.overlay-classificacao {
+    font-size: 18px;
+    /* color: #FFD700; */
+    color: transparent;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Texto em branco e grande para o título */
+.overlay-secretaria {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    /* color: white; */
+    color: transparent;
+}
+
+/* Título principal "O Reino de Noel" */
+.overlay-reinonoel {
+    font-size: 55px;
+    font-family: "Lobster", sans-serif;
+    font-weight: bold;
+    margin-bottom: 20px;
+    /* color: white; */
+    color: transparent;
+}
+
+/* Informações adicionais abaixo do título principal */
+.overlay-infos {
+    display: flex;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 10px;
+}
+
+.overlay-classificacao-bg{
+    display: flex;
+    align-items: center;
+}
+.overlay-classificacao-bg::after{
+    content: '';
+    width: 2px;
+    height: 22px;
+    display: block; /* Necessário para fazer o pseudo-elemento aparecer */
+    /* background-color: white; */
+    background-color: transparent;
+
+    margin-bottom: 5px;
+}
+.overlay-classificacao-star{
+    /* color: white; */
+    color: transparent;
+    margin-bottom: 5px;
+}
+/* Estilos para classificação e temporada */
+.overlay-classificacao-number {
+    font-size: 20px;
+    margin-right: 10px;
+    /* color: white; */
+    margin-left: 10px;
+    color: transparent;
+}
+
+.overlay-temporada {
+    font-size: 20px;
+    margin-right: 10px;
+    /* color: white; */
+    color: transparent;
+
+    margin-left: 10px;
+}
+
+
+.overlay-ano {
+    display: flex;
+    align-items: center;
+    /* color: white; */
+    color: transparent;
+
+    margin-left: 5px;
+}
+
+.overlay-ano-text {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+/* Caso você tenha um ícone ao lado do ano */
+.overlay-ano-image {
+    width: 20px;
+    height: 20px;
+}
+.overlay-text{
+    /* color: white; */
+    color: transparent;
+
+    font-size: 20px;
+}
+
+.icon-l {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+
+.icon-l .fa-square {
+    font-size: 24px;
+    /* color: #ffffff; Cor de fundo do quadrado */
+    color: transparent;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.icon-l .letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 16px;
+    /* color: black; */
+    color: transparent;
+
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
 }

@@ -2,117 +2,62 @@
     {% extends 'natal/template.html' %}
     {% block css %}
         <link rel="stylesheet" href="/static/css/natal/index1.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     {% endblock %}
-    {% block main %}
-    <div class="top-banner">
-        <img src="/static/imgs/01012012-DSCN00602 (cópia).jpg" alt="Banner principal" class="top-banner-image">
+{% block main %}
+
+
+    <div class="home-top-banner">
+        <img src="/static/imgs/home_top_banner.png" alt="banner-principal" class="home-top-banner-image">
     </div>
-    <section class="novidades">
-        <h2>Novidades no Encanto de Natal</h2>
-        <div class="noticias">
-            <div class="noticia">
-                <a href="link_para_noticia_1">
-                    <div class="overlay"></div>
-                    <h3>Título da Notícia 1</h3>
+    <div class="home-novidades-natal">
+        <div class="home-novidades-natal-title"> 
+            <h1 class="novidades-natal-title">Novidades no Encanto de Natal</h1>
+        </div>
+        <div class="novidades-natal-cards">
+            <div class="mid-banner-card">
+                <a href="">
+                    <img src="/static/imgs/card-1.png" alt="card1" class="card-images">
                 </a>
             </div>
-            <div class="noticia">
-                <a href="link_para_noticia_2">
-                    <div class="overlay"></div>
-                    <h3>Título da Notícia 2</h3>
-                </a>
+            <div class="mid-banner-card">
+                <img src="/static/imgs/card-2.png" alt="card1" class="card-images">
             </div>
-            <div class="noticia">
-                <a href="link_para_noticia_3">
-                    <div class="overlay"></div>
-                    <h3>Título da Notícia 3</h3>
-                </a>
+            <div class="mid-banner-card">
+                <img src="/static/imgs/card-3.png" alt="card1" class="card-images">
             </div>
-            <div class="noticia">
-                <a href="link_para_noticia_4">
-                    <div class="overlay"></div>
-                    <h3>Título da Notícia 4</h3>
-                </a>
+            <div class="mid-banner-card">
+                <img src="/static/imgs/card-4.png" alt="card1" class="card-images">
+
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- O Reino de Noel -->
-        <section class="reino-noel">
-            <h2>O Reino de Noel</h2>
-            <h3>Subtítulo do Reino de Noel</h3>
-            <p>Texto descritivo sobre o Reino de Noel.</p>
-                <a href="link_para_reino_de_noel" class="btn">Saiba Mais</a>
-                <img src="/reino_de_noel.webp" alt="Imagem Reino de Noel">
-        </section>
-    </container>
-
-    <!-- Em alta -->
-    <section class="em-alta">
-        <h2>Em Alta</h2>
-        <div class="streaming-links">
-            <a href="link_para_desfiles">Desfiles</a>
-            <a href="link_para_teatros">Teatros</a>
-            <a href="link_para_casa_papai_noel">Casa do Papai Noel</a>
-            <a href="link_para_decoracoes">Decorações</a>
+    <div class="home-reino-noel">
+        <div class="home-reino-noel-text">
+            <h1 class="home-reino-noel-title">
+                O Reino de Noel
+            </h1>
+            <h3 class="home-reino-noel-edicao">2024 - 4ª Edição - Um Encanto de Natal</h3>
+            <h3 class="home-reino-noel-edicao">De 15 de novembro a 31 de dezembro</h3>
+            <span class="home-reino-noel-descricao">"Um Encanto de Natal: O Reino de Noel" 
+                é mais do que uma decoração temática; 
+                é uma experiência completa que promete 
+                criar memórias inesquecíveis para todos
+                os visitantes. Traga sua família e amigos para Nova Friburgo e deixe-se envolver
+                pelo espírito natalino em um cenário de pura magia e encantamento. Aqui, os sonhos de Natal tornam-se realidade!</span>
+                <a href="/reinoNoel" target="_blank" class="home-reino-noel-botao">Saiba Mais</a>
         </div>
-    </section>
-
-    <!-- Confira a programação completa -->
-    <section class="programacao">
-        <a href="link_para_programacao">
-            <div class="banner-programacao">
-                Confira a programação completa
-            </div>
-        </a>
-    </section>
-
-    <!-- O Encanto de Natal -->
-    <section class="encanto-natal">
-        <h2>O Encanto de Natal</h2>
-        <h3>Subtítulo do Encanto de Natal</h3>
-        <p>Texto descritivo sobre O Encanto de Natal.</p>
-        <a href="link_para_encanto_natal" class="btn">Saiba Mais</a>
-        <video controls>
-            <source src="video_encanto_natal.mp4" type="video/mp4">
-            Seu navegador não suporta a tag de vídeo.
-        </video>
-    </section>
-
-    <!-- Ouça nossa playlist especial de Natal no Spotify -->
-    <section class="playlist">
-        <a href="https://open.spotify.com/playlist/2qRFnJzPgyx0J0nkVVFVKI?si=83ec514e9a454785&pt=c61cf97b5144105fd4b8cd62a3b321c7" target="_blank">
-            Ouça nossa playlist especial de Natal no Spotify
-        </a>
-    </section>
-
-    <!-- Banner de patrocinadores -->
-    <section class="patrocinadores">
-        <a href="link_para_patrocinadores">
-            <div class="banner-patrocinadores">
-                Banner de patrocinadores
-            </div>
-        </a>
-    </section>
-
-    <!-- Integração com Instagram -->
-    <section class="instagram">
-        <a href="https://www.instagram.com/turismonovafriburgo" target="_blank">@turismonovafriburgo</a>
-        <div class="fotos-instagram">
-            <a href="link_para_publicacao_1"><img src="foto_instagram_1.jpg" alt="Foto Instagram 1"></a>
-            <a href="link_para_publicacao_2"><img src="foto_instagram_2.jpg" alt="Foto Instagram 2"></a>
-            <a href="link_para_publicacao_3"><img src="foto_instagram_3.jpg" alt="Foto Instagram 3"></a>
+        <div class="home-reino-noel-image">
+            <img src="/static/imgs/Home-reinoNoel.jpg" alt="reinoNoelBanner" class="home-reino-noel-image-image">
+            <div class="overlay"></div>
+            <a href="/reinoNoel" target="_blank" class="home-reino-noel-botao-mobile">Saiba Mais</a>
         </div>
-    </section>
+    </div>
 
-    <!-- Rodapé -->
-    <footer>
-        <div class="links">
-            <a href="link_para_home">Home</a>
-            <a href="link_para_programacao">Programação</a>
-            <a href="link_para_patrocinadores">Patrocinadores</a>
-            <a href="link_para_encanto_natal">O Encanto de Natal</a>
-        </div>
-        <a href="https://www.google.com/maps?q=place_id:ChIJc7nRU42KlwARKJIsHv57Bh8" target="_blank">Mapa</a>
-    </footer>
+
+
+
+
+
 {% endblock %}

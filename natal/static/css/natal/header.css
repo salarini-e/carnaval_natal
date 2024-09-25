@@ -87,7 +87,7 @@ a {
     }
 }
 
-@media screen and (max-width: 930px){
+@media screen and (max-width: 960px){
     .header-wrapper {
         display: none;
     }
@@ -161,6 +161,7 @@ a {
     width: 200px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
     
 }
 .nav-menu-list{
