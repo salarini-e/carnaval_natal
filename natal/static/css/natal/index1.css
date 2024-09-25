@@ -45,7 +45,7 @@ body{
     border-radius: 5px;
 }
 .home-reino-noel{
-    margin-top: 20px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,16 +75,31 @@ body{
     color: white;
     margin-bottom: 15px;
 }
+
+.home-encanto-natal-title{
+    font-size: 3vw;
+    color: white;
+    margin-bottom: 15px;
+}
 .home-reino-noel-edicao{
     font-size: 1.6vw;
     color: white;
 }
+.home-encanto-natal-edicao{
+    font-size: 1.2vw;
+    color: white;
+}
 .home-reino-noel-descricao{
     color: white;
-    margin-top: 10px;
+    margin-top: 20px;
     font-size: 1.3vw;
 }
-.home-reino-noel-botao{
+.home-encanto-natal-descricao{
+    color: white;
+    margin-top: 20px;
+    font-size: 1.0vw;
+}
+.home-reino-noel-botao, .home-encanto-natal-botao{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,7 +114,7 @@ body{
     transition: all 0.4s ease-in-out;
     padding: 0 5px;
 }
-.home-reino-noel-botao:hover{
+.home-reino-noel-botao:hover, .home-encanto-natal-botao:hover{
     background-color: #0d2507;
     color: white;
 }
@@ -218,6 +233,60 @@ body{
 
 .programacao-button:hover{
     background-color: rgb(160, 160, 160);
+}
+
+.home-encanto-natal-wrapper{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+    padding: 0 30px;
+}
+.home-encanto-natal-video-web{
+    width: 100%;
+    max-width: 50vw;
+    border-radius: 15px;
+}
+.home-encanto-natal-video-mobile{
+    display: none;
+}
+.home-encanto-natal-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 40vw;
+    margin-left: 15px;
+}
+.iframe-home-encanto-natal {
+    width: 100%;
+    max-width: 55vw;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: 15px;
+}
+
+.spotify-wrapper{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 0 16px;
+    margin-top: 40px;
+}
+.spotify-image{
+    width: 100%;
+    max-width: 250px;
+    margin: 10px auto auto auto;
+}
+.spotify-text-wrapper{
+    display: flex;
+    /* align-items: center; */
+    margin-left: 10px;
+}
+.spotify-text-wrapper-text{
+    color: white;
+    font-size: 2vw;
+    margin: auto;
 }
 @media(max-width:1200px){
     .cards-em-alta-wrapper {
@@ -347,6 +416,59 @@ body{
     }
     .novidades-natal-title{
         padding: 0 16px;
+    }
+    .spotify-image{
+        width: 100%;
+        max-width: 100px;
+    }
+    .spotify-image{
+        margin: 10px auto auto auto;
+    }
+    .spotify-text-wrapper-text{
+        font-size: 3vw;
+    }
+}
+@media(max-width:930px){
+    .home-encanto-natal-wrapper{
+        flex-direction: column;
+        width: 100%;
+    }
+    .home-encanto-natal-video-web{
+        display: none;
+    }
+    .home-encanto-natal-video-mobile{
+        display: flex;
+    }
+    .home-encanto-natal-text{
+        margin-left: 0px;
+        max-width: 100vw;
+        justify-content: center;
+    }
+    .home-encanto-natal-video-mobile{
+        padding: 15px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .iframe-home-encanto-natal{
+        max-width: 100vw;
+    }
+    .home-encanto-natal-wrapper{
+        padding: 0 16px;
+    }
+    .home-encanto-natal-botao{
+        margin-top: 0px;
+        max-width: 100vw;
+        height: 25px;
+    }
+    .home-encanto-natal-title{
+        font-size: 6.5vw;
+    }
+    .home-encanto-natal-edicao{
+        font-size: 4.6vw;
+    }
+    .home-encanto-natal-descricao{
+        font-size: 4.3vw;
     }
 }
 
