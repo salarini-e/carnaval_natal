@@ -17,7 +17,31 @@
         
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
+<style>
+    .header-link {
+        position: relative;
+        text-decoration: none;
+        color: #fff; /* ajuste a cor conforme necessário */
+        padding: 0 10px;
+        display: inline-block;
+    }
 
+    .header-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        background-color: #fff; /* ajuste a cor da linha */
+        bottom: -5px; /* distância da linha para o texto */
+        left: 50%;
+        transition: width 0.4s ease, left 0.4s ease;
+    }
+
+    .header-link:hover::after {
+        width: 100%;
+        left: 0;
+    }
+</style>
 <body>
     <header>
         <!-- header web -->
@@ -40,7 +64,7 @@
                     <a href="/" class="header-link" target="_blank">Programação</a>
                     <a href="https://www.novafriburgoturismo.com.br/onde-dormir" class="header-link" target="_blank">Onde Dormir</a>
                     <a href="https://www.novafriburgoturismo.com.br/onde-comer" class="header-link" target="_blank">Onde Comer</a>
-                    <a href="/" class="header-link" target="_blank">Nova Friburgo</a>
+                    <a href="https://www.novafriburgoturismo.com.br/nossa-historia" class="header-link" target="_blank">Nova Friburgo</a>
                     <a href="/" class="header-link" target="_blank">Notícias</a>  
                 </div>
             </div>
@@ -71,7 +95,7 @@
                         <a href="/" class="header-link-mobile" target="_blank">Programação</a>
                         <a href="https://www.novafriburgoturismo.com.br/onde-dormir" class="header-link-mobile" target="_blank">Onde Dormir</a>
                         <a href="https://www.novafriburgoturismo.com.br/onde-comer" class="header-link-mobile" target="_blank">Onde Comer</a>
-                        <a href="/" class="header-link-mobile" target="_blank">Nova Friburgo</a>
+                        <a href="https://www.novafriburgoturismo.com.br/nossa-historia" class="header-link-mobile" target="_blank">Nova Friburgo</a>
                         <a href="/" class="header-link-mobile" target="_blank">Notícias</a>  
                     </div>
                 </nav>
@@ -86,7 +110,7 @@
         // Define a data do Natal deste ano
         const now = new Date();
         const year = now.getFullYear();
-        const christmas = new Date(year, 11, 25, 0, 0, 0); // 25 de dezembro, 00:00:00
+        const christmas = new Date(year, 10, 15, 0, 0, 0); // 25 de dezembro, 00:00:00
 
         // Calcula a diferença de tempo em milissegundos
         const diff = christmas - now;
