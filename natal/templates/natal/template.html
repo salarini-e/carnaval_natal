@@ -46,9 +46,9 @@
     <header>
         <!-- header web -->
         <div class="header-wrapper">
-            <div class="count-time-wrapper">
+            <!-- <div class="count-time-wrapper">
                 <span class="count-time-text"></span>
-            </div>
+            </div> -->
             <div class="nav-wrapper">
                 <div class="header-images-wrapper">
                     <a href="https://www.pmnf.rj.gov.br/site/" target="_blank" class="image-header-logo-pmnf">
@@ -71,9 +71,9 @@
         </div>
         <!-- header mobile -->
         <div class="header-wrapper-mobile">
-            <div class="count-time-wrapper-mobile">
+            <!-- <div class="count-time-wrapper-mobile">
                 <span class="count-time-text-mobile"></span>
-            </div>
+            </div> -->
             <div class="nav-wrapper-mobile">
                 <button class="menu-button" onclick="toggleMenu()">
                     <span class="menu-icon"></span>
@@ -106,38 +106,38 @@
 </body>
 
 <script>
-    function updateCountdown() {
-        // Define a data do Natal deste ano
-        const now = new Date();
-        const year = now.getFullYear();
-        const christmas = new Date(year, 10, 15, 0, 0, 0); // 25 de dezembro, 00:00:00
+    // function updateCountdown() {
+    //     // Define a data do Natal deste ano
+    //     const now = new Date();
+    //     const year = now.getFullYear();
+    //     const christmas = new Date(year, 10, 15, 0, 0, 0); // 25 de dezembro, 00:00:00
 
-        // Calcula a diferença de tempo em milissegundos
-        const diff = christmas - now;
+    //     // Calcula a diferença de tempo em milissegundos
+    //     const diff = christmas - now;
 
-        // Inicializa dias, horas, minutos com 0
-        let days = 0;
-        let hours = 0;
-        let minutes = 0;
+    //     // Inicializa dias, horas, minutos com 0
+    //     let days = 0;
+    //     let hours = 0;
+    //     let minutes = 0;
 
-        // Se o Natal ainda não passou, calcula os valores
-        if (diff > 0) {
-            days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        }
+    //     // Se o Natal ainda não passou, calcula os valores
+    //     if (diff > 0) {
+    //         days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    //         hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    //         minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    //     }
 
-        // Atualiza o texto da contagem regressiva
-        document.querySelector('.count-time-text').textContent = `FALTAM ${days} DIAS, ${hours} HORAS E ${minutes} MINUTOS`;
-        document.querySelector('.count-time-text-mobile').textContent = `FALTAM ${days} DIAS, ${hours} HORAS E ${minutes} MINUTOS`;
-    }
+    //     // Atualiza o texto da contagem regressiva
+    //     document.querySelector('.count-time-text').textContent = `FALTAM ${days} DIAS, ${hours} HORAS E ${minutes} MINUTOS`;
+    //     document.querySelector('.count-time-text-mobile').textContent = `FALTAM ${days} DIAS, ${hours} HORAS E ${minutes} MINUTOS`;
+    // }
 
 
-    // Atualiza a contagem imediatamente
-    updateCountdown();
+    // // Atualiza a contagem imediatamente
+    // updateCountdown();
 
-    // Atualiza a contagem a cada minuto
-    setInterval(updateCountdown, 60000);
+    // // Atualiza a contagem a cada minuto
+    // setInterval(updateCountdown, 60000);
 
     function toggleMenu() {
         const navMenu = document.querySelector('.nav-menu');
