@@ -143,7 +143,7 @@
     padding-bottom: 56.25%; /* Proporção de 16:9 */
     height: 0;
     overflow: hidden;
-    
+    border-radius: 15px;
 }
 
 .iframe-wrapper iframe {
@@ -155,7 +155,7 @@
 }
 
 .overlay {
-   
+ 
     position: absolute;
     top: 30pt;
     left: 45px;
