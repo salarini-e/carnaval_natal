@@ -16,6 +16,7 @@ body{
     color: white;
     font-size: 2vw;
 }
+
 .home-novidades-natal-title::after{
     content: '';
     height: 1px;
