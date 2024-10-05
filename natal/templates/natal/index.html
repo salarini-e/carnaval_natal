@@ -128,10 +128,11 @@
 
     <!-- COLOCAR ISSO PARA CHAMAR EM TODAS AS TELAS -->
     <footer class="footer-wrapper">
+        <!-- PARTE WEB -->
         <div class="footer-infos-wrapper-content">
             <div class="footer-site-links">
                 <h4 class="footer-site-title">SITE</h4>
-                <a href="" target="_blank" class="footer-site-link">
+                <a href="/reinoNoel" target="_blank" class="footer-site-link">
                     <span>O Reino de Noel</span>
                 </a>
                 <a href="" target="_blank" class="footer-site-link">
@@ -149,16 +150,45 @@
                 <a href="" target="_blank" class="footer-site-link"> 
                     <span>Decorações</span>
                 </a>
-                <a href="" target="_blank" class="footer-site-link">
+                <a href="https://www.novafriburgoturismo.com.br/nossa-historia" target="_blank" class="footer-site-link">
                     <span>Nova Friburgo</span>
                 </a>
-                <a href="" target="_blank" class="footer-site-link">
+                <a href="/" target="_blank" class="footer-site-link">
                     <span>Notícias</span>
                 </a>
             </div>
-            <div>contato</div>
-            <div>Mapa</div>
+            <div class="footer-contatos-links">
+                <h4 class="footer-site-title">CONTATO</h4>
+                <a href="tel:+5502225436307" class="footer-contato-link" target="_blank">
+                    <span class="footer-contato-link-item"><i class="fa-solid fa-phone tel-icon"></i>(22)2543-6307</span>
+                </a>
+                <a href="https://instagram.com/turismonovafriburgo" class="footer-contato-link" target="_blank">
+                    <span class="footer-contato-link-item"><i class="fa-brands fa-instagram instagram-icon"></i></i>@turismonovafriburgo</span>
+                </a>
+                <a href="https://www.novafriburgoturismo.com.br" target="_blank" class="footer-contato-link">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-globe"></i>
+                        <i class="fas fa-mouse-pointer"></i>
+                      </div>
+                      <span class="footer-contato-link-item">www.novafriburgoturismo.com.br</span>
+                </a>
+                <a href="https://www.google.com/maps?q=place_id:ChIJc7nRU42KlwARKJIsHv57Bh8" target="_blank" class="footer-contato-link endereco"> 
+                    <div style="display: flex;flex-direction: column;justify-content: center;">
+                        <span class="footer-contato-link-item"><i class="fa-solid fa-location-dot"></i> Av. Alberto Braune 225 Centro,</span>
+                        <span class="footer-contato-link-item novaFriburgo">Nova Friburgo - RJ CEP: 28613-001</span>
+                    </div>
+                </a>
+            </div>
+            <div class="footer-map-wrapper">
+                <a href="https://www.google.com/maps?q=place_id:ChIJc7nRU42KlwARKJIsHv57Bh8" target="_blank">
 
+                </a>
+            </div>
+        </div>
+
+        <!-- PARTE MOBILE -->
+        <div class="footer-infos-wrapper-content-mobile">
+            
         </div>
         <div class="header-images-wrapper-footer">
             <a href="https://www.pmnf.rj.gov.br/site/" target="_blank" class="image-header-logo-pmnf-footer">
@@ -170,6 +200,7 @@
         </div>
     </footer>
     <script>
+        // PARTE PARA SUBIR A TELA
         window.onscroll = function() {scrollFunction()};
 
         function scrollFunction() {
@@ -180,7 +211,6 @@
             btn.style.display = "none";
         }
         }
-
         // Função para rolar suavemente até o topo
         function topFunction() {
             window.scrollTo({
@@ -188,6 +218,7 @@
                 behavior: 'smooth' 
             });
         }
+        // FOOTER MOBILE
     </script>
 
 
