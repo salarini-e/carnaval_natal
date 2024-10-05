@@ -155,7 +155,8 @@ a {
 .nav-menu {
     display: none;
     position: absolute;
-    top: 72px;
+    /* top: 72px; CASO O CONTADOR DE HORAS ESTEJA VISÍVEL */
+    top: 40px;
     left: 12px;
     background-color: #333;
     width: 200px;
