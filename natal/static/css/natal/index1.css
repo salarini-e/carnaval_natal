@@ -388,16 +388,23 @@ body{
 .footer-contato-link-item{
     display: flex;
     align-items: center;
+    transition: all .3s ease-in-out;
+}
+.footer-contato-link-item:hover{
+    color: #c9c9c9;
 }
 .tel-icon{
     color: white;
     margin-right: 12px;
     font-size: 20px !important;
+    transition: all .3s ease-in-out;
 }
+
 .instagram-icon{
     color: white;
     margin-right: 10px;
     font-size: 26px !important;
+    transition: all .3s ease-in-out;
 }
 
 .icon-wrapper {
@@ -405,11 +412,13 @@ body{
     align-items: center;
     position: relative;
     margin-right: 10px;
+    
   }
 
 .fa-globe {
     font-size: 25px !important;
     color: white;
+    transition: all .3s ease-in-out;
 }
 
 .fa-mouse-pointer {
@@ -426,11 +435,20 @@ body{
         1px -1px 0 #000,
         -1px 1px 0 #000,
         1px 1px 0 #000; 
+    transition: all .3s ease-in-out;
 }
 .fa-location-dot{
     font-size: 26px;
     margin-right: 15px;
 }
+.footer-contato-link:hover .tel-icon,
+.footer-contato-link:hover .instagram-icon,
+.footer-contato-link:hover .fa-globe,
+.footer-contato-link:hover .fa-mouse-pointer,
+.footer-contato-link:hover .fa-location-dot {
+    color: #c9c9c9;
+}
+
 .endereco{
     margin-top: 36px;
 }
@@ -443,6 +461,9 @@ body{
     max-width: 40vw;
     background-color: white;
 }
+.footer-infos-wrapper-content-mobile{
+    display: none;
+}
 
 @media(max-width:768px){
     .header-images-footer {
@@ -453,6 +474,9 @@ body{
     }
     .footer-infos-wrapper-content{
         display: none;
+    }
+    .footer-infos-wrapper-content-mobile{
+        display: flex;
     }
 }
 
