@@ -102,13 +102,13 @@ a {
 /* menu mobile */
 .nav-wrapper-mobile{
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     color: white;
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(to left, #a80000, #540000); /* Gradiente do vermelho escuro embaixo para o vermelho mais claro em cima */
+    background: linear-gradient(to left, #a80000, #540000);
     align-items: center;
     padding: 10px 16px;
-    height: 40px;
+    height: 70px;
 }
 .count-time-wrapper-mobile {
     display: flex;
@@ -156,8 +156,8 @@ a {
     display: none;
     position: absolute;
     /* top: 72px; CASO O CONTADOR DE HORAS ESTEJA VISÍVEL */
-    top: 40px;
-    left: 12px;
+    top: 51px;
+    right: 15px;
     background-color: #333;
     width: 200px;
     border-radius: 5px;

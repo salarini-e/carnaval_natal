@@ -1,10 +1,9 @@
-
-    {% extends 'natal/template.html' %}
-    {% block css %}
+{% extends 'natal/template.html' %}
+{% block css %}
         <link rel="stylesheet" href="/static/css/natal/index1.css">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Sequel+Sans:wght@400;700&display=swap" rel="stylesheet">
-    {% endblock %}
+{% endblock %}
 {% block main %}
     <div class="home-top-banner">
         <img src="/static/imgs/home_top_banner.png" alt="banner-principal" class="home-top-banner-image">
@@ -110,7 +109,6 @@
         </div>
     </div>
 
-
     <div class="spotify-wrapper">
         <div class="spotify-image-playlist">
             <a href="https://open.spotify.com/playlist/2qRFnJzPgyx0J0nkVVFVKI?si=b9b6525ced54420f&nd=1&dlsi=4d12b1e0b7bf45b1" target="_blank">
@@ -121,195 +119,14 @@
             <span class="spotify-text-wrapper-text">Ouça nossa playlist especial de Natal no Spotify</span>
         </div>
     </div>
-    <!-- COLOCAR ISSO PARA CHAMAR EM TODAS AS TELAS -->
-    <button onclick="topFunction()" id="backToTopBtn" class="btn btn-primary">
-       <i class="fa-solid fa-angle-up up-page-icon"></i>
-    </button>
-
-    <!-- COLOCAR ISSO PARA CHAMAR EM TODAS AS TELAS -->
-    <footer class="footer-wrapper">
-        <!-- PARTE WEB -->
-        <div class="footer-infos-wrapper-content">
-            <div class="footer-site-links">
-                <h4 class="footer-site-title">SITE</h4>
-                <a href="/reinoNoel" target="_blank" class="footer-site-link">
-                    <span>O Reino de Noel</span>
-                </a>
-                <a href="" target="_blank" class="footer-site-link">
-                    <span>Programação</span>
-                </a>
-                <a href="" target="_blank" class="footer-site-link">
-                    <span>Desfiles</span>
-                </a>
-                <a href="" target="_blank" class="footer-site-link">
-                    <span>Teatros</span>
-                </a>
-                <a href="" target="_blank" class="footer-site-link">
-                    <span>Casa do Papai Noel</span>
-                </a>
-                <a href="" target="_blank" class="footer-site-link"> 
-                    <span>Decorações</span>
-                </a>
-                <a href="https://www.novafriburgoturismo.com.br/nossa-historia" target="_blank" class="footer-site-link">
-                    <span>Nova Friburgo</span>
-                </a>
-                <a href="/" target="_blank" class="footer-site-link">
-                    <span>Notícias</span>
-                </a>
-            </div>
-            <div class="footer-contatos-links">
-                <h4 class="footer-site-title">CONTATO</h4>
-                <a href="tel:+552225436307" class="footer-contato-link" target="_blank">
-                    <span class="footer-contato-link-item"><i class="fa-solid fa-phone tel-icon"></i>(22)2543-6307</span>
-                </a>
-                <a href="https://instagram.com/turismonovafriburgo" class="footer-contato-link" target="_blank">
-                    <span class="footer-contato-link-item"><i class="fa-brands fa-instagram instagram-icon"></i></i>@turismonovafriburgo</span>
-                </a>
-                <a href="https://www.novafriburgoturismo.com.br" target="_blank" class="footer-contato-link">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-globe"></i>
-                        <i class="fas fa-mouse-pointer"></i>
-                      </div>
-                      <span class="footer-contato-link-item">www.novafriburgoturismo.com.br</span>
-                </a>
-                <a href="https://www.google.com/maps?q=place_id:ChIJc7nRU42KlwARKJIsHv57Bh8" target="_blank" class="footer-contato-link endereco"> 
-                    <div style="display: flex;flex-direction: column;justify-content: center;">
-                        <span class="footer-contato-link-item"><i class="fa-solid fa-location-dot"></i> Av. Alberto Braune 225 Centro,</span>
-                        <span class="footer-contato-link-item novaFriburgo">Nova Friburgo - RJ CEP: 28613-001</span>
-                    </div>
-                </a>
-            </div>
-            <div class="footer-map-wrapper">
-                <a href="https://www.google.com/maps?q=place_id:ChIJc7nRU42KlwARKJIsHv57Bh8" target="_blank">
-
-                </a>
-            </div>
-        </div>
-
-        <!-- PARTE MOBILE -->
-        <div class="footer-infos-wrapper-content-mobile">
-            <!-- SITE -->
-            <div class="footer-site-mobile-wrapper" onclick="toggleSiteLinks()">
-                <span class="footer-site-mobile-title">SITE</span>
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>
-            <div id="site-links" class="site-links-wrapper-mobile">
-                <a href="/reinoNoel" target="_blank" class="footer-site-link-mobile" style="margin-top: 10px;">
-                    <span>O Reino de Noel</span>
-                </a>
-                <a href="" target="_blank" class="footer-site-link-mobile">
-                    <span>Programação</span>
-                </a>
-                <a href="" target="_blank" class="footer-site-link-mobile">
-                    <span>Desfiles</span>
-                </a>
-                <a href="" target="_blank" class="footer-site-link-mobile">
-                    <span>Teatros</span>
-                </a>
-                <a href="" target="_blank" class="footer-site-link-mobile">
-                    <span>Casa do Papai Noel</span>
-                </a>
-                <a href="" target="_blank" class="footer-site-link-mobile"> 
-                    <span>Decorações</span>
-                </a>
-                <a href="https://www.novafriburgoturismo.com.br/nossa-historia" target="_blank" class="footer-site-link-mobile">
-                    <span>Nova Friburgo</span>
-                </a>
-                <a href="/" target="_blank" class="footer-site-link-mobile">
-                    <span>Notícias</span>
-                </a>
-            </div>
-             <!-- CONTATO -->
-            <div class="footer-contato-mobile-wrapper" onclick="toggleContatoLinks()">
-                <span class="footer-contato-mobile-title">CONTATO</span>
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>
-            <div id="contato-links" class="contato-links-wrapper-mobile">
-                <a href="tel:+552225436307" class="footer-contato-link-mobile" target="_blank" style="margin-top: 10px;">
-                    <span class="footer-contato-link-mobile-item"><i class="fa-solid fa-phone tel-icon"></i>(22)2543-6307</span>
-                </a>
-                <a href="https://instagram.com/turismonovafriburgo" class="footer-contato-link-mobile" target="_blank">
-                    <span class="footer-contato-link-mobile-item"><i class="fa-brands fa-instagram instagram-icon"></i></i>@turismonovafriburgo</span>
-                </a>
-                <a href="https://www.novafriburgoturismo.com.br" target="_blank" class="footer-contato-link-mobile">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-globe"></i>
-                        <i class="fas fa-mouse-pointer"></i>
-                      </div>
-                      <span class="footer-contato-link-mobile-item">www.novafriburgoturismo.com.br</span>
-                </a>
-                <a href="https://www.google.com/maps?q=place_id:ChIJc7nRU42KlwARKJIsHv57Bh8" target="_blank" class="footer-contato-link-mobile"> 
-                    <div style="display: flex;flex-direction: column;justify-content: center;">
-                        <span class="footer-contato-link-mobile-item"><i class="fa-solid fa-location-dot"></i> Av. Alberto Braune 225 Centro,</span>
-                        <span class="footer-contato-link-mobile-item novaFriburgo">Nova Friburgo - RJ CEP: 28613-001</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="footer-map-wrapper-mobile">
-                    <a href="https://www.google.com/maps?q=place_id:ChIJc7nRU42KlwARKJIsHv57Bh8" target="_blank"  class="footer-map-link"></a>
-            </div>
-        </div>
-
-        <div class="images-wrapper-footer">
-            <a href="https://www.pmnf.rj.gov.br/site/" target="_blank" class="image-logo-pmnf-footer">
-                <img src="/static/imgs/logo_horizontal_branco.webp" alt="logoPMNF" class="images-footer"/>
-            </a>
-            <a href="https://www.pmnf.rj.gov.br/turismo/" target="_blank">
-                <img src="/static/imgs/logo-turismo2-05.webp" alt="logoTurismo" class="images-footer"/>
-            </a>   
-        </div>
-    </footer>
-    <script>
-        // PARTE PARA SUBIR A TELA
-        window.onscroll = function() {scrollFunction()};
-
-        function scrollFunction() {
-        const btn = document.getElementById("backToTopBtn");
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 200) {
-            btn.style.display = "block";
-        } else {
-            btn.style.display = "none";
-        }
-        }
-        // Função para rolar suavemente até o topo
-        function topFunction() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth' 
-            });
-        }
-        // FOOTER MOBILE
-        function toggleSiteLinks() {
-            const siteLinks = document.getElementById('site-links');
-            const icon = document.querySelector('.footer-site-mobile-wrapper i');
-
-            // Alterna a classe 'show' para mostrar/ocultar a div
-            siteLinks.classList.toggle('show');
-
-            // Troca o ícone da seta e adiciona/remover a classe de rotação
-            if (siteLinks.classList.contains('show')) {
-                icon.classList.add('rotate'); 
-            } else {
-                icon.classList.remove('rotate');
-            }
-        }
-
-        function toggleContatoLinks() {
-            const contatoLinks = document.getElementById('contato-links');
-            const icon = document.querySelector('.footer-contato-mobile-wrapper i');
-
-            // Alterna a classe 'show' para mostrar/ocultar a div
-            contatoLinks.classList.toggle('show');
-
-            // Troca o ícone da seta e adiciona/remover a classe de rotação
-            if (contatoLinks.classList.contains('show')) {
-                icon.classList.add('rotate'); 
-            } else {
-                icon.classList.remove('rotate');
-            }
-        }
-    </script>
+    
+    {% block footer %}
+    {% include 'natal/footer.html' %}
+    {% endblock %}
+    
+    {% block backToTopButton %}
+    {% include 'natal/backToTopButton.html' %}
+    {% endblock %}
 
 
 {% endblock %}
