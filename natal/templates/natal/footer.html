@@ -13,25 +13,25 @@
             <a href="/reinoNoel" target="_blank" class="footer-site-link">
                 <span>O Reino de Noel</span>
             </a>
-            <a href="" target="_blank" class="footer-site-link">
+            <a  target="_blank" class="footer-site-link" id="openOverlayLinkProgramacaoFooter">
                 <span>Programação</span>
             </a>
-            <a href="" target="_blank" class="footer-site-link">
+            <a href="/desfiles" target="_blank" class="footer-site-link">
                 <span>Desfiles</span>
             </a>
-            <a href="" target="_blank" class="footer-site-link">
+            <a href="/teatros" target="_blank" class="footer-site-link">
                 <span>Teatros</span>
             </a>
             <a href="" target="_blank" class="footer-site-link">
                 <span>Casa do Papai Noel</span>
             </a>
-            <a href="" target="_blank" class="footer-site-link"> 
+            <a href="/decoracoes" target="_blank" class="footer-site-link"> 
                 <span>Decorações</span>
             </a>
             <a href="https://www.novafriburgoturismo.com.br/nossa-historia" target="_blank" class="footer-site-link">
                 <span>Nova Friburgo</span>
             </a>
-            <a href="/" target="_blank" class="footer-site-link">
+            <a target="_blank" class="footer-site-link" id="openOverlayLinkNoticiasFooter">
                 <span>Notícias</span>
             </a>
         </div>
@@ -75,25 +75,25 @@
             <a href="/reinoNoel" target="_blank" class="footer-site-link-mobile" style="margin-top: 10px;">
                 <span>O Reino de Noel</span>
             </a>
-            <a href="" target="_blank" class="footer-site-link-mobile">
+            <a target="_blank" class="footer-site-link-mobile" id="openOverlayLinkProgramacaoFooterMobile">
                 <span>Programação</span>
             </a>
-            <a href="" target="_blank" class="footer-site-link-mobile">
+            <a href="/desfiles" target="_blank" class="footer-site-link-mobile">
                 <span>Desfiles</span>
             </a>
-            <a href="" target="_blank" class="footer-site-link-mobile">
+            <a href="/teatros" target="_blank" class="footer-site-link-mobile">
                 <span>Teatros</span>
             </a>
             <a href="" target="_blank" class="footer-site-link-mobile">
                 <span>Casa do Papai Noel</span>
             </a>
-            <a href="" target="_blank" class="footer-site-link-mobile"> 
+            <a href="/decoracoes" target="_blank" class="footer-site-link-mobile"> 
                 <span>Decorações</span>
             </a>
             <a href="https://www.novafriburgoturismo.com.br/nossa-historia" target="_blank" class="footer-site-link-mobile">
                 <span>Nova Friburgo</span>
             </a>
-            <a href="/" target="_blank" class="footer-site-link-mobile">
+            <a target="_blank" class="footer-site-link-mobile" id="openOverlayLinkNoticiasFooterMobile">
                 <span>Notícias</span>
             </a>
         </div>
@@ -138,6 +138,15 @@
         </a>   
     </div>
 </footer>
+ <!-- Estrutura do overlay -->
+ <div id="overlay" class="overlay">
+    <div class="overlay-content">
+        <button class="close-btn" id="closeBtn">&times;</button>
+        <div class="overlay-text" id="overlayText">Em breve</div>
+        <div class="countdown" id="countdown"></div>
+        <div id="snowflakes-container"></div>
+    </div>
+</div>
 
 
 <script>
@@ -171,6 +180,25 @@
             icon.classList.remove('rotate');
         }
     }
+
+    // Event listeners para os links de Programação e Notícias
+    document.getElementById('openOverlayLinkProgramacaoFooter').addEventListener('click', function() {
+        openOverlay('Aguarde, a Programação de Natal será divulgada em breve!');
+    });
+
+    document.getElementById('openOverlayLinkNoticiasFooter').addEventListener('click', function() {
+        openOverlay('As notícias serão publicadas em breve!');
+    });
+
+    document.getElementById('openOverlayLinkProgramacaoFooterMobile').addEventListener('click', function() {
+        openOverlay('Aguarde, a Programação de Natal será divulgada em breve!');
+    });
+
+    document.getElementById('openOverlayLinkNoticiasFooterMobile').addEventListener('click', function() {
+        openOverlay('As notícias serão publicadas em breve!');
+    });
+    
+    
 </script>
 
 {% endblock %}

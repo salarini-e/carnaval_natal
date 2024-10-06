@@ -55,3 +55,12 @@ def casaDoPapaiNoel(req):
 
 def reinoNoel(req):
     return render(req,'natal/reinoNoel.html')
+
+def decoracoes(req):
+    return render(req, 'natal/decoracoes.html')
+
+def desfiles(req):
+    return render(req, 'natal/desfiles.html')
+
+def teatros(req):
+    return render(req, 'natal/teatros.html')

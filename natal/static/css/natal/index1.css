@@ -119,7 +119,7 @@ body{
     background-color: #0d2507;
     color: white;
 }
-.overlay{
+.overlay-reino-noel{
     display: none;
 }
 .home-reino-noel-botao-mobile{
@@ -221,6 +221,7 @@ body{
     text-align: center;
     transition: all 0.4s ease-in-out;
     font-size: 2vw;
+    cursor: pointer;
 }
 .overlay-programacao {
     display: flex;
@@ -383,9 +384,9 @@ body{
         max-width: 100vw;
         display: block; 
     }
-    .overlay {
+    .overlay-reino-noel {
         display: flex;
-        position: absolute; /* Posiciona o overlay sobre a imagem */
+        position: absolute; 
         top: 0;
         left: 0;
         width: 100%; /* Cobre toda a imagem */

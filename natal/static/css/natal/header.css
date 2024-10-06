@@ -66,6 +66,7 @@ a {
     padding: 5px 10px;
     height: 25px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .header-wrapper-mobile {
@@ -193,9 +194,7 @@ a {
     transition: background-color 0.5s ease-in-out;
     border-radius: 5px;
 }
-.nav-menu-list a:hover {
-    background-color: #a80000;
-}
+
 /* Open state */
 .nav-menu.open {
     display: block;
@@ -221,5 +220,108 @@ a {
     top: 0px;
     left: 46%;
     transform: translateX(-50%);
+}
+
+
+/* OVERLAY */
+.overlay {
+    position: fixed; /* Mantém a posição fixa */
+    top: 0;          /* Inicia do topo da página */
+    left: 0;         /* Inicia do lado esquerdo da página */
+    width: 100%;     /* Ocupará 100% da largura da tela */
+    height: 100%;    /* Ocupará 100% da altura da tela */
+    background: rgba(0, 0, 0, 0.7); 
+    display: flex;   /* Usar flex para centralizar o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;     /* Centraliza verticalmente */
+    z-index: 9999;   /* Coloca o overlay acima de outros elementos */
+    opacity: 0;      /* Inicia invisível */
+    visibility: hidden; /* Inicia invisível */
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Estilos da caixa central */
+.overlay-content {
+    position: relative; /* Importante para limitar os flocos dentro da div */
+    background: linear-gradient(to left, #a80000, #540000);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    width: 50vw;
+    height: 30vh;
+    overflow: hidden; /* Isso garante que os flocos fiquem dentro da área */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Botão de fechar */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: white;
+    z-index: 2; /* Mantém o botão de fechar acima de tudo */
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+    color: #0d2507;
+}
+
+/* Texto principal */
+.overlay-text {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: white;
+    z-index: 2; /* Mantém o texto acima dos flocos de neve */
+    position: relative; /* Garante que o z-index funcione corretamente */
+}
+
+/* Transição para o overlay */
+.overlay.show {
+    opacity: 1;      /* Torna visível quando ativado */
+    visibility: visible; /* Muda para visível quando ativado */
+    display: flex;   /* Flex para manter o centro */
+}
+/* Estilos dos flocos de neve */
+.snowflake {
+    position: absolute;
+    top: -50px;
+    font-size: 24px;
+    color: white; /* Flocos mais sutis em relação ao fundo branco */
+    opacity: 0.8;
+    animation: fall 10s linear infinite;
+    z-index: 1; /* Mantém os flocos atrás do texto */
+}
+
+/* Animação de queda */
+@keyframes fall {
+    0% { top: -50px; }
+    100% { top: 100%; } /* Garante que os flocos desapareçam no final da área branca */
+}
+/* Estilos da contagem regressiva */
+.countdown {
+    font-size: 20px;
+    color: white;
+}
+
+@media(max-width:768px){
+    .overlay{
+        width: 100vw;
+        padding: 10px;
+    }
+    .overlay-content{
+        width: 100vw;
+    }
+    .overlay-text, .countdown{
+        font-size: 1em;
+    }
 }
 

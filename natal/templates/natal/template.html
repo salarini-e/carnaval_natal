@@ -63,11 +63,11 @@
                 <div class="header-links">
                     <a href="/" class="header-link" target="_blank">Início</a>
                     <a href="/reinoNoel" class="header-link" target="_blank">O Reino de Noel</a>
-                    <a href="/" class="header-link" target="_blank">Programação</a>
+                    <a class="header-link" target="_blank" id="openOverlayLinkProgramacao">Programação</a>
                     <a href="https://www.novafriburgoturismo.com.br/onde-dormir" class="header-link" target="_blank">Onde Dormir</a>
                     <a href="https://www.novafriburgoturismo.com.br/onde-comer" class="header-link" target="_blank">Onde Comer</a>
                     <a href="https://www.novafriburgoturismo.com.br/nossa-historia" class="header-link" target="_blank">Nova Friburgo</a>
-                    <a href="/" class="header-link" target="_blank">Notícias</a>  
+                    <a  class="header-link" target="_blank" id="openOverlayLinkNoticias">Notícias</a>  
                 </div>
             </div>
         </div>
@@ -94,20 +94,40 @@
                     <div class="nav-menu-list">
                         <a href="/" class="header-link-mobile" target="_blank">Início</a>
                         <a href="/reinoNoel" class="header-link-mobile" target="_blank">O Reino de Noel</a>
-                        <a href="/" class="header-link-mobile" target="_blank">Programação</a>
+                        <a class="header-link-mobile" target="_blank" id="openOverlayLinkProgramacaoMobile">Programação</a>
                         <a href="https://www.novafriburgoturismo.com.br/onde-dormir" class="header-link-mobile" target="_blank">Onde Dormir</a>
                         <a href="https://www.novafriburgoturismo.com.br/onde-comer" class="header-link-mobile" target="_blank">Onde Comer</a>
                         <a href="https://www.novafriburgoturismo.com.br/nossa-historia" class="header-link-mobile" target="_blank">Nova Friburgo</a>
-                        <a href="/" class="header-link-mobile" target="_blank">Notícias</a>  
+                        <a class="header-link-mobile" target="_blank" id="openOverlayLinkNoticiasMobile">Notícias</a>  
                     </div>
                 </nav>
             </div>
         </div>
     </header>
     {% block main %} {% endblock %}
+    {% block backToTopButton %}
+        {% include 'natal/backToTopButton.html' %}
+    {% endblock %}
+    {% block footer %}
+        {% include 'natal/footer.html' %}
+    {% endblock %}
+
+
+    <!-- Estrutura do overlay -->
+    <div id="overlay" class="overlay">
+        <div class="overlay-content">
+            <button class="close-btn" id="closeBtn">&times;</button>
+            <div class="overlay-text" id="overlayText">Em breve</div>
+            <div class="countdown" id="countdown"></div>
+            <div id="snowflakes-container"></div>
+        </div>
+    </div>
+
+
 </body>
 
 <script>
+    // CONTAGEM INÍCIO DA PROGRAMAÇÃO
     // function updateCountdown() {
     //     // Define a data do Natal deste ano
     //     const now = new Date();
@@ -140,6 +160,110 @@
 
     // // Atualiza a contagem a cada minuto
     // setInterval(updateCountdown, 60000);
+
+
+    // Função para abrir o overlay
+    // Função para abrir o overlay
+    function openOverlay(text) {
+        const overlay = document.getElementById('overlay');
+        const overlayText = document.getElementById('overlayText');
+        const countdown = document.getElementById('countdown');
+        
+        // Define o texto do overlay dinamicamente
+        overlayText.innerHTML = text;
+
+        if (text.includes("Programação")) {
+            countdown.style.display = 'block';
+            startCountdown();
+        } else {
+            countdown.style.display = 'none';
+        }
+
+        // Exibe o overlay
+        overlay.classList.add('show');
+    }
+
+    // Função para fechar o overlay
+    function closeOverlay() {
+        const overlay = document.getElementById('overlay');
+        overlay.classList.remove('show');
+    }
+
+    // Função para iniciar a contagem regressiva
+    function startCountdown() {
+        const christmas = new Date("December 25, 2024 00:00:00").getTime();
+        const countdownElement = document.getElementById('countdown');
+
+        const interval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = christmas - now;
+
+            if (distance < 0) {
+                clearInterval(interval);
+                countdownElement.innerHTML = "Feliz Natal!";
+            } else {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownElement.innerHTML = `Faltam ${days} dias, ${hours} horas, ${minutes} minutos, e ${seconds} segundos para o Natal!`;
+            }
+        }, 1000);
+    }
+    // Event listeners para os links de Programação e Notícias
+    document.getElementById('openOverlayLinkProgramacao').addEventListener('click', function() {
+        openOverlay('Aguarde, a Programação de Natal será divulgada em breve!');
+    });
+
+    document.getElementById('openOverlayLinkNoticias').addEventListener('click', function() {
+        openOverlay('As notícias serão publicadas em breve!');
+    });
+
+    document.getElementById('openOverlayLinkProgramacaoMobile').addEventListener('click', function() {
+        openOverlay('Aguarde, a Programação de Natal será divulgada em breve!');
+    });
+
+    document.getElementById('openOverlayLinkNoticiasMobile').addEventListener('click', function() {
+        openOverlay('As notícias serão publicadas em breve!');
+    });
+
+    
+   
+    // BOTÃO QUE FECHA O OVERLAY
+    document.getElementById('closeBtn').addEventListener('click', function() {
+        closeOverlay();
+    });
+
+    // Função para criar flocos de neve
+    function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.innerHTML = '❄'; 
+
+        snowflake.style.left = Math.random() * 100 + 'vw';
+
+        snowflake.style.animationDuration = Math.random() * 3 + 7 + 's';
+
+        snowflake.style.fontSize = Math.random() * 10 + 15 + 'px';
+
+        document.getElementById('snowflakes-container').appendChild(snowflake);
+
+        setTimeout(() => {
+            snowflake.remove();
+        }, 10000); 
+    }
+    // Gera novos flocos de neve a cada 300ms
+    setInterval(createSnowflake, 300);
+
+    
+    // Fechar o overlay ao clicar fora da área central
+    document.getElementById('overlay').addEventListener('click', function(event) {
+        if (event.target === document.getElementById('overlay')) {
+            closeOverlay();
+        }
+    });
+
 
     function toggleMenu() {
         const navMenu = document.querySelector('.nav-menu');
