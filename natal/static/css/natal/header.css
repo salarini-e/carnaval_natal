@@ -294,11 +294,11 @@ a {
 .snowflake {
     position: absolute;
     top: -50px;
-    font-size: 24px;
-    color: white; /* Flocos mais sutis em relação ao fundo branco */
-    opacity: 0.8;
+    /* font-size: 24px; */
+    color: rgba(255, 254, 254, 0.5); 
+    opacity: 0.5;
     animation: fall 10s linear infinite;
-    z-index: 1; /* Mantém os flocos atrás do texto */
+    z-index: 1;
 }
 
 /* Animação de queda */

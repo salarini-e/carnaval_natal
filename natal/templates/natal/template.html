@@ -243,9 +243,15 @@
 
         snowflake.style.left = Math.random() * 100 + 'vw';
 
+        // Ajusta a duração da animação
         snowflake.style.animationDuration = Math.random() * 3 + 7 + 's';
 
-        snowflake.style.fontSize = Math.random() * 10 + 15 + 'px';
+        // Define o tamanho do floco de neve
+        if (window.innerWidth <= 768) { // Se a largura da tela for menor ou igual a 768px
+            snowflake.style.fontSize = Math.random() * 2 + 10 + 'px'; // Flocos pequenos
+        } else {
+            snowflake.style.fontSize = Math.random() * 10 + 15 + 'px'; // Flocos maiores para desktop
+        }
 
         document.getElementById('snowflakes-container').appendChild(snowflake);
 
@@ -253,9 +259,9 @@
             snowflake.remove();
         }, 10000); 
     }
+
     // Gera novos flocos de neve a cada 300ms
     setInterval(createSnowflake, 300);
-
     
     // Fechar o overlay ao clicar fora da área central
     document.getElementById('overlay').addEventListener('click', function(event) {
