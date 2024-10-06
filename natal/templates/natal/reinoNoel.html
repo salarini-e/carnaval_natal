@@ -5,6 +5,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 {% endblock %}
 {% block main %}
 <div class="reinoNoel-wrapper">
@@ -93,5 +94,37 @@
     
 </div>
 
+<script>
+    let slideIndex = 0;
+    showSlides(slideIndex);
+
+    function showSlides(n) {
+        const slides = document.querySelectorAll(".slide");
+        const dots = document.querySelectorAll(".dot");
+
+        if (n >= slides.length) { slideIndex = 0 }
+        if (n < 0) { slideIndex = slides.length - 1 }
+
+        slides.forEach((slide, index) => {
+            slide.style.display = index === slideIndex ? "flex" : "none"; // Mudança para flex para centralizar conteúdo
+            dots[index].className = dots[index].className.replace(" active", "");
+        });
+
+        dots[slideIndex].className += " active";
+    }
+
+    document.getElementById("next").addEventListener("click", () => {
+        showSlides(++slideIndex);
+    });
+
+    document.getElementById("prev").addEventListener("click", () => {
+        showSlides(--slideIndex);
+    });
+
+    function currentSlide(n) {
+        slideIndex = n;
+        showSlides(slideIndex);
+    }
+</script>
 
 {% endblock %}
