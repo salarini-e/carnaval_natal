@@ -11,6 +11,7 @@ urlpatterns = [
     path('decoracoes', views.decoracoes, name='decoracoes'),
     path('desfiles', views.desfiles, name='desfiles'),
     path('teatros', views.teatros, name='teatros'),
+    path('encantoNatal', views.encantoNatal, name='encantoNatal'),
     path('casaPapaiNoel', views.casaPapaiNoel, name='casaPapaiNoel'),
     path('sobre/', views.sobre, name="sobre"),
     path('casaDoPapaiNoel/', views.casaDoPapaiNoel, name="casaDoPapaiNoel"),

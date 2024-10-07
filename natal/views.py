@@ -67,3 +67,6 @@ def teatros(req):
 
 def casaPapaiNoel(req):
     return render(req, 'natal/casaPapaiNoel.html')
+
+def encantoNatal(req):
+    return render (req, 'natal/encantoNatal.html')
