@@ -48,8 +48,26 @@
 .mid-banner-card:hover {
     transform: scale(1.1); /* Aplica o zoom ao card */
 }
+
+.carousel-mobile{
+    display: none !important;
+}
+.carousel-indicators li{
+    border-radius: 50%;
+    width: 10px !important;
+    height: 10px !important;
+    border: 1px solid black;
+    background-color: green;
+}
+.carousel-indicators{
+    bottom: 0 !important;
+}
+.carousel-control-next-icon{
+    color: white !important;
+    
+}
 @media(max-width: 1320px){
-    .mid-banners{
+    /* .mid-banners{
         grid-template-columns: repeat(2, max-content);
         margin-top: 50px;
     }
@@ -58,7 +76,16 @@
     }
     .mid-banner-card{
         border-radius: 5px;
-    }
+    } */
+     .carousel-mobile{
+        display: flex !important;
+        margin-top: 50px;
+        width: 100%;
+        padding: 0px 30px;
+     }
+     .mid-banners{
+        display: none;
+     }
 }
 
 @media(max-width: 1320px){
@@ -75,7 +102,7 @@
     }
 }
 @media screen and (max-width: 1080px) {
-    .overlay {
+    .overlay-image {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -94,6 +121,9 @@
     .previa{
         padding: 50px 16px 50px 16px !important;
     }
+    .carousel-mobile{
+        padding: 0px 16px !important;
+     }
 }
 
 .text-infos{
@@ -164,7 +194,7 @@
     border: 0;
 }
 
-.overlay {
+.overlay-image{
  
     position: absolute;
     top: 30pt;
