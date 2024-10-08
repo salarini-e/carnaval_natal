@@ -1,0 +1,336 @@
+
+.reinoNoel-wrapper {
+    background: linear-gradient(to left, #a80000, #540000);
+}
+.top-banner-image{
+    width: 100%;
+    /* transform: rotateY(180deg); */
+    height: 98vh;
+    padding: 10px 30px 0px 30px;
+}
+.top-banner {
+    position: relative;
+    width: 100%; /* Ajuste conforme necessário */
+    
+}
+
+.mid-banners {
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    gap: 32px;
+    justify-content: center;
+    position: relative;
+    margin-top: -81.5px;
+    padding: 0 30px;
+}
+
+.mid-banners::after {
+    display: none;
+    content: '';
+    position: absolute; /* Faz com que a linha seja posicionada em relação à viewport */
+    left: 0;
+    width: 100%; /* Usa a largura total da viewport */
+    height: 1px;
+    background-color: rgb(212, 212, 212); /* Define a cor da linha */
+    top: 170px;
+}
+
+.mid-banner-card {
+    cursor: pointer;
+    background-color: black;
+    width: 279px;
+    height: 163px;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out; /* Suaviza a transição */
+    overflow: hidden; /* Caso você adicione conteúdo ou imagem dentro */
+}
+/* Efeito de zoom ao passar o mouse */
+.mid-banner-card:hover {
+    transform: scale(1.1); /* Aplica o zoom ao card */
+}
+
+.carousel-mobile{
+    display: none !important;
+}
+.carousel-indicators li{
+    border-radius: 50%;
+    width: 10px !important;
+    height: 10px !important;
+    border: 1px solid black;
+    background-color: green;
+}
+.carousel-indicators{
+    bottom: 0 !important;
+}
+.carousel-control-next-icon{
+    color: white !important;
+    
+}
+@media(max-width: 1320px){
+    /* .mid-banners{
+        grid-template-columns: repeat(2, max-content);
+        margin-top: 50px;
+    }
+    .mid-banners::after{
+        top: 365px;
+    }
+    .mid-banner-card{
+        border-radius: 5px;
+    } */
+     .carousel-mobile{
+        display: flex !important;
+        margin-top: 50px;
+        width: 100%;
+        padding: 0px 30px;
+     }
+     .mid-banners{
+        display: none;
+     }
+}
+
+@media(max-width: 1320px){
+    .mid-banners{
+        grid-template-columns: repeat(1, max-content);
+        margin-top: 50px;
+    }
+    .mid-banners::after{
+        top: 755px;
+    }
+    .mid-banner-card{
+        /* width: 45vw; */
+        border-radius: 5px;
+    }
+}
+@media screen and (max-width: 1080px) {
+    .overlay-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Centraliza horizontalmente e verticalmente */
+        width: 90%; /* Ajuste a largura conforme necessário */
+        height: auto; /* Defina a altura automaticamente */
+    }
+}
+@media(max-width:768px){
+    .top-banner-image{
+        padding: 10px 16px 0px 16px !important;
+    }
+    .text-infos{
+        padding: 0px 16px !important;
+    }
+    .previa{
+        padding: 50px 16px 50px 16px !important;
+    }
+    .carousel-mobile{
+        padding: 0px 16px !important;
+     }
+}
+
+.text-infos{
+    margin-top: 70px;
+}
+
+.text-infos{
+    width: 100%;
+    padding: 0 30px;
+}
+
+.text-infos-title,.text-infos-title-previa{
+    color: white;
+    text-align: left;
+}
+
+.text-infos-content{
+    margin-top: 30px;
+}
+.text-infos-content-text{
+    text-align: left;
+    color: white;
+    font-size: 18pt;
+}
+
+.previa {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px 30px 50px 30px;
+}
+
+.text-infos-title-previa {
+    position: relative;
+    font-size: 24px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.text-infos-title-previa::after {
+    display: none;
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 100%;
+    height: 1px;
+    background-color: white; 
+}
+
+.iframe-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Proporção de 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.overlay-image{
+ 
+    position: absolute;
+    top: 30pt;
+    left: 45px;
+    width: 38%; /* Define a largura da overlay do meio até o canto esquerdo */
+    height: 95%;
+}
+
+/* Fonte pequena em amarelo (#FFD700) */
+.overlay-classificacao {
+    font-size: 18px;
+    /* color: #FFD700; */
+    color: transparent;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Texto em branco e grande para o título */
+.overlay-secretaria {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    /* color: white; */
+    color: transparent;
+}
+
+/* Título principal "O Reino de Noel" */
+.overlay-reinonoel {
+    font-size: 55px;
+    font-family: "Lobster", sans-serif;
+    font-weight: bold;
+    margin-bottom: 20px;
+    /* color: white; */
+    color: transparent;
+}
+
+/* Informações adicionais abaixo do título principal */
+.overlay-infos {
+    display: flex;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 10px;
+}
+
+.overlay-classificacao-bg{
+    display: flex;
+    align-items: center;
+}
+.overlay-classificacao-bg::after{
+    content: '';
+    width: 2px;
+    height: 22px;
+    display: block; /* Necessário para fazer o pseudo-elemento aparecer */
+    /* background-color: white; */
+    background-color: transparent;
+
+    margin-bottom: 5px;
+}
+.overlay-classificacao-star{
+    /* color: white; */
+    color: transparent;
+    margin-bottom: 5px;
+}
+/* Estilos para classificação e temporada */
+.overlay-classificacao-number {
+    font-size: 20px;
+    margin-right: 10px;
+    /* color: white; */
+    margin-left: 10px;
+    color: transparent;
+}
+
+.overlay-temporada {
+    font-size: 20px;
+    margin-right: 10px;
+    /* color: white; */
+    color: transparent;
+
+    margin-left: 10px;
+}
+
+
+.overlay-ano {
+    display: flex;
+    align-items: center;
+    /* color: white; */
+    color: transparent;
+
+    margin-left: 5px;
+}
+
+.overlay-ano-text {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+/* Caso você tenha um ícone ao lado do ano */
+.overlay-ano-image {
+    width: 20px;
+    height: 20px;
+}
+.overlay-text{
+    /* color: white; */
+    color: transparent;
+
+    font-size: 20px;
+}
+
+.icon-l {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+
+.icon-l .fa-square {
+    font-size: 24px;
+    /* color: #ffffff; Cor de fundo do quadrado */
+    color: transparent;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.icon-l .letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 16px;
+    /* color: black; */
+    color: transparent;
+
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+}
+

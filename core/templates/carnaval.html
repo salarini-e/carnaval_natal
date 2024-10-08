@@ -81,29 +81,6 @@
     <h1 id="programacao2" class="text-center my-5">
         FALTAM <span class="destaque">{{dias}} DIAS</span> PARA O NOSSO CARNAVAL
     </h1>
-    <div class="row">
-        <div class="col d-flex">
-            <section id="programacao">
-                {% for item in agenda %}
-                <div class="row mb-4">
-                    <div class="col d-flex">
-                        <div class="data d-flex">
-                            <div class="m-auto d-flex flex-column pt-2">
-                                <h1 class="text-center">{{item.data|date:"d/M" }}</h1>
-                                <h2 class="text-center">{{item.dia}}</h2>
-                            </div>
-                        </div>
-                        <div class="info d-flex flex-column">
-                            <h1>{{item.titulo}}</h1>
-                            <h2>{{item.dia}} ({{item.data|date:"d/M" }}) - {{item.hora}}</h2>
-                            <h2>{{item.local}}</h2>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </section>
-        </div>
-    </div>
     <div id="conheca" class="row mt-5">
         <div class="col d-flex">
             <section style="width: 1156px; margin: auto;">
@@ -159,7 +136,7 @@
     <div class="row">
         <div class="col p-3 d-flex" style="border-top: 1px solid rgba(0, 0, 0, 0.322); background-color: #F9CC3A; color: #3F2E63;">
             <span class="m-auto">
-                Desenvoldido em conjunto com <br><b class="text-uppercase">Secretaria de Ciência, Tecnologia, Inovação e Educação Profissionalizante e Superior.</b>
+                Desenvoldido em conjunto com <br><b class="text-uppercase">Secretaria de Ciência, Tecnologia, Inovação e Educação Profissionalizante e SUPERIOR</b>
                 <!-- <img src="/static/img/logo-sec-ciencia-tecnologia.png" alt="secretaria de ciencia e tecnologia de nova friburgo"> -->
             </span>
         </div>
@@ -172,6 +149,33 @@
         crossorigin="anonymous"></script>
     <script src="{% static 'js/slide.js' %}"></script>
     <script>
+
+        let setIndex = 0
+        let vClick={
+            {% for i in datas %}
+                "{{i.data|date:'dM'}}": false,
+            {% endfor %}
+        }
+
+        function openEvento(valor){            
+            if (vClick[valor]){
+                closeEventos()
+                for (const [key, value] of Object.entries(vClick)) {
+                    vClick[key]=false
+                }                
+            }else{
+                closeEventos()
+                document.getElementById(valor).style.display='block'                  
+                vClick[valor]=true
+                linkTo('#programacao')
+            }                        
+        }
+        function closeEventos(){
+            {% for i in datas %}
+                document.getElementById("{{i.data|date:'dM'}}").style.display='none'
+            {% endfor %}
+        }
+
         function linkTo(value) {
             window.location.href = value
         }
@@ -193,6 +197,7 @@
         }
         window.onload = function teste() {
             slide1()
+            closeEventos()
         }
     </script>
 </body>

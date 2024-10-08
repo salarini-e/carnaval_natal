@@ -69,41 +69,7 @@ header .col .navbar .nav a:hover{
     border-radius: 8px;
     padding: 30px 50px;    
 }
-#programacao{
-    width: 1156px;
-    margin: auto;
-}
-#programacao .data{
-    padding: 30px;
-    width: 280px;
-    height: 180px;
-    background-color: #5C6EE2;
-    color: white;
-}
-#programacao .info{
-    margin-left: 35px;
-    padding: 30px;
-    width: 880px;
-    height: 180px;
-    background-color: #D7518B;
-    color: white;
-}
-#programacao .data h1{
-    font-size: 35pt;
-    font-family: 'Londrina Solid', cursive;
-}
-#programacao .data h2{
-    font-size: 26pt;
-    font-family: 'Londrina Solid', cursive;
-}
-#programacao .info h1{
-    font-family: 'Londrina Solid', cursive;
-    font-size: 25pt;
-    margin-bottom: 25px;
-}
-#programacao .info h2{
-    font-size: 14pt;
-    font-weight: 300;
+  font-weight: 300;
 }
 p{
     text-indent: 30px;

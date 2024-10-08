@@ -1,0 +1,608 @@
+{% extends "natal/template.html" %}
+{% load static %}
+{% block custom_css %}
+<link rel="stylesheet" href="{% static " /css/natal/index.css"%}">
+{% endblock %}
+{% block JSTemplate %}
+{% load extras %}
+<!-- <script
+src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"
+defer
+></script> -->
+
+<script src="/static/js/scripts.js" defer></script>
+<!-- <script src="/static/js/neve.js" defer></script> -->
+<!-- <script src="/static/js/carousel.js" defer></script> -->
+<script src="/static/js/navbar.js" defer></script>
+
+{% endblock %}
+{% block Title%}Natal 2023 - Nova Friburgo{% endblock %}
+{% block main %}
+
+<main>
+  <section id="programacao" class="container pt-5">
+    <img class="mt-5" src="{% static 'imgs/banner-papai-noel.png' %}" alt="natal nova friburgo 2023">
+    <div>
+      <h1 class="mt-4">Programação</h1>
+      <div class="row">
+        <div class="col pt-4">
+          <div id="itens-container" class="m-auto d-flex flex-wrap">
+            <div class="item"  onclick="mostrarProg('01-12')">
+              <span class="m-auto">
+                01/12
+              </span>
+            </div>
+            <div class="item" onclick="mostrarProg('02-12')">
+              <span class="m-auto">
+                02/12
+              </span>
+            </div>
+            <div class="item" onclick="mostrarProg('08-12')">
+              <span class="class m-auto">
+                08/12
+              </span>
+            </div>
+            <div class="item" onclick="mostrarProg('09-12')">
+              <span class="class m-auto">
+                09/12
+              </span>
+            </div>
+            <div class="item" onclick="mostrarProg('14-12')">
+              <span class="class m-auto">
+                14/12
+              </span>
+            </div>
+            <div class="item" onclick="mostrarProg('15-12')">
+              <span class="class m-auto">
+                15/12
+              </span>
+            </div>
+            <div class="item" onclick="mostrarProg('16-12')">
+              <span class="class m-auto">
+                16/12
+              </span>
+            </div>
+            <div class="item" onclick="mostrarProg('21-12')">
+              <span class="class m-auto">
+                21/12
+              </span>
+            </div>
+            <div class="item" onclick="mostrarProg('22-12')">
+              <span class="class m-auto">
+                22/12
+              </span>
+            </div>
+            <div class="item" onclick="mostrarProg('23-12')">
+              <span class="class m-auto">
+                23/12
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col pt-4">
+          <div id="eventos-container" class="m-auto d-flex flex-wrap">
+            <div class="item" id="01-12">
+              <h2 class="display-2">Sexta-feira (01/12)</h2>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>19h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Banda Euterpe Friburguense</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>21h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Coro Acropolis</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+            </div>
+            <div class="item" id="02-12">
+              <h2 class="display-2">Sábado (02/12)</h2>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>16h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Bigode Serrano</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>18h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Jah Deu Samba</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+            </div>
+            <div class="item" id="08-12">
+              <h2 class="display-2">Sexta-Feira (08/12)</h2>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>19h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Coral igreja Presbiteriana</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>21h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Tazen Im Takt</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+            </div>
+            <div class="item" id="09-12">
+              <h2 class="display-2">Sábado (09/12)</h2>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>16h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Coral Arautos do Evangelho</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>18h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Inside Out</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>21h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Músicas Instrumentais</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+            </div>
+            <div class="item" id="14-12">
+              <h2 class="display-2">Quinta-Feira (14/12)<h2>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>19h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Espaço Vis Dança</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>21h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Quem Dança Não Segura a Criança</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+            </div>
+            <div class="item" id="15-12">
+              <h2 class="display-2">Sexta-feira (15/12)</h2>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>19h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Banda Educandário</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>21h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Coral Som da Vida</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+            </div>
+            <div class="item" id="16-12">
+              <h2 class="display-2">Sábado (16/12)</h2>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>16h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Laborative Dance</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>18h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Coral Canto Musarte</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>21h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Coral Igreja Ceifa(Participação Alunos ASSED)</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+            </div>
+            <div class="item" id="21-12">
+              <h2 class="display-2">Quinta-Feira (21/12)</h2>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>19h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Grupo Swissando</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>21h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Coro Batistas Unidos</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+            </div>
+            <div class="item" id="22-12">
+              <h2 class="display-2">Sexta-Feira (22/12)</h2>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>19h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>União das Orquestras das Assembléias de Deus</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>21h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Banda Campesina Friburguense</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>21h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Músicas Instrumentais</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+            </div>
+            <div class="item" id="23-12">
+              <h2 class="display-2">Sábado (23/12)<h2>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>18h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Ceia Solidária</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col div-hora">
+                        <div class="td-hora">
+                          <span class="hora">
+                            <span>21h</span>
+                          </span>
+                        </div>
+                        <div class="td-info">
+                          <span class="info">
+                            <p>Programação Musical</p>
+                            <p>Estação Livre</p>
+                          </span>
+                        </div>                    
+                    </div>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+</div>
+<style>
+  #programacao .col {
+    margin-top: 0 !important;
+  }
+
+  #programacao h1 {
+    font-size: 4vw;
+  }
+
+  #itens-container .item {
+    display: flex;
+    color: #219c44;
+    text-align: center;
+    padding: 20px;
+    width: 240px;
+    height: 110px;
+    border: 1px solid white;
+    margin: auto 5px 10px 5px;
+    background-color: #fff;
+  }
+
+  #itens-container .item:hover {
+    background-color: #219c44;
+    color: white;
+    cursor: pointer;
+  }
+
+  .item span {
+    margin: auto;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 2.8vw;
+  }
+  .item h2{
+    margin-bottom: 20px;
+  }
+  #eventos-container .item{
+    width: 100%;
+    margin: 10px;
+    display: none;
+    flex-direction: column;
+  }
+  .div-hora{
+    display: flex;
+    margin-bottom: 10px;
+  }
+  .td-hora{
+    width: 180px;
+    height: 120px;
+    background-color: white;
+    color: black;
+    display: flex;
+    margin-right: 10px;
+  }
+  .td-hora span{
+    font-size: 45pt;
+    margin: auto;
+  }
+  .td-info{
+    width: 100%;
+    height: 120px;
+    background-color: white;
+    color: black;
+    display: flex;
+  }
+  .info p:first-child{
+    font-size: 30pt;
+    font-weight: 600;
+  }
+  .info p:nth-child(2){
+    font-size: 20pt;
+  }
+  @media screen and (max-width: 824px) {
+    .item span {
+      font-size: 3.5vw;
+    }
+    .info p:first-child{
+    font-size: 12pt;
+    font-weight: 600;
+    text-align: center;
+    margin-top: auto;
+  }
+  .info{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .info p:nth-child(2){
+    font-size: 9pt;
+    text-align: center;
+    margin-bottom: auto;
+  }
+
+  }
+
+  @media screen and (max-width: 520px) {
+    #itens-container .item {
+      width: 40%;
+      height: 80px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .item span {
+      font-size: 4.5vw;
+    }
+    #programacao{
+      margin-bottom: 800px;
+    }
+  } 
+
+</style>
+
+<!-- Google tag (gtag.js) -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4W62Z5YEG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q4W62Z5YEG');
+
+  var divsItems = document.querySelectorAll('#eventos-container .item');
+
+  function mostrarProg(value){
+    divsItems.forEach(function(div) {
+      div.style.display = 'none';
+    });
+    elemento = document.getElementById(value)
+    elemento.style.display = 'flex'
+    var posicaoDesejada = elemento.offsetTop - 90;
+    window.scrollTo({
+        top: posicaoDesejada,
+        behavior: 'smooth', 
+    });
+}
+</script>
+{% endblock %}

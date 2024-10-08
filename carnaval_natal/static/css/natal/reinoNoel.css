@@ -1,0 +1,37 @@
+.reinoNoel-wrapper {
+    background: linear-gradient(to left, #a80000, #540000);
+}
+
+
+.top-banner-image{
+    width: 100%;
+    padding: 15px 30px;
+}
+
+.mid-banners{
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    gap: 32px;
+    justify-content: center;
+    position: relative;
+    margin-top: -136px;
+}
+.mid-banner-card{
+    width: 20vw;
+    border-radius: 5px;
+}
+
+@media(max-width: 768px){
+    .mid-banners{
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        gap: 32px;
+        justify-content: center;
+        position: relative;
+        margin-top: -136px;
+    }
+    .mid-banner-card{
+        width: 45vw;
+        border-radius: 5px;
+    }
+}

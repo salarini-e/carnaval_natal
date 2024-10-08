@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 
-from .models import AgremiacaoCarnaval, InformacoesDoSiteDeCarnaval as Informacoes, LegendasFotos, EventosCarnaval, ConcursosCarnaval
+from .models import AgremiacaoCarnaval, InformacoesDoSiteDeCarnaval as Informacoes, LegendasFotos, Fotos_Evento as EventosCarnaval, ConcursosCarnaval, Fotos_do_Index
 from .models import AgendaCarnaval as Agenda
 from datetime import date
 
@@ -15,7 +15,37 @@ from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 
 from .forms import AgremiacaoForm, ConcursosForm, EventosForm, InformacoesForm, AgendaForm, LegendaForm
+
+
 def carnaval(request):
+    info=Informacoes.objects.get(id=1)
+
+    # agenda=Agenda.objects.all().order_by('data')
+    datas=Agenda.objects.values('data', 'dia').distinct()    
+    
+    agenda_2=[]
+    for i in datas:
+        agenda=[]
+        locais=Agenda.objects.filter(data=i['data']).order_by('local').values('local').distinct()
+        for l in locais:
+            agenda.append(Agenda.objects.filter(data=i['data'], local=l['local']).order_by('hora'))
+        agenda_2.append(agenda)
+        # agenda_.append(Agenda.objects.filter(data=i['data']).order_by('hora').order_by('local'))
+
+    today=date.today()
+    carnaval=info.primeiro_dia_de_carnaval
+    delta=carnaval-today    
+
+    context={
+        'info': info,   
+        'datas': datas,
+        # 'agenda_': agenda_,
+        'agenda_2': agenda_2,
+        'dias': delta.days,
+    }
+    return render(request, 'new/index.html', context)
+
+def carnaval2022(request):    
     info=Informacoes.objects.get(id=1)
     agenda=Agenda.objects.all().order_by('data')
     today=date.today()
@@ -35,29 +65,45 @@ def agremiacao(request):
     context={
         'agremiacoes': agremiacoes
     }
-    return render(request, 'agremiacao.html', context)
+    return render(request, 'new/agremiacao.html', context)
+
+def programacao(request):
+    agenda=Agenda.objects.all().order_by('data')
+
+    datas=Agenda.objects.values('data', 'dia').distinct()    
+    
+    agenda_2=[]
+    for i in datas:
+        agenda=[]
+        locais=Agenda.objects.filter(data=i['data']).order_by('local').values('local').distinct()
+        for l in locais:
+            agenda.append(Agenda.objects.filter(data=i['data'], local=l['local']).order_by('hora'))
+        agenda_2.append(agenda)
+
+    context={
+        'agenda': agenda,
+        'agenda_2': agenda_2,
+        'datas': datas,
+    }
+    return render(request, 'new/programacao.html', context)
 
 def eventos(request):
     eventos=EventosCarnaval.objects.all()
     context={
         'eventos': eventos
     }
-    return render(request, 'eventos.html', context)
+    return render(request, 'new/eventos.html', context)
 
 def concursos(request):
     concursos=ConcursosCarnaval.objects.all()
     context={
         'concursos': concursos
     }
-    return render(request, 'concursos.html', context)
+    return render(request, 'new/concursos.html', context)
 
 def concursoFotos(request, dir):
-    lista=os.listdir(os.path.join(BASE_DIR, 'core/static/img/concursos/'+str(dir)))    
-    context={
-        'dir': dir,
-        'fotos': lista,        
-    }
-    return render(request, 'concursoFotos.html', context)
+    print(dir)
+    return render(request, 'new/concursoFotos.html', context)
 
 def fotos(request):
     try:   

@@ -1,0 +1,51 @@
+{% extends "natal/template.html" %} 
+{% block Title%}Sobre - Nova Friburgo{% endblock %}
+
+{% block main %}
+<canvas class="neve"></canvas>
+
+<main class="sobre">
+  <h1 class="display-1">Nova Friburgo</h1>
+
+  <section class="mt-5">
+    <div class="text-area">
+      <div>
+        <p class="text-justify">
+          Nova Friburgo foi fundada em 1818, a partir de um Decreto Real de D. João VI e foi batizada com inspiração no Cantão de Fribourg, na Suíça.           
+        </p>
+        <p class="text-justify">
+          A cidade está localizada no centro do estado do Rio de Janeiro, a aproximadamente 140 Km da capital, na região turística conhecida como Serra Verde Imperial. 
+        </p>
+        <p class="text-justify">
+          Localizada em meio a uma área preservada de Mata Atlântica, a cidade é rica em belezas naturais e culturais, e destaca-se na produção de flores de corte no país.
+        </p>
+      </div>
+      <img src="/static/imgs/haha.jpg" class="akaBackground" alt="natal nova friburgo nova-friburgo 2022" />
+    </div>
+
+    <div class="text-area">
+        <img
+        src="/static/imgs/thumb_507x340_cao-sentado-foto-joao-luccas-oliveira-17.jpg"
+        class="akaBackground"
+        alt="natal nova friburgo nova-friburgo 2022"
+      />
+      <div>
+        <p class="text-justify">
+          Nova Friburgo é cenário de diversos eventos culturais, gastronômicos, desportivos e de negócios. Possui um clima ameno e agradável, belas paisagens, vida cultural, um reconhecido polo de moda íntima, forte produção de cervejas artesanais e saborosa gastronomia cosmopolita, fruto da influência de diversos países que ajudaram a escrever a história da cidade.
+        </p>
+       
+      </div>
+
+    </div>
+  </section>
+</main>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XLD0663LS4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XLD0663LS4');
+</script>
+{% endblock %}

@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import AgendaCarnaval, AgremiacaoCarnaval, ConcursosCarnaval, EventosCarnaval, InformacoesDoSiteDeCarnaval, LegendasFotos
+from .models import AgendaCarnaval, AgremiacaoCarnaval, ConcursosCarnaval, Fotos_Evento as EventosCarnaval, InformacoesDoSiteDeCarnaval, LegendasFotos
 
 class InformacoesForm(ModelForm):
     class Meta:
