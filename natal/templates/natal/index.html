@@ -1,0 +1,229 @@
+{% extends 'natal/template.html' %}
+{% block css %}
+        <link rel="stylesheet" href="/static/css/natal/index1.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Sequel+Sans:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+{% block main %}
+    <div class="home-top-banner">
+        <img src="/static/imgs/home_top_banner.png" alt="banner-principal" class="home-top-banner-image">
+    </div>
+    <div class="home-novidades-natal">
+        <div class="home-novidades-natal-title"> 
+            <h1 class="novidades-natal-title">Novidades no Encanto de Natal</h1>
+        </div>
+        <div class="novidades-natal-cards">
+            <div class="mid-banner-card">
+                <a href="">
+                    <img src="/static/imgs/card-1.png" alt="card1" class="card-images">
+                </a>
+            </div>
+            <div class="mid-banner-card">
+                <img src="/static/imgs/card-2.png" alt="card1" class="card-images">
+            </div>
+            <div class="mid-banner-card">
+                <img src="/static/imgs/card-3.png" alt="card1" class="card-images">
+            </div>
+            <div class="mid-banner-card">
+                <img src="/static/imgs/card-4.png" alt="card1" class="card-images">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="home-reino-noel">
+        <div class="home-reino-noel-text">
+            <h1 class="home-reino-noel-title">
+                O Reino de Noel
+            </h1>
+            <h3 class="home-reino-noel-edicao">2024 - 4ª Edição - Um Encanto de Natal</h3>
+            <h3 class="home-reino-noel-edicao">De 15 de novembro a 31 de dezembro</h3>
+            <span class="home-reino-noel-descricao">"Um Encanto de Natal: O Reino de Noel" 
+                é mais do que uma decoração temática; 
+                é uma experiência completa que promete 
+                criar memórias inesquecíveis para todos
+                os visitantes. Traga sua família e amigos para Nova Friburgo e deixe-se envolver
+                pelo espírito natalino em um cenário de pura magia e encantamento. Aqui, os sonhos de Natal tornam-se realidade!</span>
+                <a href="/reinoNoel" target="_blank" class="home-reino-noel-botao">Saiba Mais</a>
+        </div>
+        <div class="home-reino-noel-image">
+            <img src="/static/imgs/Home-reinoNoel.jpg" alt="reinoNoelBanner" class="home-reino-noel-image-image">
+            <div class="overlay-reino-noel"></div>
+            <a href="/reinoNoel" target="_blank" class="home-reino-noel-botao-mobile">Saiba Mais</a>
+        </div>
+    </div>
+
+    <div class="em-alta-wrapper">
+        <h2 class="em-alta-title">Em alta</h2>
+        <div class="cards-em-alta-wrapper">
+            <div class="card-em-alta">
+                <a href="/desfiles" class="card-link" target="_blank">
+                    <span class="number">1</span>
+                    <img src="/static/imgs/emalta-banner1.png" alt="Desfiles" class="em-alta-card-image">
+                </a>
+            </div>
+
+            <div class="card-em-alta">
+                <a href="/teatros" class="card-link" target="_blank">
+                    <span class="number">2</span>
+                    <img src="/static/imgs/emalta-banner2.png" alt="Teatros" class="em-alta-card-image">
+                </a>
+            </div>
+
+            <div class="card-em-alta">
+                <a href="/casaPapaiNoel" class="card-link" target="_blank">
+                    <span class="number">3</span>
+                    <img src="/static/imgs/emalta-banner3.png" alt="Casa do Papai Noel" class="em-alta-card-image">
+                </a>
+            </div>
+            <div class="card-em-alta">
+                <a href="/decoracoes" class="card-link" target="_blank">
+                    <span class="number">4</span>
+                    <img src="/static/imgs/emalta-banner4.png" alt="Decoracoes" class="em-alta-card-image">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="programacao-wrapper">
+        <img src="/static/imgs/home-programacao.png" alt="banner-programacao" class="banner-programacao-image">
+        <div class="overlay-programacao"></div>
+        <a class="programacao-button" id="openOverlayProgramacaoIndex">Confira a programação completa</a>
+    </div>
+
+    <div class="home-encanto-natal-wrapper">
+        <div class="home-encanto-natal-video-web">
+                <iframe src="https://drive.google.com/file/d/13ez7FTtrTKqlpaqpp3ojsVUaUOeZIv5O/preview" allow="autoplay" class="iframe-home-encanto-natal"></iframe>
+        </div>
+        <div class="home-encanto-natal-text">
+            <h1 class="home-encanto-natal-title">
+                Um Encanto de Natal
+            </h1>
+            <h3 class="home-encanto-natal-edicao">2023 - 3ª Edição - Um Encanto de Natal: Fábrica de Sonhos</h3>
+            <h3 class="home-encanto-natal-edicao">Confira como foi a última edição</h3>
+            <span class="home-encanto-natal-descricao">Nova Friburgo se transformou em um cenário deslumbrante. O grandioso desfile natalino, com carros alegóricos e personagens festivos que ganharam vida ao longo da avenida iluminada, emocionando e trazendo a magia do Natal para centenas de famílias. Além disso, a última edição contou com decorações nos distritos e o espetáculo “Acender das Luzes”, teatro gratuito no Centro da cidade.</span>
+            <div class="home-encanto-natal-video-mobile">
+                <iframe src="https://drive.google.com/file/d/13ez7FTtrTKqlpaqpp3ojsVUaUOeZIv5O/preview" allow="autoplay" class="iframe-home-encanto-natal"></iframe>
+            </div>
+            <a href="/encantoNatal" target="_blank" class="home-encanto-natal-botao">Saiba Mais</a>
+        </div>
+    </div>
+
+    <div class="spotify-wrapper">
+        <div class="spotify-image-playlist">
+            <a href="https://open.spotify.com/playlist/2qRFnJzPgyx0J0nkVVFVKI?si=b9b6525ced54420f&nd=1&dlsi=4d12b1e0b7bf45b1" target="_blank">
+                <img src="/static/imgs/spotify-playlist.png" alt="codigospotify" class="spotify-image">
+            </a>
+        </div>
+        <div class="spotify-text-wrapper">
+            <span class="spotify-text-wrapper-text">Ouça nossa playlist especial de Natal no Spotify</span>
+        </div>
+    </div>
+
+    <!-- Estrutura do overlay -->
+    <div id="overlay" class="overlay">
+        <div class="overlay-content">
+            <button class="close-btn" id="closeBtn">&times;</button>
+            <div class="overlay-text" id="overlayText">Em breve</div>
+            <div class="countdown" id="countdown"></div>
+            <div id="snowflakes-container"></div>
+        </div>
+    </div>
+
+    <script>
+        // Função para abrir o overlay
+        function openOverlay(text) {
+            const overlay = document.getElementById('overlay');
+            const overlayText = document.getElementById('overlayText');
+            const countdown = document.getElementById('countdown');
+            
+            // Define o texto do overlay dinamicamente
+            overlayText.innerHTML = text;
+    
+            if (text.includes("Programação")) {
+                countdown.style.display = 'block';
+                startCountdown();
+            } else {
+                countdown.style.display = 'none';
+            }
+    
+            // Exibe o overlay
+            overlay.classList.add('show');
+        }
+    
+        // Função para fechar o overlay
+        function closeOverlay() {
+            const overlay = document.getElementById('overlay');
+            overlay.classList.remove('show');
+        }
+    
+        // Função para iniciar a contagem regressiva
+        function startCountdown() {
+            const christmas = new Date("December 25, 2024 00:00:00").getTime();
+            const countdownElement = document.getElementById('countdown');
+    
+            const interval = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = christmas - now;
+    
+                if (distance < 0) {
+                    clearInterval(interval);
+                    countdownElement.innerHTML = "Feliz Natal!";
+                } else {
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+                    countdownElement.innerHTML = `Faltam ${days} dias, ${hours} horas, ${minutes} minutos, e ${seconds} segundos para o Natal!`;
+                }
+            }, 1000);
+        }
+        // Event listeners para os links de Programação e Notícias
+        document.getElementById('openOverlayProgramacaoIndex').addEventListener('click', function() {
+            openOverlay('Aguarde, a Programação de Natal será divulgada em breve!');
+        });
+    
+        // BOTÃO QUE FECHA O OVERLAY
+        document.getElementById('closeBtn').addEventListener('click', function() {
+            closeOverlay();
+        });
+    
+        // Função para criar flocos de neve
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.innerHTML = '❄'; 
+    
+            snowflake.style.left = Math.random() * 100 + 'vw';
+    
+            snowflake.style.animationDuration = Math.random() * 3 + 7 + 's';
+    
+            snowflake.style.fontSize = Math.random() * 10 + 15 + 'px';
+    
+            document.getElementById('snowflakes-container').appendChild(snowflake);
+    
+            setTimeout(() => {
+                snowflake.remove();
+            }, 10000); 
+        }
+        // Gera novos flocos de neve a cada 300ms
+        setInterval(createSnowflake, 300);
+    
+        
+        // Fechar o overlay ao clicar fora da área central
+        document.getElementById('overlay').addEventListener('click', function(event) {
+            if (event.target === document.getElementById('overlay')) {
+                closeOverlay();
+            }
+        });
+    
+    
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            const menuButton = document.querySelector('.menu-button');
+            navMenu.classList.toggle('open');
+            menuButton.classList.toggle('open');
+        }
+    </script>
+{% endblock %}

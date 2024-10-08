@@ -1,0 +1,487 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to left, #a80000, #540000);
+}
+
+.home-top-banner-image{
+    height: 90vh;
+    width: 100%;
+}
+.home-novidades-natal{
+    display: flex;
+    flex-direction: column;
+}
+.novidades-natal-title{
+    padding: 0 30px;
+    color: white;
+    font-size: 2vw;
+}
+
+.home-novidades-natal-title::after{
+    content: '';
+    height: 1px;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+}
+
+.novidades-natal-cards {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Colunas flexíveis */
+    gap: 32px;
+    justify-content: center;
+    padding: 0 30px;
+    width: 100%;
+}
+
+.mid-banner-card {
+    max-width: 25vw; /* Mantenha apenas o max-width */
+    border-radius: 5px;
+    width: 100%; /* 100% da coluna */
+}
+.card-images {
+    max-width: 100%; /* Responsividade */
+    height: auto; /* Ajusta a altura proporcionalmente */
+    border-radius: 5px;
+}
+.home-reino-noel{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 30px;
+}
+.home-reino-noel-text{
+    width: 100%;
+    max-width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.home-reino-noel-image{
+    width: 100%;
+    margin-left: 15px;
+    max-width: 58vw;
+}
+.home-reino-noel-image-image{
+    width: 100%;
+    max-width: 58vw;
+    border-radius: 10px;
+}
+
+.home-reino-noel-title{
+    font-size: 3.5vw;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.home-encanto-natal-title{
+    font-size: 3vw;
+    color: white;
+    margin-bottom: 15px;
+}
+.home-reino-noel-edicao{
+    font-size: 1.6vw;
+    color: white;
+}
+.home-encanto-natal-edicao{
+    font-size: 1.2vw;
+    color: white;
+}
+.home-reino-noel-descricao{
+    color: white;
+    margin-top: 20px;
+    font-size: 1.3vw;
+}
+.home-encanto-natal-descricao{
+    color: white;
+    margin-top: 20px;
+    font-size: 1.0vw;
+}
+.home-reino-noel-botao, .home-encanto-natal-botao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    height: 40px;
+    margin-top: 30px;
+    font-weight: 700;
+    max-width: 13vw;
+    transition: all 0.4s ease-in-out;
+    padding: 0 5px;
+}
+.home-reino-noel-botao:hover, .home-encanto-natal-botao:hover{
+    background-color: #0d2507;
+    color: white;
+}
+.overlay-reino-noel{
+    display: none;
+}
+.home-reino-noel-botao-mobile{
+    display: none;
+}
+
+.em-alta-wrapper {
+    margin-top: 45px;
+    width: 100%;
+}
+
+.em-alta-title {
+    color: white;
+    padding: 0 30px;
+    margin-bottom: 20px;
+}
+
+.cards-em-alta-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    justify-content: center;
+    padding: 0 30px;
+    width: 100%;
+}
+
+.card-em-alta {
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    width: 100vw;
+    max-width: 22vw;
+}
+
+.card-link {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.number {
+    font-family: 'Sequel Sans', sans-serif;
+    top: 10px;
+    left: 10px;
+    font-size: 16rem;
+    color: #0d2507;
+    -webkit-text-stroke-width: 3px; /* largura da borda */
+    -webkit-text-stroke-color: #fff; /* cor da borda */
+    padding: 10px; 
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block; 
+}
+
+.em-alta-card-image{
+    position: relative;
+    margin-left: -60px;
+    max-width: 15vw;
+    height: 220px;
+}
+.programacao-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.banner-programacao-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.overlay-programacao {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.programacao-button {
+    position: absolute; 
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    background-color:white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: none;
+    text-decoration: none;
+    font-family: 'Sequel Sans', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.4s ease-in-out;
+    font-size: 2vw;
+    cursor: pointer;
+}
+.overlay-programacao {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 37, 7, 0.7);
+}
+
+.programacao-button:hover{
+    background-color: rgb(160, 160, 160);
+}
+
+.home-encanto-natal-wrapper{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+    padding: 0 30px;
+}
+.home-encanto-natal-video-web{
+    width: 100%;
+    max-width: 50vw;
+    border-radius: 15px;
+}
+.home-encanto-natal-video-mobile{
+    display: none;
+}
+.home-encanto-natal-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 40vw;
+    margin-left: 15px;
+}
+.iframe-home-encanto-natal {
+    width: 100%;
+    max-width: 55vw;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: 15px;
+}
+
+.spotify-wrapper{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 0 16px;
+    margin-top: 40px;
+}
+.spotify-image{
+    width: 100%;
+    max-width: 250px;
+    margin: 10px auto auto auto;
+}
+.spotify-text-wrapper{
+    display: flex;
+    /* align-items: center; */
+    margin-left: 10px;
+}
+.spotify-text-wrapper-text{
+    color: white;
+    font-size: 2vw;
+    margin: auto;
+}
+
+
+
+@media(max-width:1200px){
+    .cards-em-alta-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+    .card-em-alta {
+        max-width: 45vw;
+    }
+    .em-alta-card-image{
+        max-width: 40vw;
+    }
+}
+
+@media(max-width:690px){
+    .em-alta-title{
+        padding: 0 16px;
+        margin-bottom: 0px;
+    }
+    .cards-em-alta-wrapper {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0 16px;
+    }
+    .card-em-alta {
+        max-width: 90vw;
+    }
+    .em-alta-card-image{
+        max-width: 90vw;
+    }
+}
+@media(max-width: 960px){
+    .novidades-natal-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+        padding: 0 16px;
+    }
+    .mid-banner-card {
+        max-width: 45vw; /* Mantenha apenas o max-width */
+        
+    }
+    .novidades-natal-title{
+        padding: 0 16px;
+    }
+}
+
+@media(max-width: 400px){
+    .novidades-natal-cards {
+        grid-template-columns: repeat(1, 1fr); /* Colunas flexíveis */
+        gap: 5px;
+        padding: 0 16px;
+    }
+    .mid-banner-card {
+        max-width: 70vw; /* Mantenha apenas o max-width */
+        margin: auto;
+        
+    }
+    .novidades-natal-title{
+        padding: 0 16px;
+        font-size: 4vw;
+    }
+   
+}
+@media(max-width:768px){
+    .home-reino-noel{
+        flex-direction: column;
+        padding: 0 16px;
+    }
+    .home-reino-noel-text{
+        max-width: 100vw;
+    }
+    .home-reino-noel-title{
+        font-size: 6.5vw;
+    }
+    .home-reino-noel-edicao{
+        font-size: 4.6vw;
+    }
+    .home-reino-noel-descricao{
+        font-size: 4.3vw;
+    }
+    .home-reino-noel-botao{
+        display: none;
+    }
+    .home-reino-noel-image{
+        margin-left: 0px;
+        max-width: 100vw;
+        margin-top: 10px;
+        position: relative;
+    }
+    .home-reino-noel-image-image{
+        max-width: 100vw;
+        display: block; 
+    }
+    .overlay-reino-noel {
+        display: flex;
+        position: absolute; 
+        top: 0;
+        left: 0;
+        width: 100%; /* Cobre toda a imagem */
+        height: 100%; /* Cobre toda a imagem */
+        background-color: rgba(0, 0, 0, 0.5); /* Cor do overlay escura com transparência */
+        border-radius: 10px;
+    }
+    
+    .home-reino-noel-botao-mobile {
+        display: flex;
+        position: absolute; 
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        background-color: white;
+        color: black;
+        border-radius: 5px;
+        height: 40px;
+        font-weight: 700;
+        max-width: 50vw;
+        transition: all 0.4s ease-in-out;
+        padding: 0 5px;
+    }
+    .home-reino-noel-botao-mobile:hover{
+        background-color: rgb(160, 160, 160);
+    }
+    .novidades-natal-cards {
+        padding: 0 16px;
+    }
+    .novidades-natal-title{
+        padding: 0 16px;
+        font-size: 4.3vw;
+    }
+    .spotify-image{
+        width: 100%;
+        max-width: 100px;
+    }
+    .spotify-image{
+        margin: 10px auto auto auto;
+    }
+    .spotify-text-wrapper-text{
+        font-size: 3.6vw;
+    }
+    .spotify-wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+@media(max-width:930px){
+    .home-encanto-natal-wrapper{
+        flex-direction: column;
+        width: 100%;
+    }
+    .home-encanto-natal-video-web{
+        display: none;
+    }
+    .home-encanto-natal-video-mobile{
+        display: flex;
+    }
+    .home-encanto-natal-text{
+        margin-left: 0px;
+        max-width: 100vw;
+        justify-content: center;
+    }
+    .home-encanto-natal-video-mobile{
+        padding: 15px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .iframe-home-encanto-natal{
+        max-width: 100vw;
+    }
+    .home-encanto-natal-wrapper{
+        padding: 0 16px;
+    }
+    .home-encanto-natal-botao{
+        margin-top: 0px;
+        max-width: 100vw;
+        height: 25px;
+    }
+    .home-encanto-natal-title{
+        font-size: 6.5vw;
+    }
+    .home-encanto-natal-edicao{
+        font-size: 4.6vw;
+    }
+    .home-encanto-natal-descricao{
+        font-size: 4.3vw;
+    }
+}
+
+

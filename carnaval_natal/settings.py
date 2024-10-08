@@ -3,21 +3,22 @@ from pathlib import Path
 from .envvars import load_envars
 
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 env_vars=load_envars(BASE_DIR)
 
+db_host = env_vars['db_host']
 db_name = env_vars['db_name']
 db_user = env_vars['db_user']
+db_host=env_vars['db_host']
 db_passwd = env_vars['db_pw']
+sqlite_mode = env_vars['sqlite_mode']
 SECRET_KEY = env_vars['django_secret_key']
-debug_mode = env_vars['debug_mode']
 email_user = env_vars['email_sistema']
 email_pass = env_vars['email_pw']
 
-DEBUG = debug_mode
+DEBUG = env_vars['debug_mode']
 
 ALLOWED_HOSTS = ['*']
 
@@ -30,13 +31,16 @@ except:
 
 
 INSTALLED_APPS = [
+    #Stardard apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',   
-    'core' 
+    'django.contrib.staticfiles',
+    #Custom apps
+    'core',
+    'natal'
 ]
 
 MIDDLEWARE = [
@@ -69,18 +73,26 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'carnaval_natal.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-
-        'NAME': db_name,
-        'PORT': '',
-
-        'USER': db_user,
-        'PASSWORD': db_passwd,
-        'HOST': '127.0.0.1',
+if sqlite_mode:
+    DATABASES = {
+        'default' : {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(PROJECT_ROOT, f'{db_name}.sqlite3'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default' : {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': db_name,
+            'PORT': '',
+
+            'USER': db_user,
+            'PASSWORD': db_passwd,
+            'HOST': db_host,
+        }
+    }
+    
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -111,13 +123,16 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = '/home/turismo/site/turismo/equipamentos/static'
+MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'carnaval_natal/media')
 
-LOGIN_URL='/s/login'
+LOGIN_URL='/admin'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_URL = '/'
-LOGOUT_REDIRECT_URL = '/s/login'
+LOGOUT_REDIRECT_URL = '/'
+
+
 
 # JLB para SSL
 
