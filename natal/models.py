@@ -56,12 +56,17 @@ class Banner(models.Model):
     nome = models.CharField(max_length=64, verbose_name='NomeBanner')   
     banner_image=models.ImageField(upload_to='banners/', null=True, blank=True)
     
-
-# class Sections(models.Model):
-#     titulo = models.CharField(max_length=200, verbose_name='Título')
-#     slug = models.SlugField(unique=True, max_length=200)
-
 from django.utils import timezone
+
+class Sections(models.Model):
+    titulo = models.CharField(max_length=200, verbose_name='Título')
+    slug = models.SlugField(unique=True, max_length=200)
+    subtitulo = models.CharField(max_length=300, verbose_name='Subtítulo')
+    descricao = models.CharField(max_length=10000, verbose_name='Descrição')
+    section_image = models.ImageField(upload_to='sections/', null=True, blank=True)
+    section_video = models.CharField(max_length=300, verbose_name='Iframe', null=True, blank=True)
+    ativa = models.BooleanField(default=True, verbose_name='Ativa')
+    dt_insercao = models.DateTimeField(default=timezone.now, verbose_name='Data de Publicação')
 
 class Noticia(models.Model):
     titulo = models.CharField(max_length=200, verbose_name='Título')

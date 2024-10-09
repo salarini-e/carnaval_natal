@@ -24,3 +24,10 @@ class BannerAdmin(admin.ModelAdmin):
     banner_image_display.short_description = 'Imagem'
 admin.site.register(Noticia)
 
+class SectionsAdmin(admin.ModelAdmin):
+    list_display = ('titulo', 'slug', 'subtitulo', 'descricao', 'section_image', 'section_video')
+    search_fields = ('titulo', 'subtitulo', 'descricao', 'slug')
+    list_filter = ('titulo', 'subtitulo')
+    prepopulated_fields = {'slug': ('titulo',)}
+
+admin.site.register(Sections, SectionsAdmin)

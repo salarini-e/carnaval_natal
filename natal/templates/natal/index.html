@@ -29,7 +29,7 @@
         </div>
     </div>
 
-    <div class="home-reino-noel">
+    <!-- <div class="home-reino-noel">
         <div class="home-reino-noel-text">
             <h1 class="home-reino-noel-title">
                 O Reino de Noel
@@ -48,6 +48,34 @@
             <img src="/static/imgs/Home-reinoNoel.jpg" alt="reinoNoelBanner" class="home-reino-noel-image-image">
             <div class="overlay-reino-noel"></div>
             <a href="/reinoNoel" target="_blank" class="home-reino-noel-botao-mobile">Saiba Mais</a>
+        </div>
+    </div> -->
+    <div class="home-reino-noel">
+        <div class="home-reino-noel-text">
+            <h1 class="home-reino-noel-title">{{ reino_de_noel.titulo }}</h1>
+            <h3 class="home-reino-noel-edicao">{{reino_de_noel.subtitulo |safe}}</h3>
+            
+            <span class="home-reino-noel-descricao">{{ reino_de_noel.descricao }}</span>
+            <a href="/reinoNoel" target="_blank" class="home-reino-noel-botao">Saiba Mais</a>
+        </div>
+    
+        <div class="home-reino-noel-image">
+            {% if reino_de_noel.section_image %}
+                <!-- Se for uma imagem -->
+                <img src="{{ reino_de_noel.section_image.url }}" alt="{{ reino_de_noel.titulo }}" class="home-reino-noel-image-image">
+                <div class="overlay-reino-noel"></div>
+                <a href="/reinoNoel" target="_blank" class="home-reino-noel-botao-mobile">Saiba Mais</a>
+            {% elif reino_de_noel.section_video %}
+                <!-- Se for um iframe -->
+                <div class="home-encanto-natal-video-mobile">
+                    <iframe src="{{ reino_de_noel.section_video }}" allow="autoplay" class="iframe-home-encanto-natal"></iframe>
+                </div>
+            {% else %}
+                <img src="/static/imgs/Home-reinoNoel.jpg" alt="reinoNoelBanner" class="home-reino-noel-image-image">
+                <div class="overlay-reino-noel"></div>
+                <a href="/reinoNoel" target="_blank" class="home-reino-noel-botao-mobile">Saiba Mais</a>
+
+            {% endif %}
         </div>
     </div>
 
@@ -89,7 +117,41 @@
         <a class="programacao-button" id="openOverlayProgramacaoIndex">Confira a programação completa</a>
     </div>
 
-    <div class="home-encanto-natal-wrapper">
+
+    {% for section in sections %}
+    {% if section.section_image %}
+        <div class="home-reino-noel">
+            <div class="home-reino-noel-text">
+                <h1 class="home-reino-noel-title">{{ section.titulo }}</h1>
+                <h3 class="home-reino-noel-edicao">{{ section.subtitulo | safe }}</h3>
+                <span class="home-reino-noel-descricao">{{ section.descricao }}</span>
+                <a href="/{{section.slug}}" target="_blank" class="home-reino-noel-botao">Saiba Mais</a>
+            </div>
+            <div class="home-reino-noel-image">
+                <img src="{{ section.section_image.url }}" alt="{{ section.titulo }}" class="home-reino-noel-image-image">
+                <div class="overlay-reino-noel"></div>
+                <a href="/{{section.slug}}" target="_blank" class="home-reino-noel-botao-mobile">Saiba Mais</a>
+            </div>
+        </div>
+    {% elif section.section_video %}
+        <div class="home-encanto-natal-wrapper">
+            <div class="home-encanto-natal-video-web">
+                <iframe src="{{ section.section_video }}" allow="autoplay" class="iframe-home-encanto-natal"></iframe>
+            </div>
+            <div class="home-encanto-natal-text">
+                <h1 class="home-encanto-natal-title">{{ section.titulo }}</h1>
+                <h3 class="home-encanto-natal-edicao">{{ section.subtitulo | safe }}</h3>
+                <span class="home-encanto-natal-descricao">{{ section.descricao }}</span>
+                <div class="home-encanto-natal-video-mobile">
+                    <iframe src="{{ section.section_video }}" allow="autoplay" class="iframe-home-encanto-natal"></iframe>
+                </div>
+                <a href="/{{section.slug}}" target="_blank" class="home-encanto-natal-botao">Saiba Mais</a>
+            </div>
+        </div>
+    {% endif %}
+    {% endfor %}
+    
+    <!-- <div class="home-encanto-natal-wrapper">
         <div class="home-encanto-natal-video-web">
                 <iframe src="https://drive.google.com/file/d/13ez7FTtrTKqlpaqpp3ojsVUaUOeZIv5O/preview" allow="autoplay" class="iframe-home-encanto-natal"></iframe>
         </div>
@@ -105,7 +167,7 @@
             </div>
             <a href="/encantoNatal" target="_blank" class="home-encanto-natal-botao">Saiba Mais</a>
         </div>
-    </div>
+    </div> -->
 
     <div class="spotify-wrapper">
         <div class="spotify-image-playlist">

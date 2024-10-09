@@ -25,6 +25,11 @@ def index(req):
     # PEGAR AS NOTÍCIAS
     ultimas_noticias = Noticia.objects.filter(publicado=True).order_by('-publicado_em')[:4]
 
+    # CARREGAR AS SECTIONS, EXCETO REINO DE NOEL
+    sections = Sections.objects.filter(ativa=True).exclude(slug='reinoNoel').order_by('-dt_insercao')
+
+    # No final da view, para pegar diretamente a section com slug "o-reino-de-noel"
+    reino_de_noel = Sections.objects.filter(slug='reinoNoel').first()
     index=[]
     for data in datas:
         index.append(str(data['hora'].date()))
@@ -39,6 +44,7 @@ def index(req):
                 i[1].append(p)    
 
     context = {
+        'sections': sections,
         'bannerPrincipalHomeWeb': bannerPrincipalHomeWeb,
         'programacao': programacao,
         'parceiros': Parceiro.objects.all(),
@@ -46,6 +52,7 @@ def index(req):
         'testemonios': Testemunho.objects.all(),
         'galeria_images': Galeria.objects.all(),
         'ultimas_noticias': ultimas_noticias,
+        'reino_de_noel': reino_de_noel, 
     }
     
     return render(req, "natal/index.html", context)
