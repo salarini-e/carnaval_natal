@@ -52,12 +52,10 @@ class Programacao(models.Model):
         return '%s - %s - %s' % (self.hora, self.local, self.nome)
     
 
-<<<<<<< HEAD
 class Banner(models.Model):
     nome = models.CharField(max_length=64, verbose_name='NomeBanner')   
     banner_image=models.ImageField(upload_to='banners/', null=True, blank=True)
     
-=======
 from django.utils import timezone
 
 class Noticia(models.Model):
@@ -76,4 +74,4 @@ class Noticia(models.Model):
 
     def __str__(self):
         return self.titulo
->>>>>>> 7cad6255b23cf8156051f49b958d394a1db6f4c8
+
