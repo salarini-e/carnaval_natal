@@ -60,27 +60,27 @@
               <span class="sr-only">Next</span>
             </a>
         </div>
-    <div class="text-infos">
-        <h1 class="text-infos-title">Traga sua família e amigos para embarcar nesse reino encantado de luzes, cores e emoções! 
-        </h1>
-       
-
-        <div class="text-infos-content">
-            <span class="text-infos-content-text">
-                Neste Natal, Nova Friburgo apresenta o teatro "A Missão da Estrela Guia", que acontecerá em frente à Prefeitura, e vai ser incrível! <br><br>
-                Prepare-se para uma apresentação que unirá magia, arte e emoção, envolvendo o público em uma narrativa cativante que celebra o verdadeiro espírito natalino. Com um cenário e performances deslumbrantes, "A Missão da Estrela Guia" será um ponto alto das festividades, despertando a imaginação de todos. <br><br>
-                Esteja preparado para uma  noite repleta de emoção e surpresas. Se junte a nós e faça parte desse momento único que certamente ficará na memória de todos. O Natal em Nova Friburgo nunca foi tão emocionante!
-            </span>
-           
-        </div>
-    </div>
-
-    <!-- <div class="previa">
-        <h1 class="text-infos-title-previa">Prévia</h1>
-        <div class="iframe-wrapper">
-            <iframe src="https://drive.google.com/file/d/13ez7FTtrTKqlpaqpp3ojsVUaUOeZIv5O/preview"  allow="autoplay" class="iframe-reino-noel"></iframe>
-        </div>
-    </div> -->
+        <div class="text-infos">
+          <h1 class="text-infos-title">{{descricao.titulo | safe}}</h1>
+          <div class="text-infos-content">
+              <span class="text-infos-content-text">
+                  {{descricao.descricao | safe}}
+              </span>
+             
+          </div>
+      </div>
+    {% if descricao.section_image or descricao.section_video %}
+  <div class="previa">
+      <h1 class="text-infos-title-previa">Prévia</h1>
+      <div class="iframe-wrapper">
+          {% if descricao.section_video %}
+              <iframe src="{{ descricao.section_video }}" allow="autoplay" class="iframe-reino-noel"></iframe>
+          {% elif descricao.section_image %}
+              <img src="{{ descricao.section_image.url }}" alt="{{descricao.titulo | safe}}" class="imagem-reino-noel" />
+          {% endif %}
+      </div>
+  </div>
+  {% endif %}
     
 </div>
 

@@ -48,7 +48,7 @@ def index(req):
         'bannerPrincipalHomeWeb': bannerPrincipalHomeWeb,
         'programacao': programacao,
         'parceiros': Parceiro.objects.all(),
-        'eventos': Evento.objects.all(),
+        'atracoes': Atracao.objects.all(),
         'testemonios': Testemunho.objects.all(),
         'galeria_images': Galeria.objects.all(),
         'ultimas_noticias': ultimas_noticias,
@@ -75,44 +75,57 @@ def casaDoPapaiNoel(req):
 
 def reinoNoel(req):
     bannerPrincipalReinoNoelWeb = Banner.objects.filter(nome='BannerPrincipalReinoNoelWeb').first()
+
+    descricao = Atracao.objects.filter(slug='reinoNoel').first()
     
     context={
         'bannerPrincipalReinoNoelWeb': bannerPrincipalReinoNoelWeb,
+        'descricao': descricao,
     }
     return render(req,'natal/reinoNoel.html', context)
 
 def decoracoes(req):
+    descricao = Atracao.objects.filter(slug='decoracoes').first()
     bannerPrincipalDecoracoesWeb = Banner.objects.filter(nome='BannerPrincipalDecoracoesWeb').first()
     context={
+        'descricao': descricao,
         'bannerPrincipalDecoracoesWeb': bannerPrincipalDecoracoesWeb,
     }
 
     return render(req, 'natal/decoracoes.html', context)
 
 def desfiles(req):
+    descricao = Atracao.objects.filter(slug='desfiles').first()
     bannerPrincipalDesfilesWeb = Banner.objects.filter(nome='BannerPrincipalDesfilesWeb').first()
     context={
+        'descricao': descricao,
         'bannerPrincipalDesfilesWeb': bannerPrincipalDesfilesWeb,
     }
     return render(req, 'natal/desfiles.html', context)
 
 def teatros(req):
+    descricao = Atracao.objects.filter(slug='teatros').first()
     bannerPrincipalTeatrosWeb = Banner.objects.filter(nome='BannerPrincipalTeatrosWeb').first()
     context={
+        'descricao': descricao,
         'bannerPrincipalTeatrosWeb':bannerPrincipalTeatrosWeb,
     }
     return render(req, 'natal/teatros.html', context)
 
 def casaPapaiNoel(req):
+    descricao = Atracao.objects.filter(slug='casaPapaiNoel').first()
     bannerPrincipalCasaPapaiNoelWeb = Banner.objects.filter(nome='BannerPrincipalCasaPapaiNoelWeb').first()
     context={
+        'descricao': descricao,
         'bannerPrincipalCasaPapaiNoelWeb':bannerPrincipalCasaPapaiNoelWeb,
     }
     return render(req, 'natal/casaPapaiNoel.html', context)
 
 def encantoNatal(req):
+    descricao = Atracao.objects.filter(slug='encantoNatal').first()
     bannerPrincipalEncantoNatalWeb = Banner.objects.filter(nome='BannerPrincipalEncantoNatalWeb').first()
     context={
+        'descricao': descricao,
         'bannerPrincipalEncantoNatalWeb':bannerPrincipalEncantoNatalWeb,
     }
     return render (req, 'natal/encantoNatal.html', context)

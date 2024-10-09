@@ -334,3 +334,7 @@
     font-family: 'Arial', sans-serif;
 }
 
+.imagem-reino-noel{
+    display: flex;
+    width: 100%;
+}

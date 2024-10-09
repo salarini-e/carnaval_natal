@@ -61,9 +61,17 @@
             </a>
         </div>
     
+        <div class="text-infos">
+          <h1 class="text-infos-title">{{descricao.titulo | safe}}</h1>
+          <div class="text-infos-content">
+              <span class="text-infos-content-text">
+                  {{descricao.descricao | safe}}
+              </span>
+             
+          </div>
+      </div>
 
-
-    <div class="text-infos">
+    <!-- <div class="text-infos">
         <h1 class="text-infos-title">2024 - 4ª Edição - Um Encanto de Natal </h1>
         <h1 class="text-infos-title">De 15 de novembro a 31 de dezembro</h1>
 
@@ -91,14 +99,26 @@
             </span>
            
         </div>
-    </div>
+    </div> -->
 
-    <div class="previa">
+  {% if descricao.section_image or descricao.section_video %}
+  <div class="previa">
+      <h1 class="text-infos-title-previa">Prévia</h1>
+      <div class="iframe-wrapper">
+          {% if descricao.section_video %}
+              <iframe src="{{ descricao.section_video }}" allow="autoplay" class="iframe-reino-noel"></iframe>
+          {% elif descricao.section_image %}
+              <img src="{{ descricao.section_image.url }}" alt="{{descricao.titulo | safe}}" class="imagem-reino-noel" />
+          {% endif %}
+      </div>
+  </div>
+  {% endif %}
+    <!-- <div class="previa">
         <h1 class="text-infos-title-previa">Prévia</h1>
         <div class="iframe-wrapper">
             <iframe src="https://drive.google.com/file/d/13ez7FTtrTKqlpaqpp3ojsVUaUOeZIv5O/preview" allow="autoplay" class="iframe-reino-noel"></iframe>
         </div>
-    </div>
+    </div> -->
     
 </div>
 {% endblock %}

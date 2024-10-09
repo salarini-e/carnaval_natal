@@ -15,11 +15,6 @@ class Parceiro_Casa_Papai_Noel(models.Model):
     logo=models.ImageField(upload_to='parceiros_logos', verbose_name="Imagem para logo do parceiro") 
     site=models.CharField(verbose_name="URL do site do parceiro", max_length=50, null=True)
 
-class Evento(models.Model):
-    titulo=models.CharField(max_length=50, verbose_name="Título do evento")
-    banner=models.ImageField(upload_to='eventos_banners', verbose_name="Banner para divulgação do evento")
-    data=models.DateField(auto_now=False, auto_now_add=False) 
-    descricao=models.TextField(max_length=150)
 
 class Testemunho(models.Model):
     autor=models.CharField(max_length=50, verbose_name="Nome da pessoa")
@@ -67,6 +62,15 @@ class Sections(models.Model):
     section_video = models.CharField(max_length=300, verbose_name='Iframe', null=True, blank=True)
     ativa = models.BooleanField(default=True, verbose_name='Ativa')
     dt_insercao = models.DateTimeField(default=timezone.now, verbose_name='Data de Publicação')
+
+
+class Atracao(models.Model):
+    nome = models.CharField(max_length=50, verbose_name='Nome', null=True, blank=True)
+    titulo = models.CharField(max_length=200, verbose_name='Título')
+    slug = models.SlugField(unique=True, max_length=200, default='default-slug')
+    descricao = models.CharField(max_length=10000, verbose_name='Descrição')
+    section_video = models.CharField(max_length=300, verbose_name='Iframe', null=True, blank=True)
+    section_image = models.ImageField(upload_to='atracoes/', null=True, blank=True)
 
 class Noticia(models.Model):
     titulo = models.CharField(max_length=200, verbose_name='Título')

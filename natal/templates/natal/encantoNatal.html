@@ -60,29 +60,30 @@
               <span class="sr-only">Next</span>
             </a>
         </div>
-    <div class="text-infos">
-        <h1 class="text-infos-title">O Encanto de Natal 
-        </h1>
-       
+   
 
-        <div class="text-infos-content">
-            <span class="text-infos-content-text">
-                O Encanto de Natal em é uma celebração que une tradição, cultura e a alegria do convívio familiar, promovendo experiências inesquecíveis. <br><br>
-
-                Neste evento especial, você encontrará uma programação diversificada com desfiles, teatros e atividades que refletem o verdadeiro espírito natalino. São momentos de união, solidariedade e esperança que nos lembram da importância de estarmos juntos, celebrando o amor e a amizade. <br><br>
-
-                Venha vivenciar essa atmosfera mágica e acolhedora que resgata os valores do Natal. Em Nova Friburgo, cada instante é uma oportunidade de criar memórias que aquecem o coração e perpetuam o encanto desta época tão especial.
-            </span>
-           
+    
+        <div class="text-infos">
+          <h1 class="text-infos-title">{{descricao.titulo | safe}}</h1>
+          <div class="text-infos-content">
+              <span class="text-infos-content-text">
+                  {{descricao.descricao | safe}}
+              </span>
+             
+          </div>
         </div>
-    </div>
-
-    <!-- <div class="previa">
-        <h1 class="text-infos-title-previa">Prévia</h1>
-        <div class="iframe-wrapper">
-            <iframe src="https://drive.google.com/file/d/13ez7FTtrTKqlpaqpp3ojsVUaUOeZIv5O/preview"  allow="autoplay" class="iframe-reino-noel"></iframe>
-        </div>
-    </div> -->
+      {% if descricao.section_image or descricao.section_video %}
+      <div class="previa">
+          <h1 class="text-infos-title-previa">Prévia</h1>
+          <div class="iframe-wrapper">
+              {% if descricao.section_video %}
+                  <iframe src="{{ descricao.section_video }}" allow="autoplay" class="iframe-reino-noel"></iframe>
+              {% elif descricao.section_image %}
+                  <img src="{{ descricao.section_image.url }}" alt="{{descricao.titulo | safe}}" class="imagem-reino-noel" />
+              {% endif %}
+          </div>
+      </div>
+      {% endif %}
     
 </div>
 

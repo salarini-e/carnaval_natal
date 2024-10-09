@@ -336,19 +336,29 @@ body{
 }
 
 @media(max-width:690px){
+    .number {
+        margin-left: -37px;
+        font-size: 21rem;
+    }
+    .card-link{
+        height: 300px;
+    }
     .em-alta-title{
         padding: 0 16px;
         margin-bottom: 0px;
     }
     .cards-em-alta-wrapper {
         grid-template-columns: repeat(1, 1fr);
-        padding: 0 16px;
+        padding: 16px; /* Ajuste de padding para o wrapper */
     }
     .card-em-alta {
-        max-width: 90vw;
+        max-width: 100%; /* Faz o card ocupar 100% da largura */
+        padding: 16px; /* Padding interno para o card */
     }
     .em-alta-card-image{
-        max-width: 90vw;
+        max-width: 100%; /* Ajuste para a imagem ocupar 100% do card */
+        height: 277px;
+        margin-left: -90px;
     }
 }
 @media(max-width: 960px){

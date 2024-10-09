@@ -61,29 +61,29 @@
               <span class="sr-only">Next</span>
             </a>
         </div>
-    <div class="text-infos">
-        <h1 class="text-infos-title">Casa do Papai Noel 
-        </h1>
-       
-
-        <div class="text-infos-content">
-            <span class="text-infos-content-text">
-                A Casa do Papai Noel é uma das principais atrações do nosso Natal, trazendo magia e alegria para todos os visitantes! <br><br>
-                Neste espaço encantado, o bom velhinho espera por você para compartilhar momentos inesquecíveis. As crianças podem entregar suas cartinhas, tirar fotos e criar memórias inesquecíveis! <br><br>
-                Neste Natal, junte-se a nós na Casa do Papai Noel e deixe-se levar pelo encanto natalino. Venha celebrar a alegria e o amor que essa época do ano nos proporciona, criando lembranças especiais que ficarão guardadas para sempre!
-
-
-            </span>
-           
-        </div>
-    </div>
-
-    <!-- <div class="previa">
+   
+      <div class="text-infos">
+          <h1 class="text-infos-title">{{descricao.titulo | safe}}</h1>
+          <div class="text-infos-content">
+              <span class="text-infos-content-text">
+                  {{descricao.descricao | safe}}
+              </span>
+             
+          </div>
+      </div>
+    
+      {% if descricao.section_image or descricao.section_video %}
+      <div class="previa">
         <h1 class="text-infos-title-previa">Prévia</h1>
         <div class="iframe-wrapper">
-            <iframe src="https://drive.google.com/file/d/13ez7FTtrTKqlpaqpp3ojsVUaUOeZIv5O/preview"  allow="autoplay" class="iframe-reino-noel"></iframe>
+            {% if descricao.section_video %}
+                <iframe src="{{ descricao.section_video }}" allow="autoplay" class="iframe-reino-noel"></iframe>
+            {% elif descricao.section_image %}
+                <img src="{{ descricao.section_image.url }}" alt="{{descricao.titulo | safe}}" class="imagem-reino-noel" />
+            {% endif %}
         </div>
-    </div> -->
+      </div>
+      {% endif %}
     
 </div>
 
