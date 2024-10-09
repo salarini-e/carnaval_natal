@@ -17,21 +17,15 @@
             <h1 class="novidades-natal-title">Novidades no Encanto de Natal</h1>
         </div>
         <div class="novidades-natal-cards">
+            {% for noticia in ultimas_noticias %}
             <div class="mid-banner-card">
-                <a href="">
-                    <img src="/static/imgs/card-1.png" alt="card1" class="card-images">
-                </a>
+                <!-- FALTA COLOCAR O LINK PARA A NOTÍCIA -->
+                    <img src="{{ noticia.imagem.url }}" alt="{{ noticia.titulo }}" class="card-images">
+                    <div class="overlay-mid-banners-index">
+                        <h3 class="mid-banner-noticia-titulo">{{ noticia.titulo }}</h3>
+                    </div>
             </div>
-            <div class="mid-banner-card">
-                <img src="/static/imgs/card-2.png" alt="card1" class="card-images">
-            </div>
-            <div class="mid-banner-card">
-                <img src="/static/imgs/card-3.png" alt="card1" class="card-images">
-            </div>
-            <div class="mid-banner-card">
-                <img src="/static/imgs/card-4.png" alt="card1" class="card-images">
-
-            </div>
+            {% endfor %}
         </div>
     </div>
 

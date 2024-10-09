@@ -22,6 +22,8 @@ def index(req):
 
     # CARREGAR OS BANNERS DA HOME
     bannerPrincipalHomeWeb = Banner.objects.filter(nome='BannerPrincipalHomeWeb').first()
+    # PEGAR AS NOTÍCIAS
+    ultimas_noticias = Noticia.objects.filter(publicado=True).order_by('-publicado_em')[:4]
 
     index=[]
     for data in datas:
@@ -43,6 +45,7 @@ def index(req):
         'eventos': Evento.objects.all(),
         'testemonios': Testemunho.objects.all(),
         'galeria_images': Galeria.objects.all(),
+        'ultimas_noticias': ultimas_noticias,
     }
     
     return render(req, "natal/index.html", context)

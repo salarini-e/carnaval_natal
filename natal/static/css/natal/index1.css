@@ -37,14 +37,42 @@ body{
 }
 
 .mid-banner-card {
+    position: relative; /* Importante para o overlay */
     max-width: 25vw; /* Mantenha apenas o max-width */
     border-radius: 5px;
     width: 100%; /* 100% da coluna */
 }
+
 .card-images {
-    max-width: 100%; /* Responsividade */
-    height: auto; /* Ajusta a altura proporcionalmente */
+    max-width: 100%;
+    height: auto; 
     border-radius: 5px;
+}
+
+.overlay-mid-banners-index {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay escuro semi-transparente */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 0 0 5px 5px; 
+    height: 100%;
+}
+
+.mid-banner-noticia-titulo {
+    margin: 0;
+    font-size: 3em;
+    padding: 5px;
+    border-radius: 3px;
+    position: relative;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #f1f1f1;
 }
 .home-reino-noel{
     margin-top: 50px;
@@ -437,6 +465,9 @@ body{
         justify-content: center;
         align-items: center;
         flex-direction: column;
+    }
+    .mid-banner-noticia-titulo{
+        font-size: 2em;
     }
 }
 @media(max-width:930px){
