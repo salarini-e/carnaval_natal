@@ -9,38 +9,11 @@
 {% block main %}
 <div class="reinoNoel-wrapper">
     <div class="top-banner">
-        <img src="/static/imgs/bannerPrincipalReinoNoel.png" alt="top-banner" class="top-banner-image">
-        <!-- <div class="overlay-image">
-            <h4 class="overlay-classificacao">#1 no estado do RJ</h4>
-            <h2 class="overlay-secretaria">SECRETARIA DE TURISMO</h2>
-            <h1 class="overlay-reinonoel">O Reino de Noel</h1>
-            <div class="overlay-infos">
-                <div class="overlay-classificacao-bg">
-                    <i class="fa-solid fa-star overlay-classificacao-star"></i>
-                    <i class="fa-solid fa-star overlay-classificacao-star"></i>
-                    <i class="fa-solid fa-star overlay-classificacao-star"></i>
-                    <i class="fa-solid fa-star overlay-classificacao-star"></i>
-                    <i class="fa-solid fa-star overlay-classificacao-star"></i>
-                    <span class="overlay-classificacao-number"> 5.0</span>
-
-                </div>
-                <div class="overlay-classificacao-bg">
-                    <span class="overlay-temporada"> 4ª TEMPORADA </span>
-                </div>
-                
-                <div class="overlay-ano">
-                    <span class="overlay-ano-text">2024</span>
-                    <div class="icon-l">
-                        <i class="fas fa-square"></i>
-                        <span class="letter">L</span>
-                    </div>
-                </div>
-                
-            </div>
-            <span class="overlay-text">
-                O Reino de Noel é mais do que uma decoração temática, é uma experiência completa que promete criar memórias inesquecíveis para todos os visitantes.   
-            </span>
-        </div> -->
+        {% if bannerPrincipalReinoNoelWeb and bannerPrincipalReinoNoelWeb.banner_image %}
+        <img src="{{ bannerPrincipalReinoNoelWeb.banner_image.url }}" alt="{{ bannerPrincipalReinoNoelWeb.nome }}" class="top-banner-image">
+        {% else %}
+        <img src="/static/imgs/bannerPrincipalReinoNoel.png" alt="banner-principal" class="top-banner-image">
+        {% endif %}
     </div>
 
         <div class="mid-banners">

@@ -14,7 +14,10 @@ def index(req):
     
     programacao_=Programacao.objects.all().order_by('hora')
     datas=programacao_.values('hora')
-    
+
+    # CARREGAR OS BANNERS DA HOME
+    bannerPrincipalHomeWeb = Banner.objects.filter(nome='BannerPrincipalHomeWeb').first()
+
     index=[]
     for data in datas:
         index.append(str(data['hora'].date()))
@@ -29,6 +32,7 @@ def index(req):
                 i[1].append(p)    
 
     context = {
+        'bannerPrincipalHomeWeb': bannerPrincipalHomeWeb,
         'programacao': programacao,
         'parceiros': Parceiro.objects.all(),
         'eventos': Evento.objects.all(),
@@ -53,11 +57,22 @@ def casaDoPapaiNoel(req):
     }
     return render(req, "natal/casaDoPapaiNoel.html", context)
 
+
 def reinoNoel(req):
-    return render(req,'natal/reinoNoel.html')
+    bannerPrincipalReinoNoelWeb = Banner.objects.filter(nome='BannerPrincipalReinoNoelWeb').first()
+    
+    context={
+        'bannerPrincipalReinoNoelWeb': bannerPrincipalReinoNoelWeb,
+    }
+    return render(req,'natal/reinoNoel.html', context)
 
 def decoracoes(req):
-    return render(req, 'natal/decoracoes.html')
+    bannerPrincipalDecoracoesWeb = Banner.objects.filter(nome='BannerPrincipalDecoracoesWeb').first()
+    context={
+        'bannerPrincipalDecoracoesWeb': bannerPrincipalDecoracoesWeb,
+    }
+
+    return render(req, 'natal/decoracoes.html', context)
 
 def desfiles(req):
     return render(req, 'natal/desfiles.html')

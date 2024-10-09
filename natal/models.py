@@ -51,3 +51,8 @@ class Programacao(models.Model):
     def __str__(self):
         return '%s - %s - %s' % (self.hora, self.local, self.nome)
     
+
+class Banner(models.Model):
+    nome = models.CharField(max_length=64, verbose_name='NomeBanner')   
+    banner_image=models.ImageField(upload_to='banners/', null=True, blank=True)
+    
