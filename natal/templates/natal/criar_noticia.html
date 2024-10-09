@@ -1,0 +1,54 @@
+{% extends 'natal/template.html' %}
+
+{% block main %}
+<div class="row">
+    <div class="col">
+        <form method="POST" id="postForm" enctype="multipart/form-data">
+            <!-- Place the first <script> tag in your HTML's <head> -->
+            <script src="https://cdn.tiny.cloud/1/7kdt08katyyqptwd3k0sf3iwljwm20y345hq4w07zj6xh5kl/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
+            <!-- TinyMCE Initialization -->
+            <script>
+              tinymce.init({
+                selector: 'textarea',
+                plugins: [
+                  'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+                  'checklist', 'mediaembed', 'casechange', 'export', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown',
+                ],
+                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+              });
+            </script>
+            
+            {% csrf_token %}
+            <textarea name="conteudo" id="conteudo">
+              Welcome to TinyMCE!
+            </textarea>
+            <div class="row">
+                <div class="col" style="color: white;">
+                    {{form}}
+                </div>
+            </div>
+            <button type="button" onclick="previewContent()">Pré-visualizar</button>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <!-- Div para pré-visualização -->
+    <div class="col" id="visualizacao" style="color: white; padding: 10px;">
+        <h3>Pré-visualização:</h3>
+        <hr style="border-color: white;">
+        <div id="preview-content"></div>
+    </div>
+</div>
+
+<script>
+    function previewContent() {
+        // Obtém o conteúdo do TinyMCE editor
+        const content = tinymce.get('conteudo').getContent();
+        
+        // Atualiza o conteúdo da div de pré-visualização
+        document.getElementById('preview-content').innerHTML = content;
+    }
+</script>
+
+{% endblock %}

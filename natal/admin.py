@@ -9,6 +9,7 @@ admin.site.register(Galeria)
 admin.site.register(Local)
 admin.site.register(Programacao)
 admin.site.register(Parceiro_Casa_Papai_Noel)
+<<<<<<< HEAD
 
 @admin.register(Banner)
 class BannerAdmin(admin.ModelAdmin):
@@ -22,3 +23,6 @@ class BannerAdmin(admin.ModelAdmin):
         return "Sem imagem"
     banner_image_display.allow_tags = True
     banner_image_display.short_description = 'Imagem'
+=======
+admin.site.register(Noticia)
+>>>>>>> 7cad6255b23cf8156051f49b958d394a1db6f4c8

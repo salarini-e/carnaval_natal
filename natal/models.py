@@ -52,7 +52,28 @@ class Programacao(models.Model):
         return '%s - %s - %s' % (self.hora, self.local, self.nome)
     
 
+<<<<<<< HEAD
 class Banner(models.Model):
     nome = models.CharField(max_length=64, verbose_name='NomeBanner')   
     banner_image=models.ImageField(upload_to='banners/', null=True, blank=True)
     
+=======
+from django.utils import timezone
+
+class Noticia(models.Model):
+    titulo = models.CharField(max_length=200, verbose_name='Título')
+    slug = models.SlugField(unique=True, max_length=200)
+    conteudo = models.TextField(verbose_name='Conteúdo', null=True)
+    imagem = models.ImageField(upload_to='noticias/%Y/%m/%d/', verbose_name='Imagem', null=True)
+    publicado_em = models.DateTimeField(default=timezone.now, verbose_name='Data de Publicação')
+    atualizado_em = models.DateTimeField(auto_now=True, verbose_name='Última Atualização')
+    publicado = models.BooleanField(default=True, verbose_name='Publicado')
+
+    class Meta:
+        verbose_name = 'Notícia'
+        verbose_name_plural = 'Notícias'
+        ordering = ['-publicado_em']
+
+    def __str__(self):
+        return self.titulo
+>>>>>>> 7cad6255b23cf8156051f49b958d394a1db6f4c8
