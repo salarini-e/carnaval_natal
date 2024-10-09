@@ -38,11 +38,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tinymce',
     #Custom apps
     'core',
     'natal'
 ]
-
+# INYMCE_DEFAULT_CONFIG = {
+#     'height': 360,
+#     'width': 750,
+#     'plugins': "textcolor link image media preview codesample code table fullscreen",
+#     'toolbar1': "fullscreen preview bold italic underline | fontselect, fontsizeselect | forecolor backcolor | alignleft alignright | link image media",
+#     'menubar': False,
+#     'statusbar': True,
+# }
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
