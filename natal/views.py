@@ -8,7 +8,6 @@ from django.utils.text import slugify
 from .models import Noticia
 from .forms import NoticiaForm
 
-
 def programacao(req):
     context={
         'programacao': []
@@ -81,16 +80,32 @@ def decoracoes(req):
     return render(req, 'natal/decoracoes.html', context)
 
 def desfiles(req):
-    return render(req, 'natal/desfiles.html')
+    bannerPrincipalDesfilesWeb = Banner.objects.filter(nome='BannerPrincipalDesfilesWeb').first()
+    context={
+        'bannerPrincipalDesfilesWeb': bannerPrincipalDesfilesWeb,
+    }
+    return render(req, 'natal/desfiles.html', context)
 
 def teatros(req):
-    return render(req, 'natal/teatros.html')
+    bannerPrincipalTeatrosWeb = Banner.objects.filter(nome='BannerPrincipalTeatrosWeb').first()
+    context={
+        'bannerPrincipalTeatrosWeb':bannerPrincipalTeatrosWeb,
+    }
+    return render(req, 'natal/teatros.html', context)
 
 def casaPapaiNoel(req):
-    return render(req, 'natal/casaPapaiNoel.html')
+    bannerPrincipalCasaPapaiNoelWeb = Banner.objects.filter(nome='BannerPrincipalCasaPapaiNoelWeb').first()
+    context={
+        'bannerPrincipalCasaPapaiNoelWeb':bannerPrincipalCasaPapaiNoelWeb,
+    }
+    return render(req, 'natal/casaPapaiNoel.html', context)
 
 def encantoNatal(req):
-    return render (req, 'natal/encantoNatal.html')
+    bannerPrincipalEncantoNatalWeb = Banner.objects.filter(nome='BannerPrincipalEncantoNatalWeb').first()
+    context={
+        'bannerPrincipalEncantoNatalWeb':bannerPrincipalEncantoNatalWeb,
+    }
+    return render (req, 'natal/encantoNatal.html', context)
 
 
 

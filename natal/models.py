@@ -56,6 +56,11 @@ class Banner(models.Model):
     nome = models.CharField(max_length=64, verbose_name='NomeBanner')   
     banner_image=models.ImageField(upload_to='banners/', null=True, blank=True)
     
+
+# class Sections(models.Model):
+#     titulo = models.CharField(max_length=200, verbose_name='Título')
+#     slug = models.SlugField(unique=True, max_length=200)
+
 from django.utils import timezone
 
 class Noticia(models.Model):

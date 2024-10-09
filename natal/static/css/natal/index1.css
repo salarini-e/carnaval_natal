@@ -105,7 +105,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
+    text-decoration: none !important;
     background-color: white;
     color: black;
     border-radius: 5px;
@@ -426,13 +426,11 @@ body{
     }
     .spotify-image{
         width: 100%;
-        max-width: 100px;
-    }
-    .spotify-image{
         margin: 10px auto auto auto;
     }
+    
     .spotify-text-wrapper-text{
-        font-size: 3.6vw;
+        font-size: 3.8vw;
     }
     .spotify-wrapper{
         display: flex;

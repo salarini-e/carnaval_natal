@@ -9,7 +9,12 @@
 {% block main %}
 <div class="reinoNoel-wrapper">
     <div class="top-banner">
+      {% if bannerPrincipalCasaPapaiNoelWeb and bannerPrincipalCasaPapaiNoelWeb.banner_image %}
+        <img src="{{ bannerPrincipalCasaPapaiNoelWeb.banner_image.url }}" alt="{{ bannerPrincipalCasaPapaiNoelWeb.nome }}" class="top-banner-image">
+        {% else %}
         <img src="/static/imgs/bannerPrincipalCasaPapaiNoel.png" alt="top-banner" class="top-banner-image">
+        {% endif %}
+  
     </div>
 
         <div class="mid-banners">
