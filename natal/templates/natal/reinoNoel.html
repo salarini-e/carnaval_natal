@@ -16,9 +16,9 @@
         {% endif %}
     </div>
 
-        <div class="mid-banners">
+        <!-- <div class="mid-banners">
             <div class="mid-banner-card">
-                <!-- <img src="/static/imgs/image.png" alt="ops"> -->
+                
             </div>
             <div class="mid-banner-card">
             </div>
@@ -26,9 +26,40 @@
             </div>
             <div class="mid-banner-card">
             </div>
-        </div>
+        </div> -->
 
-        <div id="carouselExampleIndicators" class="carousel slide carousel-mobile" data-ride="carousel">
+        <div class="mid-banners">
+          {% for banner in midBanners %}
+          <div class="mid-banner-card">
+              <img src="{{ banner.section_image.url }}" alt="{{ banner.nome }}" class="mid-banner-image">
+          </div>
+          {% endfor %}
+      </div>
+      <div id="carouselExampleIndicators" class="carousel slide carousel-mobile" data-ride="carousel">
+        <ol class="carousel-indicators">
+            {% for banner in midBannersAll %}
+            <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}"></li>
+            {% endfor %}
+        </ol>
+        <div class="carousel-inner" style="border-radius: 15px;">
+            {% for banner in midBannersAll %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <a href="/desfiles">
+                    <img class="d-block w-100" src="{{ banner.section_image.url }}" alt="{{ banner.nome }}">
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+        <!-- <div id="carouselExampleIndicators" class="carousel slide carousel-mobile" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -59,7 +90,7 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
-        </div>
+        </div> -->
     
         <div class="text-infos">
           <h1 class="text-infos-title">{{descricao.titulo | safe}}</h1>

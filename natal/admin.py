@@ -29,7 +29,13 @@ class SectionsAdmin(admin.ModelAdmin):
     search_fields = ('titulo', 'subtitulo', 'descricao', 'slug')
     list_filter = ('titulo', 'subtitulo')
     prepopulated_fields = {'slug': ('titulo',)}
-
+    def section_image_display(self, obj):
+        if obj.section_image:
+            return f'<img src="{obj.section_image.url}" style="width: 100px; height: auto;">'
+        return "Sem imagem"
+    
+    section_image_display.allow_tags = True  
+    section_image_display.short_description = 'Imagem' 
 admin.site.register(Sections, SectionsAdmin)
 
 
@@ -51,3 +57,16 @@ class AtracaoAdmin(admin.ModelAdmin):
     
     section_image_display.allow_tags = True  # Permite que o HTML seja renderizado no admin
     section_image_display.short_description = 'Imagem'  # Nome da coluna exibida no admin
+
+
+@admin.register(AtracaoImages)
+class AtracaoImagesAdmin(admin.ModelAdmin):
+    list_display = ('nome', 'section_image')
+    search_fields = ('nome',)
+    def section_image_display(self, obj):
+        if obj.section_image:
+            return f'<img src="{obj.section_image.url}" style="width: 100px; height: auto;">'
+        return "Sem imagem"
+    
+    section_image_display.allow_tags = True  
+    section_image_display.short_description = 'Imagem' 

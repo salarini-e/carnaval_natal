@@ -72,6 +72,10 @@ class Atracao(models.Model):
     section_video = models.CharField(max_length=300, verbose_name='Iframe', null=True, blank=True)
     section_image = models.ImageField(upload_to='atracoes/', null=True, blank=True)
 
+class AtracaoImages(models.Model):
+    nome = models.CharField(max_length=50, verbose_name='Nome', null=True, blank=True)
+    section_image = models.ImageField(upload_to='atracoes-images/', null=True, blank=True)
+
 class Noticia(models.Model):
     titulo = models.CharField(max_length=200, verbose_name='Título')
     slug = models.SlugField(unique=True, max_length=200)

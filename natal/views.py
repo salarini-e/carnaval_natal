@@ -75,12 +75,15 @@ def casaDoPapaiNoel(req):
 
 def reinoNoel(req):
     bannerPrincipalReinoNoelWeb = Banner.objects.filter(nome='BannerPrincipalReinoNoelWeb').first()
-
+    midBanners = AtracaoImages.objects.all().order_by('-id')[:4]  
+    midBannersAll = AtracaoImages.objects.all().order_by('-id')  
     descricao = Atracao.objects.filter(slug='reinoNoel').first()
     
     context={
         'bannerPrincipalReinoNoelWeb': bannerPrincipalReinoNoelWeb,
         'descricao': descricao,
+        'midBanners': midBanners,
+        'midBannersAll': midBannersAll
     }
     return render(req,'natal/reinoNoel.html', context)
 
@@ -90,6 +93,7 @@ def decoracoes(req):
     context={
         'descricao': descricao,
         'bannerPrincipalDecoracoesWeb': bannerPrincipalDecoracoesWeb,
+        
     }
 
     return render(req, 'natal/decoracoes.html', context)
