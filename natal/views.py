@@ -1,7 +1,13 @@
 #Importações de estruturas padrões do Django:
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 #Importações de estruturas da aplicação:
 from natal.models import *
+
+from django.contrib.auth.decorators import login_required
+from django.utils.text import slugify
+from .models import Noticia
+from .forms import NoticiaForm
+
 
 def programacao(req):
     context={
@@ -70,3 +76,28 @@ def casaPapaiNoel(req):
 
 def encantoNatal(req):
     return render (req, 'natal/encantoNatal.html')
+
+
+
+#NOTICIAS
+
+@login_required
+def criar_noticia(request):
+    
+    if request.method == 'POST':
+        
+        form = NoticiaForm(request.POST, request.FILES)
+        if form.is_valid():
+            noticia = form.save(commit=False)
+            noticia.slug = slugify(noticia.titulo)
+            noticia.conteudo = request.POST['conteudo']
+            noticia.save()
+            return redirect('ver_noticia', slug=noticia.slug)
+    else:
+        form = NoticiaForm()
+    
+    return render(request, 'natal/criar_noticia.html', context={'form': form})
+
+def ver_noticia(request, slug):
+    noticia = Noticia.objects.get(slug=slug)
+    return render(request, 'natal/ver_noticia.html', context={'noticia': noticia})
