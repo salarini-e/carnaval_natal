@@ -56,7 +56,7 @@ a {
     background-color: rgb(212, 212, 212); /* Define a cor da linha */
     position: absolute; /* Posiciona o pseudo-elemento em relação ao pai */
     left: 100%; /* Coloca o pseudo-elemento à direita do elemento pai */
-    top: -1px; /* Centraliza verticalmente */
+    top: 10px; /* Centraliza verticalmente */
     transform: translateY(-50%); /* Ajusta para o centro verticalmente */
 }
 .header-link {
@@ -84,7 +84,7 @@ a {
         border-radius: 7px !important;
     }
     .image-header-logo-pmnf::after {
-        top: -3px;
+        top: 10px;
         height: 47px;
     }
 }

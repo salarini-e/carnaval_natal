@@ -10,6 +10,7 @@ body{
 .home-novidades-natal{
     display: flex;
     flex-direction: column;
+    margin-top: 15px;
 }
 .novidades-natal-title{
     padding: 0 30px;
@@ -36,14 +37,43 @@ body{
 }
 
 .mid-banner-card {
+    position: relative; /* Importante para o overlay */
     max-width: 25vw; /* Mantenha apenas o max-width */
     border-radius: 5px;
     width: 100%; /* 100% da coluna */
+    text-decoration: none;
 }
+
 .card-images {
-    max-width: 100%; /* Responsividade */
-    height: auto; /* Ajusta a altura proporcionalmente */
+    max-width: 100%;
+    height: auto; 
     border-radius: 5px;
+}
+
+.overlay-mid-banners-index {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay escuro semi-transparente */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px; 
+    height: 100%;
+}
+
+.mid-banner-noticia-titulo {
+    margin: 0;
+    font-size: 3em;
+    padding: 5px;
+    border-radius: 3px;
+    position: relative;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #f1f1f1;
 }
 .home-reino-noel{
     margin-top: 50px;
@@ -104,7 +134,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
+    text-decoration: none !important;
     background-color: white;
     color: black;
     border-radius: 5px;
@@ -307,19 +337,29 @@ body{
 }
 
 @media(max-width:690px){
+    .number {
+        margin-left: -37px;
+        font-size: 21rem;
+    }
+    .card-link{
+        height: 300px;
+    }
     .em-alta-title{
         padding: 0 16px;
         margin-bottom: 0px;
     }
     .cards-em-alta-wrapper {
         grid-template-columns: repeat(1, 1fr);
-        padding: 0 16px;
+        padding: 16px; /* Ajuste de padding para o wrapper */
     }
     .card-em-alta {
-        max-width: 90vw;
+        max-width: 100%; /* Faz o card ocupar 100% da largura */
+        padding: 16px; /* Padding interno para o card */
     }
     .em-alta-card-image{
-        max-width: 90vw;
+        max-width: 100%; /* Ajuste para a imagem ocupar 100% do card */
+        height: 277px;
+        margin-left: -90px;
     }
 }
 @media(max-width: 960px){
@@ -425,19 +465,20 @@ body{
     }
     .spotify-image{
         width: 100%;
-        max-width: 100px;
-    }
-    .spotify-image{
         margin: 10px auto auto auto;
     }
+    
     .spotify-text-wrapper-text{
-        font-size: 3.6vw;
+        font-size: 3.8vw;
     }
     .spotify-wrapper{
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+    }
+    .mid-banner-noticia-titulo{
+        font-size: 2em;
     }
 }
 @media(max-width:930px){

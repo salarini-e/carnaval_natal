@@ -9,43 +9,16 @@
 {% block main %}
 <div class="reinoNoel-wrapper">
     <div class="top-banner">
-        <img src="/static/imgs/bannerPrincipalReinoNoel.png" alt="top-banner" class="top-banner-image">
-        <!-- <div class="overlay-image">
-            <h4 class="overlay-classificacao">#1 no estado do RJ</h4>
-            <h2 class="overlay-secretaria">SECRETARIA DE TURISMO</h2>
-            <h1 class="overlay-reinonoel">O Reino de Noel</h1>
-            <div class="overlay-infos">
-                <div class="overlay-classificacao-bg">
-                    <i class="fa-solid fa-star overlay-classificacao-star"></i>
-                    <i class="fa-solid fa-star overlay-classificacao-star"></i>
-                    <i class="fa-solid fa-star overlay-classificacao-star"></i>
-                    <i class="fa-solid fa-star overlay-classificacao-star"></i>
-                    <i class="fa-solid fa-star overlay-classificacao-star"></i>
-                    <span class="overlay-classificacao-number"> 5.0</span>
-
-                </div>
-                <div class="overlay-classificacao-bg">
-                    <span class="overlay-temporada"> 4ª TEMPORADA </span>
-                </div>
-                
-                <div class="overlay-ano">
-                    <span class="overlay-ano-text">2024</span>
-                    <div class="icon-l">
-                        <i class="fas fa-square"></i>
-                        <span class="letter">L</span>
-                    </div>
-                </div>
-                
-            </div>
-            <span class="overlay-text">
-                O Reino de Noel é mais do que uma decoração temática, é uma experiência completa que promete criar memórias inesquecíveis para todos os visitantes.   
-            </span>
-        </div> -->
+        {% if bannerPrincipalReinoNoelWeb and bannerPrincipalReinoNoelWeb.banner_image %}
+        <img src="{{ bannerPrincipalReinoNoelWeb.banner_image.url }}" alt="{{ bannerPrincipalReinoNoelWeb.nome }}" class="top-banner-image">
+        {% else %}
+        <img src="/static/imgs/bannerPrincipalReinoNoel.png" alt="banner-principal" class="top-banner-image">
+        {% endif %}
     </div>
 
-        <div class="mid-banners">
+        <!-- <div class="mid-banners">
             <div class="mid-banner-card">
-                <!-- <img src="/static/imgs/image.png" alt="ops"> -->
+                
             </div>
             <div class="mid-banner-card">
             </div>
@@ -53,9 +26,40 @@
             </div>
             <div class="mid-banner-card">
             </div>
-        </div>
+        </div> -->
 
-        <div id="carouselExampleIndicators" class="carousel slide carousel-mobile" data-ride="carousel">
+        <div class="mid-banners">
+          {% for banner in midBanners %}
+          <div class="mid-banner-card">
+              <img src="{{ banner.section_image.url }}" alt="{{ banner.nome }}" class="mid-banner-image">
+          </div>
+          {% endfor %}
+      </div>
+      <div id="carouselExampleIndicators" class="carousel slide carousel-mobile" data-ride="carousel">
+        <ol class="carousel-indicators">
+            {% for banner in midBannersAll %}
+            <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}"></li>
+            {% endfor %}
+        </ol>
+        <div class="carousel-inner" style="border-radius: 15px;">
+            {% for banner in midBannersAll %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <a href="/desfiles">
+                    <img class="d-block w-100" src="{{ banner.section_image.url }}" alt="{{ banner.nome }}">
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+        <!-- <div id="carouselExampleIndicators" class="carousel slide carousel-mobile" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -86,11 +90,19 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
-        </div>
+        </div> -->
     
+        <div class="text-infos">
+          <h1 class="text-infos-title">{{descricao.titulo | safe}}</h1>
+          <div class="text-infos-content">
+              <span class="text-infos-content-text">
+                  {{descricao.descricao | safe}}
+              </span>
+             
+          </div>
+      </div>
 
-
-    <div class="text-infos">
+    <!-- <div class="text-infos">
         <h1 class="text-infos-title">2024 - 4ª Edição - Um Encanto de Natal </h1>
         <h1 class="text-infos-title">De 15 de novembro a 31 de dezembro</h1>
 
@@ -118,14 +130,26 @@
             </span>
            
         </div>
-    </div>
+    </div> -->
 
-    <div class="previa">
+  {% if descricao.section_image or descricao.section_video %}
+  <div class="previa">
+      <h1 class="text-infos-title-previa">Prévia</h1>
+      <div class="iframe-wrapper">
+          {% if descricao.section_video %}
+              <iframe src="{{ descricao.section_video }}" allow="autoplay" class="iframe-reino-noel"></iframe>
+          {% elif descricao.section_image %}
+              <img src="{{ descricao.section_image.url }}" alt="{{descricao.titulo | safe}}" class="imagem-reino-noel" />
+          {% endif %}
+      </div>
+  </div>
+  {% endif %}
+    <!-- <div class="previa">
         <h1 class="text-infos-title-previa">Prévia</h1>
         <div class="iframe-wrapper">
             <iframe src="https://drive.google.com/file/d/13ez7FTtrTKqlpaqpp3ojsVUaUOeZIv5O/preview" allow="autoplay" class="iframe-reino-noel"></iframe>
         </div>
-    </div>
+    </div> -->
     
 </div>
 {% endblock %}

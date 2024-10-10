@@ -8,7 +8,6 @@ from django.utils.text import slugify
 from .models import Noticia
 from .forms import NoticiaForm
 
-
 def programacao(req):
     context={
         'programacao': []
@@ -20,7 +19,17 @@ def index(req):
     
     programacao_=Programacao.objects.all().order_by('hora')
     datas=programacao_.values('hora')
-    
+
+    # CARREGAR OS BANNERS DA HOME
+    bannerPrincipalHomeWeb = Banner.objects.filter(nome='BannerPrincipalHomeWeb').first()
+    # PEGAR AS NOTÍCIAS
+    ultimas_noticias = Noticia.objects.filter(publicado=True).order_by('-publicado_em')[:4]
+
+    # CARREGAR AS SECTIONS, EXCETO REINO DE NOEL
+    sections = Sections.objects.filter(ativa=True).exclude(slug='reinoNoel').order_by('-dt_insercao')
+
+    # No final da view, para pegar diretamente a section com slug "o-reino-de-noel"
+    reino_de_noel = Sections.objects.filter(slug='reinoNoel').first()
     index=[]
     for data in datas:
         index.append(str(data['hora'].date()))
@@ -35,11 +44,15 @@ def index(req):
                 i[1].append(p)    
 
     context = {
+        'sections': sections,
+        'bannerPrincipalHomeWeb': bannerPrincipalHomeWeb,
         'programacao': programacao,
         'parceiros': Parceiro.objects.all(),
-        'eventos': Evento.objects.all(),
+        'atracoes': Atracao.objects.all(),
         'testemonios': Testemunho.objects.all(),
         'galeria_images': Galeria.objects.all(),
+        'ultimas_noticias': ultimas_noticias,
+        'reino_de_noel': reino_de_noel, 
     }
     
     return render(req, "natal/index.html", context)
@@ -59,23 +72,87 @@ def casaDoPapaiNoel(req):
     }
     return render(req, "natal/casaDoPapaiNoel.html", context)
 
+
 def reinoNoel(req):
-    return render(req,'natal/reinoNoel.html')
+    bannerPrincipalReinoNoelWeb = Banner.objects.filter(nome='BannerPrincipalReinoNoelWeb').first()
+    midBanners = AtracaoImages.objects.all().order_by('-id')[:4]  
+    midBannersAll = AtracaoImages.objects.all().order_by('-id')  
+    descricao = Atracao.objects.filter(slug='reinoNoel').first()
+    
+    context={
+        'bannerPrincipalReinoNoelWeb': bannerPrincipalReinoNoelWeb,
+        'descricao': descricao,
+        'midBanners': midBanners,
+        'midBannersAll': midBannersAll
+    }
+    return render(req,'natal/reinoNoel.html', context)
 
 def decoracoes(req):
-    return render(req, 'natal/decoracoes.html')
+    midBanners = AtracaoImages.objects.all().order_by('-id')[:4]  
+    midBannersAll = AtracaoImages.objects.all().order_by('-id')  
+    descricao = Atracao.objects.filter(slug='decoracoes').first()
+    bannerPrincipalDecoracoesWeb = Banner.objects.filter(nome='BannerPrincipalDecoracoesWeb').first()
+    context={
+        'descricao': descricao,
+        'bannerPrincipalDecoracoesWeb': bannerPrincipalDecoracoesWeb,
+        'midBanners': midBanners,
+        'midBannersAll': midBannersAll
+        
+    }
+
+    return render(req, 'natal/decoracoes.html', context)
 
 def desfiles(req):
-    return render(req, 'natal/desfiles.html')
+    midBanners = AtracaoImages.objects.all().order_by('-id')[:4]  
+    midBannersAll = AtracaoImages.objects.all().order_by('-id')  
+    descricao = Atracao.objects.filter(slug='desfiles').first()
+    bannerPrincipalDesfilesWeb = Banner.objects.filter(nome='BannerPrincipalDesfilesWeb').first()
+    context={
+        'descricao': descricao,
+        'bannerPrincipalDesfilesWeb': bannerPrincipalDesfilesWeb,
+        'midBanners': midBanners,
+        'midBannersAll': midBannersAll
+    }
+    return render(req, 'natal/desfiles.html', context)
 
 def teatros(req):
-    return render(req, 'natal/teatros.html')
+    midBanners = AtracaoImages.objects.all().order_by('-id')[:4]  
+    midBannersAll = AtracaoImages.objects.all().order_by('-id')  
+    descricao = Atracao.objects.filter(slug='teatros').first()
+    bannerPrincipalTeatrosWeb = Banner.objects.filter(nome='BannerPrincipalTeatrosWeb').first()
+    context={
+        'descricao': descricao,
+        'bannerPrincipalTeatrosWeb':bannerPrincipalTeatrosWeb,
+        'midBanners': midBanners,
+        'midBannersAll': midBannersAll
+    }
+    return render(req, 'natal/teatros.html', context)
 
 def casaPapaiNoel(req):
-    return render(req, 'natal/casaPapaiNoel.html')
+    midBanners = AtracaoImages.objects.all().order_by('-id')[:4]  
+    midBannersAll = AtracaoImages.objects.all().order_by('-id')  
+    descricao = Atracao.objects.filter(slug='casaPapaiNoel').first()
+    bannerPrincipalCasaPapaiNoelWeb = Banner.objects.filter(nome='BannerPrincipalCasaPapaiNoelWeb').first()
+    context={
+        'descricao': descricao,
+        'bannerPrincipalCasaPapaiNoelWeb':bannerPrincipalCasaPapaiNoelWeb,
+        'midBanners': midBanners,
+        'midBannersAll': midBannersAll
+    }
+    return render(req, 'natal/casaPapaiNoel.html', context)
 
 def encantoNatal(req):
-    return render (req, 'natal/encantoNatal.html')
+    midBanners = AtracaoImages.objects.all().order_by('-id')[:4]  
+    midBannersAll = AtracaoImages.objects.all().order_by('-id')  
+    descricao = Atracao.objects.filter(slug='encantoNatal').first()
+    bannerPrincipalEncantoNatalWeb = Banner.objects.filter(nome='BannerPrincipalEncantoNatalWeb').first()
+    context={
+        'descricao': descricao,
+        'bannerPrincipalEncantoNatalWeb':bannerPrincipalEncantoNatalWeb,
+        'midBanners': midBanners,
+        'midBannersAll': midBannersAll
+    }
+    return render (req, 'natal/encantoNatal.html', context)
 
 
 
