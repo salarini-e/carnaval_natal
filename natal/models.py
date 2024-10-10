@@ -65,15 +65,15 @@ class Sections(models.Model):
 
 class Atracao(models.Model):
     nome = models.CharField(max_length=50, verbose_name='Nome', null=True, blank=True)
-    titulo = models.CharField(max_length=200, verbose_name='Título')
+    titulo = models.TextField(verbose_name='Título')
     slug = models.SlugField(unique=True, max_length=200, default='default-slug')
-    descricao = models.CharField(max_length=10000, verbose_name='Descrição')
-    section_video = models.CharField(max_length=300, verbose_name='Iframe', null=True, blank=True)
-    section_image = models.ImageField(upload_to='atracoes/', null=True, blank=True)
+    descricao = models.TextField(verbose_name='Descrição')
+    atracao_video = models.CharField(max_length=300, verbose_name='Iframe', null=True, blank=True)
+    atracao_image = models.ImageField(upload_to='atracoes/', null=True, blank=True)
 
 class AtracaoImages(models.Model):
     nome = models.CharField(max_length=50, verbose_name='Nome', null=True, blank=True)
-    section_image = models.ImageField(upload_to='atracoes-images/')
+    atracaoImage_image = models.ImageField(upload_to='atracoes-images/', null=True, blank=True)
 
 class Noticia(models.Model):
     titulo = models.CharField(max_length=200, verbose_name='Título')

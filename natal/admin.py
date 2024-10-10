@@ -39,34 +39,35 @@ class SectionsAdmin(admin.ModelAdmin):
 admin.site.register(Sections, SectionsAdmin)
 
 
-
 @admin.register(Atracao)
 class AtracaoAdmin(admin.ModelAdmin):
     
-    list_display = ('nome','titulo', 'slug', 'section_video', 'section_image_display')  # Exibe o título, slug, vídeo e imagem
-    search_fields = ('nome','titulo', 'slug', 'descricao')  # Permite busca por título, slug e descrição
+    list_display = ('nome', 'titulo', 'slug', 'atracao_video', 'atracao_image_display')  # Exibe o título, slug, vídeo e imagem
+    search_fields = ('nome', 'titulo', 'slug', 'descricao')  # Permite busca por nome, título, slug e descrição
     list_filter = ('titulo',)  # Filtro pelo título
     prepopulated_fields = {'slug': ('titulo',)}  # Gera o slug a partir do título automaticamente
 
     # Função para exibir a imagem no admin
-    def section_image_display(self, obj):
-        if obj.section_image:
-            # Retorna o HTML da imagem, permitindo exibição na listagem
-            return f'<img src="{obj.section_image.url}" style="width: 100px; height: auto;">'
+    def atracao_image_display(self, obj):
+        if obj.atracao_image:
+            return f'<img src="{obj.atracao_image.url}" style="width: 100px; height: auto;">'
         return "Sem imagem"
     
-    section_image_display.allow_tags = True  # Permite que o HTML seja renderizado no admin
-    section_image_display.short_description = 'Imagem'  # Nome da coluna exibida no admin
+    atracao_image_display.allow_tags = True  # Permite que o HTML seja renderizado no admin
+    atracao_image_display.short_description = 'Imagem'  # Nome da coluna exibida no admin
 
 
 @admin.register(AtracaoImages)
 class AtracaoImagesAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'section_image')
-    search_fields = ('nome',)
-    def section_image_display(self, obj):
-        if obj.section_image:
-            return f'<img src="{obj.section_image.url}" style="width: 100px; height: auto;">'
+    list_display = ('nome', 'atracaoImage_image_display')  # Exibe o nome e a imagem
+    search_fields = ('nome','atracaoImage_image_display')  # Permite busca pelo nome
+
+    # Função para exibir a imagem no admin
+    def atracaoImage_image_display(self, obj):
+        if obj.atracaoImage_image:  # Usa o campo correto aqui
+            # Retorna o HTML da imagem, permitindo exibição na listagem
+            return f'<img src="{obj.atracaoImage_image.url}" style="width: 100px; height: auto;">'
         return "Sem imagem"
     
-    section_image_display.allow_tags = True  
-    section_image_display.short_description = 'Imagem' 
+    atracaoImage_image_display.allow_tags = True  # Permite que o HTML seja renderizado no admin
+    atracaoImage_image_display.short_description = 'Imagem'  # Nome da coluna exibida no admin
