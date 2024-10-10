@@ -63,7 +63,6 @@ class Sections(models.Model):
     ativa = models.BooleanField(default=True, verbose_name='Ativa')
     dt_insercao = models.DateTimeField(default=timezone.now, verbose_name='Data de Publicação')
 
-
 class Atracao(models.Model):
     nome = models.CharField(max_length=50, verbose_name='Nome', null=True, blank=True)
     titulo = models.CharField(max_length=200, verbose_name='Título')
@@ -74,7 +73,7 @@ class Atracao(models.Model):
 
 class AtracaoImages(models.Model):
     nome = models.CharField(max_length=50, verbose_name='Nome', null=True, blank=True)
-    section_image = models.ImageField(upload_to='atracoes-images/', null=True, blank=True)
+    section_image = models.ImageField(upload_to='atracoes-images/')
 
 class Noticia(models.Model):
     titulo = models.CharField(max_length=200, verbose_name='Título')

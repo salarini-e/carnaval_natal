@@ -41,6 +41,7 @@ body{
     max-width: 25vw; /* Mantenha apenas o max-width */
     border-radius: 5px;
     width: 100%; /* 100% da coluna */
+    text-decoration: none;
 }
 
 .card-images {

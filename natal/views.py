@@ -88,49 +88,69 @@ def reinoNoel(req):
     return render(req,'natal/reinoNoel.html', context)
 
 def decoracoes(req):
+    midBanners = AtracaoImages.objects.all().order_by('-id')[:4]  
+    midBannersAll = AtracaoImages.objects.all().order_by('-id')  
     descricao = Atracao.objects.filter(slug='decoracoes').first()
     bannerPrincipalDecoracoesWeb = Banner.objects.filter(nome='BannerPrincipalDecoracoesWeb').first()
     context={
         'descricao': descricao,
         'bannerPrincipalDecoracoesWeb': bannerPrincipalDecoracoesWeb,
+        'midBanners': midBanners,
+        'midBannersAll': midBannersAll
         
     }
 
     return render(req, 'natal/decoracoes.html', context)
 
 def desfiles(req):
+    midBanners = AtracaoImages.objects.all().order_by('-id')[:4]  
+    midBannersAll = AtracaoImages.objects.all().order_by('-id')  
     descricao = Atracao.objects.filter(slug='desfiles').first()
     bannerPrincipalDesfilesWeb = Banner.objects.filter(nome='BannerPrincipalDesfilesWeb').first()
     context={
         'descricao': descricao,
         'bannerPrincipalDesfilesWeb': bannerPrincipalDesfilesWeb,
+        'midBanners': midBanners,
+        'midBannersAll': midBannersAll
     }
     return render(req, 'natal/desfiles.html', context)
 
 def teatros(req):
+    midBanners = AtracaoImages.objects.all().order_by('-id')[:4]  
+    midBannersAll = AtracaoImages.objects.all().order_by('-id')  
     descricao = Atracao.objects.filter(slug='teatros').first()
     bannerPrincipalTeatrosWeb = Banner.objects.filter(nome='BannerPrincipalTeatrosWeb').first()
     context={
         'descricao': descricao,
         'bannerPrincipalTeatrosWeb':bannerPrincipalTeatrosWeb,
+        'midBanners': midBanners,
+        'midBannersAll': midBannersAll
     }
     return render(req, 'natal/teatros.html', context)
 
 def casaPapaiNoel(req):
+    midBanners = AtracaoImages.objects.all().order_by('-id')[:4]  
+    midBannersAll = AtracaoImages.objects.all().order_by('-id')  
     descricao = Atracao.objects.filter(slug='casaPapaiNoel').first()
     bannerPrincipalCasaPapaiNoelWeb = Banner.objects.filter(nome='BannerPrincipalCasaPapaiNoelWeb').first()
     context={
         'descricao': descricao,
         'bannerPrincipalCasaPapaiNoelWeb':bannerPrincipalCasaPapaiNoelWeb,
+        'midBanners': midBanners,
+        'midBannersAll': midBannersAll
     }
     return render(req, 'natal/casaPapaiNoel.html', context)
 
 def encantoNatal(req):
+    midBanners = AtracaoImages.objects.all().order_by('-id')[:4]  
+    midBannersAll = AtracaoImages.objects.all().order_by('-id')  
     descricao = Atracao.objects.filter(slug='encantoNatal').first()
     bannerPrincipalEncantoNatalWeb = Banner.objects.filter(nome='BannerPrincipalEncantoNatalWeb').first()
     context={
         'descricao': descricao,
         'bannerPrincipalEncantoNatalWeb':bannerPrincipalEncantoNatalWeb,
+        'midBanners': midBanners,
+        'midBannersAll': midBannersAll
     }
     return render (req, 'natal/encantoNatal.html', context)
 
