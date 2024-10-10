@@ -22,6 +22,7 @@ def index(req):
 
     # CARREGAR OS BANNERS DA HOME
     bannerPrincipalHomeWeb = Banner.objects.filter(nome='BannerPrincipalHomeWeb').first()
+    bannerPrincipalHomeMobile = Banner.objects.filter(nome='BannerPrincipalHomeMobile').first()
     # PEGAR AS NOTÍCIAS
     ultimas_noticias = Noticia.objects.filter(publicado=True).order_by('-publicado_em')[:4]
 
@@ -46,6 +47,7 @@ def index(req):
     context = {
         'sections': sections,
         'bannerPrincipalHomeWeb': bannerPrincipalHomeWeb,
+        'bannerPrincipalHomeMobile': bannerPrincipalHomeMobile,
         'programacao': programacao,
         'parceiros': Parceiro.objects.all(),
         'atracoes': Atracao.objects.all(),

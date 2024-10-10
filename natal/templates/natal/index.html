@@ -12,6 +12,15 @@
         <img src="/static/imgs/home_top_banner.png" alt="banner-principal" class="home-top-banner-image"> <!-- Fallback para uma imagem padrão -->
     {% endif %}
 </div>
+
+<div class="home-top-banner-mobile">
+    {% if bannerPrincipalHomeMobile and bannerPrincipalHomeMobile.banner_image %}
+        <img src="{{ bannerPrincipalHomeMobile.banner_image.url }}" alt="{{ bannerPrincipalHomeMobile.nome }}" class="home-top-banner-image-mobile">
+    {% else %}
+        <img src="/static/imgs/home_top_banner_mobile.png" alt="banner-principal-mobile" class="home-top-banner-image"> <!-- Fallback para uma imagem padrão -->
+    {% endif %}
+</div>
+
     <div class="home-novidades-natal">
         <div class="home-novidades-natal-title"> 
             <h1 class="novidades-natal-title">Novidades no Encanto de Natal</h1>
