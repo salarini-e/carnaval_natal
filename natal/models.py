@@ -67,7 +67,6 @@ class Atracao(models.Model):
     nome = models.CharField(max_length=50, verbose_name='Nome', null=True, blank=True)
     titulo = models.TextField(verbose_name='Título',null=True, blank=True)
     slug = models.SlugField(unique=True, max_length=200, default='default-slug')
-    subtitulo = models.TextField(verbose_name='Subtítulo',null=True, blank=True)
     descricao = models.TextField(verbose_name='Descrição',null=True, blank=True)
     section_video = models.CharField(max_length=300, verbose_name='Iframe', null=True, blank=True)
     section_image = models.ImageField(upload_to='atracoes/', null=True, blank=True)
