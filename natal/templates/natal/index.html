@@ -12,7 +12,6 @@
         <img src="/static/imgs/home_top_banner.png" alt="banner-principal" class="home-top-banner-image"> <!-- Fallback para uma imagem padrão -->
     {% endif %}
 </div>
-
 <div class="home-top-banner-mobile">
     {% if bannerPrincipalHomeMobile and bannerPrincipalHomeMobile.banner_image %}
         <img src="{{ bannerPrincipalHomeMobile.banner_image.url }}" alt="{{ bannerPrincipalHomeMobile.nome }}" class="home-top-banner-image-mobile">
