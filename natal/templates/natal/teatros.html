@@ -15,6 +15,11 @@
         <img src="/static/imgs/bannerPrincipalTeatros.png" alt="top-banner" class="top-banner-image">
         {% endif %}
     </div>
+    <div class="home-top-banner-mobile-atracoes"> 
+        {% if bannerPrincipalTeatrosMOBILE and bannerPrincipalTeatrosMOBILE.banner_image %}
+            <img src="{{ bannerPrincipalTeatrosMOBILE.banner_image.url }}" alt="{{ bannerPrincipalTeatrosMOBILE.nome }}" class="home-top-banner-image-mobile-atracoes"> 
+        {% endif %}
+    </div>
 
     <div class="mid-banners">
       {% for banner in midBanners %}

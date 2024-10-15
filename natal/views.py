@@ -22,7 +22,7 @@ def index(req):
 
     # CARREGAR OS BANNERS DA HOME
     bannerPrincipalHomeWeb = Banner.objects.filter(nome='BannerPrincipalHomeWeb').first()
-    bannerPrincipalHomeMobile = Banner.objects.filter(nome='BannerPrincipalHomeMobile').first()
+    bannerPrincipalHomeMOBILE = Banner.objects.filter(nome='BannerPrincipalHomeMOBILE').first()
     # PEGAR AS NOTÍCIAS
     ultimas_noticias = Noticia.objects.filter(publicado=True).order_by('-publicado_em')[:4]
 
@@ -47,7 +47,7 @@ def index(req):
     context = {
         'sections': sections,
         'bannerPrincipalHomeWeb': bannerPrincipalHomeWeb,
-        'bannerPrincipalHomeMobile': bannerPrincipalHomeMobile,
+        'bannerPrincipalHomeMOBILE': bannerPrincipalHomeMOBILE,
         'programacao': programacao,
         'parceiros': Parceiro.objects.all(),
         'atracoes': Atracao.objects.all(),
@@ -77,12 +77,14 @@ def casaDoPapaiNoel(req):
 
 def reinoNoel(req):
     bannerPrincipalReinoNoelWeb = Banner.objects.filter(nome='BannerPrincipalReinoNoelWeb').first()
+    bannerPrincipalReinoNoelMOBILE = Banner.objects.filter(nome='BannerPrincipalReinoNoelMOBILE').first()
     midBanners = AtracaoImages.objects.all().order_by('-id')[:4]  
     midBannersAll = AtracaoImages.objects.all().order_by('-id')  
     descricao = Atracao.objects.filter(slug='reinoNoel').first()
-    
+    print("teste", bannerPrincipalReinoNoelMOBILE)
     context={
         'bannerPrincipalReinoNoelWeb': bannerPrincipalReinoNoelWeb,
+        'bannerPrincipalReinoNoelMOBILE': bannerPrincipalReinoNoelMOBILE,
         'descricao': descricao,
         'midBanners': midBanners,
         'midBannersAll': midBannersAll
@@ -94,9 +96,12 @@ def decoracoes(req):
     midBannersAll = AtracaoImages.objects.all().order_by('-id')  
     descricao = Atracao.objects.filter(slug='decoracoes').first()
     bannerPrincipalDecoracoesWeb = Banner.objects.filter(nome='BannerPrincipalDecoracoesWeb').first()
+    bannerPrincipalDecoracoesMOBILE = Banner.objects.filter(nome='BannerPrincipalDecoracoesMOBILE').first()
+
     context={
         'descricao': descricao,
         'bannerPrincipalDecoracoesWeb': bannerPrincipalDecoracoesWeb,
+        'bannerPrincipalDecoracoesMOBILE': bannerPrincipalDecoracoesMOBILE,
         'midBanners': midBanners,
         'midBannersAll': midBannersAll
         
@@ -109,9 +114,12 @@ def desfiles(req):
     midBannersAll = AtracaoImages.objects.all().order_by('-id')  
     descricao = Atracao.objects.filter(slug='desfiles').first()
     bannerPrincipalDesfilesWeb = Banner.objects.filter(nome='BannerPrincipalDesfilesWeb').first()
+    bannerPrincipalDesfilesMOBILE = Banner.objects.filter(nome='BannerPrincipalDesfilesMOBILE').first()
+
     context={
         'descricao': descricao,
         'bannerPrincipalDesfilesWeb': bannerPrincipalDesfilesWeb,
+        'bannerPrincipalDesfilesMOBILE': bannerPrincipalDesfilesMOBILE,
         'midBanners': midBanners,
         'midBannersAll': midBannersAll
     }
@@ -122,9 +130,11 @@ def teatros(req):
     midBannersAll = AtracaoImages.objects.all().order_by('-id')  
     descricao = Atracao.objects.filter(slug='teatros').first()
     bannerPrincipalTeatrosWeb = Banner.objects.filter(nome='BannerPrincipalTeatrosWeb').first()
+    bannerPrincipalTeatrosMOBILE = Banner.objects.filter(nome='BannerPrincipalTeatrosMOBILE').first()
     context={
         'descricao': descricao,
         'bannerPrincipalTeatrosWeb':bannerPrincipalTeatrosWeb,
+        'bannerPrincipalTeatrosMOBILE':bannerPrincipalTeatrosMOBILE,
         'midBanners': midBanners,
         'midBannersAll': midBannersAll
     }
@@ -134,10 +144,12 @@ def casaPapaiNoel(req):
     midBanners = AtracaoImages.objects.all().order_by('-id')[:4]  
     midBannersAll = AtracaoImages.objects.all().order_by('-id')  
     descricao = Atracao.objects.filter(slug='casaPapaiNoel').first()
-    bannerPrincipalCasaPapaiNoelWeb = Banner.objects.filter(nome='BannerPrincipalCasaPapaiNoelWeb').first()
+    bannerPrincipalCasaPapaiNoelWeb = Banner.objects.filter(nome='BannerPrincipalCasaPapaiNoelWeb').first() 
+    bannerPrincipalCasaPapaiNoelMOBILE = Banner.objects.filter(nome='BannerPrincipalCasaPapaiNoelMOBILE').first()
     context={
         'descricao': descricao,
         'bannerPrincipalCasaPapaiNoelWeb':bannerPrincipalCasaPapaiNoelWeb,
+        'bannerPrincipalCasaPapaiNoelMOBILE':bannerPrincipalCasaPapaiNoelMOBILE,
         'midBanners': midBanners,
         'midBannersAll': midBannersAll
     }
@@ -148,9 +160,11 @@ def encantoNatal(req):
     midBannersAll = AtracaoImages.objects.all().order_by('-id')  
     descricao = Atracao.objects.filter(slug='encantoNatal').first()
     bannerPrincipalEncantoNatalWeb = Banner.objects.filter(nome='BannerPrincipalEncantoNatalWeb').first()
+    bannerPrincipalEncantoNatalMOBILE = Banner.objects.filter(nome='BannerPrincipalEncantoNatalMOBILE').first()
     context={
         'descricao': descricao,
         'bannerPrincipalEncantoNatalWeb':bannerPrincipalEncantoNatalWeb,
+        'bannerPrincipalEncantoNatalMOBILE':bannerPrincipalEncantoNatalMOBILE,
         'midBanners': midBanners,
         'midBannersAll': midBannersAll
     }

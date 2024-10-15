@@ -14,7 +14,12 @@
         {% else %}
         <img src="/static/imgs/bannerPrincipalCasaPapaiNoel.png" alt="top-banner" class="top-banner-image">
         {% endif %}
-  
+    </div>
+
+    <div class="home-top-banner-mobile-atracoes"> 
+        {% if bannerPrincipalCasaPapaiNoelMOBILE and bannerPrincipalCasaPapaiNoelMOBILE.banner_image %}
+            <img src="{{ bannerPrincipalCasaPapaiNoelMOBILE.banner_image.url }}" alt="{{ bannerPrincipalCasaPapaiNoelMOBILE.nome }}" class="home-top-banner-image-mobile-atracoes"> 
+        {% endif %}
     </div>
 
     <div class="mid-banners">
