@@ -56,8 +56,8 @@ from django.utils import timezone
 class Sections(models.Model):
     titulo = models.CharField(max_length=200, verbose_name='Título')
     slug = models.SlugField(unique=True, max_length=200)
-    subtitulo = models.CharField(max_length=300, verbose_name='Subtítulo')
-    descricao = models.CharField(max_length=10000, verbose_name='Descrição')
+    subtitulo = models.TextField(verbose_name='Subtítulo',null=True, blank=True)
+    descricao = models.TextField(verbose_name='Descrição',null=True, blank=True)
     section_image = models.ImageField(upload_to='sections/', null=True, blank=True)
     section_video = models.CharField(max_length=300, verbose_name='Iframe', null=True, blank=True)
     ativa = models.BooleanField(default=True, verbose_name='Ativa')
@@ -65,9 +65,9 @@ class Sections(models.Model):
 
 class Atracao(models.Model):
     nome = models.CharField(max_length=50, verbose_name='Nome', null=True, blank=True)
-    titulo = models.CharField(max_length=200, verbose_name='Título')
+    titulo = models.TextField(verbose_name='Título',null=True, blank=True)
     slug = models.SlugField(unique=True, max_length=200, default='default-slug')
-    descricao = models.CharField(max_length=10000, verbose_name='Descrição')
+    descricao = models.TextField(verbose_name='Descrição',null=True, blank=True)
     section_video = models.CharField(max_length=300, verbose_name='Iframe', null=True, blank=True)
     section_image = models.ImageField(upload_to='atracoes/', null=True, blank=True)
 

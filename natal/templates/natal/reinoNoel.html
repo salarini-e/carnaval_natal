@@ -15,6 +15,11 @@
         <img src="/static/imgs/bannerPrincipalReinoNoel.png" alt="banner-principal" class="top-banner-image">
         {% endif %}
     </div>
+    <div class="home-top-banner-mobile-atracoes"> 
+        {% if bannerPrincipalReinoNoelMOBILE and bannerPrincipalReinoNoelMOBILE.banner_image %}
+            <img src="{{ bannerPrincipalReinoNoelMOBILE.banner_image.url }}" alt="{{ bannerPrincipalReinoNoelMOBILE.nome }}" class="home-top-banner-image-mobile-atracoes"> 
+        {% endif %}
+    </div>
 
         <!-- <div class="mid-banners">
             <div class="mid-banner-card">

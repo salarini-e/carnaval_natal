@@ -7,6 +7,9 @@ body{
     height: 90vh;
     width: 100%;
 }
+.home-top-banner-mobile{
+    display: none;
+}
 .home-novidades-natal{
     display: flex;
     flex-direction: column;
@@ -334,6 +337,9 @@ body{
     .em-alta-card-image{
         max-width: 40vw;
     }
+    .mid-banner-noticia-titulo{
+        font-size: 2em;
+    }
 }
 
 @media(max-width:690px){
@@ -479,6 +485,16 @@ body{
     }
     .mid-banner-noticia-titulo{
         font-size: 2em;
+    }
+    .home-top-banner-mobile{
+        display: flex;
+    }
+    .home-top-banner{
+        display: none;
+    }
+    .home-top-banner-image-mobile{
+        display: flex !important;
+        width: 100%;
     }
 }
 @media(max-width:930px){
