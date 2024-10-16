@@ -24,7 +24,7 @@
             <a href="{% url 'ver_noticia' noticia.slug %}" class="noticias-infos-link" target="_blank">
                 {{noticia.titulo|safe}}
             </a>
-            <span class="noticias-infos-descricao">{{noticia.conteudo|safe}}</span>
+            <span class="noticias-infos-descricao">{{ noticia.apenasTexto|safe }}</span>
             <span class="noticias-infos-time">{{noticia.pegarTempoCriacao}}</span>
         </div>
     </div>

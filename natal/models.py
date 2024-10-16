@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from bs4 import BeautifulSoup
 
 
 class Parceiro(models.Model):
@@ -123,3 +124,10 @@ class Noticia(models.Model):
 
         return self.__calculaTempoCriacao(delta)
 
+    def apenasTexto(self):
+        if self.conteudo:
+            soup = BeautifulSoup(self.conteudo, 'html.parser')
+            return soup.get_text()  # Retorna apenas o texto, sem alterar o conteúdo original
+        return self.conteudo  # Se não houver conteúdo, retorna None ou uma string vazia
+
+        

@@ -69,19 +69,30 @@
 
 <script>
     function previewContent() {
-      // Obtém o conteúdo do TinyMCE editor
-      const content = tinymce.get('conteudo').getContent();
-      
-      // Obtém a imagem do input
-      const imageInput = document.querySelector('input[name="imagem"]');
-      const imageUrl = imageInput.files.length > 0 ? URL.createObjectURL(imageInput.files[0]) : '';
+        // Obtém o conteúdo do TinyMCE editor
+        const content = tinymce.get('conteudo').getContent();
 
-      // Obtém o título do input
-      const titleInput = document.querySelector('input[name="titulo"]');
-      const title = titleInput.value || 'Título da Notícia'; // Define um título padrão caso o campo esteja vazio
+        // Cria um elemento temporário para remover as tags HTML e imagens
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = content;
 
-      // Atualiza o conteúdo da div de pré-visualização
-      document.getElementById('preview-content').innerHTML = `
+        // Remove todas as imagens do conteúdo
+        const images = tempDiv.querySelectorAll('img');
+        images.forEach(img => img.remove());
+
+        // Extrai apenas o texto, sem HTML e imagens
+        const plainText = tempDiv.textContent || tempDiv.innerText || '';
+
+        // Obtém a imagem do input
+        const imageInput = document.querySelector('input[name="imagem"]');
+        const imageUrl = imageInput.files.length > 0 ? URL.createObjectURL(imageInput.files[0]) : '';
+
+        // Obtém o título do input
+        const titleInput = document.querySelector('input[name="titulo"]');
+        const title = titleInput.value || 'Título da Notícia'; // Define um título padrão caso o campo esteja vazio
+
+        // Atualiza o conteúdo da div de pré-visualização
+        document.getElementById('preview-content').innerHTML = `
             <div class="noticias-wrapper-card">
                 ${imageUrl ? `
                     <div class="noticias-image-wrapper">
@@ -90,7 +101,7 @@
                 ` : ''}
                 <div class="noticias-infos-wrapper"> 
                     <h4 class="noticias-infos-link">${title}</h4>
-                    <span class="noticias-infos-descricao">${content}</span>
+                    <span class="noticias-infos-descricao">${plainText}</span>
                     <span class="noticias-infos-time">${new Date().toLocaleString()}</span>
                 </div>   
             </div>
