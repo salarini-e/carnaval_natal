@@ -137,7 +137,7 @@ a {
 .menu-icon {
     width: 30px;
     height: 3px;
-    background-color: #0d2507;
+    background-color:white;
     border-radius: 3px;
     transition: all 0.3s;
 }
