@@ -41,8 +41,13 @@
                   {{ form.titulo.label }} <!-- Renderiza o rótulo do título -->
                   {{ form.titulo }} <!-- Renderiza o campo de título -->
                   
-                  {{ form.imagem.label }} <!-- Renderiza o rótulo da imagem -->
-                  {{ form.imagem }} <!-- Renderiza o campo de imagem -->
+                  <div class="imagem-wrapper" style="margin-top: 10px;">
+                        {{ form.imagem.label }} <!-- Renderiza o rótulo da imagem -->
+                        <div class="input-with-button">
+                            {{ form.imagem }} <!-- Renderiza o campo de imagem -->
+                            <button type="button" onclick="removeImage()" class="button-remove-imagem" id="remove-image-btn" style="display: none;"><i class="fa-solid fa-trash-can" style="color: black;"></i></button>
+                        </div>
+                    </div>
 
                   <div class="publicado-check-wrapper">
                     <label for="publicado" style="margin-left: 10px; margin-bottom: 0px !important; margin-right: 10px;">Publicado</label> <!-- Rótulo para o toggle switch -->
@@ -77,21 +82,39 @@
 
       // Atualiza o conteúdo da div de pré-visualização
       document.getElementById('preview-content').innerHTML = `
-          <div class="noticias-wrapper-card">
-              ${imageUrl ? `
-                  <div class="noticias-image-wrapper">
-                      <img src="${imageUrl}" alt="Imagem da Notícia" class="noticias-image">
-                  </div>
-              ` : ''}
-              <div class="noticias-infos-wrapper"> 
-                <h4 class="noticias-infos-link">${title}</h4>
-                <span class="noticias-infos-descricao">${content}</span>
-                <span class="noticias-infos-time">${new Date().toLocaleString()}</span>
-              </div>   
-          </div>
-      `;
-  }
+            <div class="noticias-wrapper-card">
+                ${imageUrl ? `
+                    <div class="noticias-image-wrapper">
+                        <img src="${imageUrl}" alt="Imagem da Notícia" class="noticias-image">
+                    </div>
+                ` : ''}
+                <div class="noticias-infos-wrapper"> 
+                    <h4 class="noticias-infos-link">${title}</h4>
+                    <span class="noticias-infos-descricao">${content}</span>
+                    <span class="noticias-infos-time">${new Date().toLocaleString()}</span>
+                </div>   
+            </div>
+        `;
+    }
+    const imageInput = document.querySelector('input[name="imagem"]');
+    const removeImageBtn = document.getElementById('remove-image-btn');
 
+    imageInput.addEventListener('change', function() {
+        // Mostra o botão de remover apenas se uma imagem foi selecionada
+        if (this.files.length > 0) {
+            removeImageBtn.style.display = 'inline-block'; // Mostra o botão
+        } else {
+            removeImageBtn.style.display = 'none'; // Esconde o botão
+        }
+    });
+
+    function removeImage() {
+        // Limpa o campo de input da imagem
+        imageInput.value = '';
+
+        // Esconde o botão de remover
+        removeImageBtn.style.display = 'none';
+    }
   
 </script>
 

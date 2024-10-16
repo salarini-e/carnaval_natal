@@ -39,11 +39,23 @@ label:not(:first-child){
     justify-content: end;
 }
 
-.button-preview-noticia , .button-enviar-noticia{
+.button-preview-noticia  {
     cursor: pointer;
     outline: none;
     border: none;
-    margin-right: 5px;
+    margin-right: 10px;
+    border-radius: 15px;
+    padding: 5px 10px;
+    background-color: #3F51B5;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all .5s ease-in-out;
+}
+.button-enviar-noticia{
+    cursor: pointer;
+    outline: none;
+    border: none;
     border-radius: 15px;
     padding: 5px 10px;
     background-color: #3F51B5;
@@ -121,4 +133,28 @@ input:checked + .slider:before {
 .publicado-check-wrapper{
     display: flex;
     align-items: center;
+}
+
+
+/* IMAGE INPUT */
+.input-with-button {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#id_imagem{
+    position: relative !important;
+}
+
+.button-remove-imagem {
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px; /* Espaço entre o input e o botão */
+    position:absolute;
+    right: 6px;
+    background-color: transparent;
 }
