@@ -194,3 +194,12 @@ def criar_noticia(request):
 def ver_noticia(request, slug):
     noticia = Noticia.objects.get(slug=slug)
     return render(request, 'natal/ver_noticia.html', context={'noticia': noticia})
+
+
+def ver_todas_noticias(request):
+    noticias = Noticia.objects.all()
+
+    context= {
+        'noticias': noticias
+    }
+    return render(request, 'natal/noticias.html', context)

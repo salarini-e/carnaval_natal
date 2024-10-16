@@ -91,4 +91,35 @@ class Noticia(models.Model):
 
     def __str__(self):
         return self.titulo
+    
+
+    def __calculaTempoCriacao(self, delta):
+        if delta.days > 1:
+            return f"Há {delta.days} dias"
+        elif delta.days == 1:
+            return "Há 1 dia"
+        else:
+            horas = delta.seconds // 3600
+            minutos = (delta.seconds % 3600) // 60 
+            
+            if horas > 0:
+                if horas == 1:
+                    return f"Há {horas} hora"
+                else:
+                    return f"Há {horas} horas"
+            else:
+                if minutos > 0:
+                    if minutos == 1:
+                        return f"Há {minutos} minuto"
+                    else:
+                        return f"Há {minutos} minutos"
+                else:
+                    return "Há menos de um minuto"
+    
+    def pegarTempoCriacao(self):
+        agora_utc = timezone.now()
+        dt_inclusao_naive = self.publicado_em.replace(tzinfo=None)
+        delta = agora_utc.replace(tzinfo=None) - dt_inclusao_naive
+
+        return self.__calculaTempoCriacao(delta)
 
