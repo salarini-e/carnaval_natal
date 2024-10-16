@@ -197,7 +197,7 @@ def ver_noticia(request, slug):
 
 
 def ver_todas_noticias(request):
-    noticias = Noticia.objects.all()
+    noticias = Noticia.objects.filter(publicado=True)
 
     context= {
         'noticias': noticias

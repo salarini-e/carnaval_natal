@@ -1,0 +1,124 @@
+.criar-noticia-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 30px;
+}
+.text-editor-wrapper{
+    width: 100%;
+}
+
+.preview-title{
+    color: white;
+}
+
+.text-editor-wrapper{
+    background-color: #0d2507;
+    border-radius: 15px;
+}
+.text-editor-form{
+    padding: 16px;
+}
+
+.descricao-label-criar-noticia, label{
+    color: white !important;
+    font-size: 16px !important;
+    margin-left: 5px !important;
+
+}
+label:not(:first-child){
+    margin-top: 10px !important;
+}
+.col{
+    margin-top: 15px !important;
+    margin-bottom: 15px  !important;
+}
+
+.buttons-criar-noticia-wrapper{
+    display: flex;
+    justify-content: end;
+}
+
+.button-preview-noticia , .button-enviar-noticia{
+    cursor: pointer;
+    outline: none;
+    border: none;
+    margin-right: 5px;
+    border-radius: 15px;
+    padding: 5px 10px;
+    background-color: #3F51B5;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all .5s ease-in-out;
+}
+
+.button-preview-noticia:hover, .button-enviar-noticia:hover{
+    background-color: #394797;
+}
+@media(max-width:768px){
+    .criar-noticia-wrapper{
+        padding: 5px 16px;
+    }
+    .text-editor-form{
+        padding: 8px;
+    }
+}
+
+/* SWITCH */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 36px; /* Largura do interruptor */
+    height: 20px; /* Altura do interruptor */
+    
+}
+
+/* Esconde o checkbox original */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    
+}
+
+/* Estilo do slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc; /* Cor de fundo quando desligado */
+    transition: .4s; /* Transição suave */
+    border-radius: 34px; /* Bordas arredondadas */
+    
+}
+
+/* O círculo dentro do slider */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px; /* Altura do círculo */
+    width: 16px; /* Largura do círculo */
+    left: 3px; /* Espaço à esquerda */
+    bottom: 2px; /* Espaço embaixo */
+    background-color: rgb(129, 129, 129); /* Cor do círculo */
+    transition: .4s; /* Transição suave */
+    border-radius: 50%; /* Círculo perfeito */
+}
+
+/* Estilo quando o checkbox é marcado */
+input:checked + .slider {
+    background-color: #a80000; /* Cor de fundo quando ligado */
+}
+
+input:checked + .slider:before {
+    transform: translateX(13px); /* Move o círculo para a direita */
+}
+
+.publicado-check-wrapper{
+    display: flex;
+    align-items: center;
+}

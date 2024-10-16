@@ -9,5 +9,4 @@ class NoticiaForm(forms.ModelForm):
             'titulo': forms.TextInput(attrs={'class': 'form-control'}),
             'imagem': forms.ClearableFileInput(attrs={'class': 'form-control'}),
             'publicado': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
-
         }

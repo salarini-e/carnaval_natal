@@ -16,15 +16,15 @@
         {% if noticia.imagem%}
         <div class="noticias-image-wrapper">
             <a href="{% url 'ver_noticia' noticia.slug %}" class="noticias-image-link" target="_blank">
-                <img src="/static/imgs/02122021-DSC_0055.png" alt="" class="noticias-image">
+                <img src="{{ noticia.imagem.url }}" alt="{{noticia.imagem}}" class="noticias-image">
             </a>
         </div>
         {% endif %}
         <div class="noticias-infos-wrapper">
             <a href="{% url 'ver_noticia' noticia.slug %}" class="noticias-infos-link" target="_blank">
-                {{noticia.titulo}}
+                {{noticia.titulo|safe}}
             </a>
-            <span class="noticias-infos-descricao">{{noticia.conteudo}}</span>
+            <span class="noticias-infos-descricao">{{noticia.conteudo|safe}}</span>
             <span class="noticias-infos-time">{{noticia.pegarTempoCriacao}}</span>
         </div>
     </div>
@@ -36,7 +36,4 @@
     {% endif %}
   
 </div>
-
-
-
 {% endblock %}
