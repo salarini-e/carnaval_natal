@@ -1,0 +1,39 @@
+{% extends 'natal/template.html' %}
+{% block css %}
+    <link rel="stylesheet" href="/static/css/natal/noticias.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+{% endblock %}
+{% block main %}
+
+<div class="noticias-wrapper">
+    <h1 class="noticias-wrapper-title">Portal de notícias</h1>
+    {% if noticias %}
+    {% for noticia in noticias%}
+    <div class="noticias-wrapper-card">
+        {% if noticia.imagem%}
+        <div class="noticias-image-wrapper">
+            <a href="{% url 'ver_noticia' noticia.slug %}" class="noticias-image-link" target="_blank">
+                <img src="{{ noticia.imagem.url }}" alt="{{noticia.imagem}}" class="noticias-image">
+            </a>
+        </div>
+        {% endif %}
+        <div class="noticias-infos-wrapper">
+            <a href="{% url 'ver_noticia' noticia.slug %}" class="noticias-infos-link" target="_blank">
+                {{noticia.titulo|safe}}
+            </a>
+            <span class="noticias-infos-descricao">{{ noticia.apenasTexto|safe }}</span>
+            <span class="noticias-infos-time">{{noticia.pegarTempoCriacao}}</span>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+        <div class="sem-noticias-wrapper">
+            <h1 class="sem-noticias-title">Nenhuma notícia foi publicada ainda!</h1>
+        </div>
+    {% endif %}
+  
+</div>
+{% endblock %}

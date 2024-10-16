@@ -1,54 +1,132 @@
 {% extends 'natal/template.html' %}
+{% block css %}
+    <link rel="stylesheet" href="/static/css/natal/criar_noticias.css">
+    <link rel="stylesheet" href="/static/css/natal/noticias.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+{% endblock %}
 {% block main %}
-<div class="row">
-    <div class="col">
-        <form method="POST" id="postForm" enctype="multipart/form-data">
-            <!-- Place the first <script> tag in your HTML's <head> -->
-            <script src="https://cdn.tiny.cloud/1/7kdt08katyyqptwd3k0sf3iwljwm20y345hq4w07zj6xh5kl/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-
-            <!-- TinyMCE Initialization -->
-            <script>
-              tinymce.init({
-                selector: 'textarea',
-                plugins: [
-                  'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
-                  'checklist', 'mediaembed', 'casechange', 'export', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown',
-                ],
-                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-              });
-            </script>
-            
-            {% csrf_token %}
-            <textarea name="conteudo" id="conteudo">
-              Welcome to TinyMCE!
-            </textarea>
-            <div class="row">
-                <div class="col" style="color: white;">
-                    {{form}}
-                </div>
-            </div>
-            <button type="button" onclick="previewContent()">Pré-visualizar</button>
-            <button type="submit">Enviar</button>
-        </form>
-    </div>
-
+<div class="criar-noticia-wrapper">
     <!-- Div para pré-visualização -->
-    <div class="col" id="visualizacao" style="color: white; padding: 10px;">
-        <h3>Pré-visualização:</h3>
+    <div class="preview-wrapper">
+        <h3 class="preview-title">Pré-visualização:</h3>
         <hr style="border-color: white;">
-        <div id="preview-content"></div>
+        <div id="preview-content" class="noticias-wrapper-card"></div>
     </div>
+
+    <div class="text-editor-wrapper">
+      <form method="POST" id="postForm" enctype="multipart/form-data" class="text-editor-form">
+          <!-- Place the first <script> tag in your HTML's <head> -->
+          <script src="https://cdn.tiny.cloud/1/7kdt08katyyqptwd3k0sf3iwljwm20y345hq4w07zj6xh5kl/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+  
+          <!-- TinyMCE Initialization -->
+          <script>
+              tinymce.init({
+                  selector: 'textarea',
+                  plugins: [
+                      'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+                      'checklist', 'mediaembed', 'casechange', 'export', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown',
+                  ],
+                  toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+              });
+          </script>
+          
+          {% csrf_token %}
+          
+          <label for="conteudo" class="descricao-label-criar-noticia">Descrição</label>
+          <textarea name="conteudo" id="conteudo"></textarea>
+  
+          <div class="row">
+              <div class="col" style="color: white;">
+                  {{ form.titulo.label }} <!-- Renderiza o rótulo do título -->
+                  {{ form.titulo }} <!-- Renderiza o campo de título -->
+                  
+                  <div class="imagem-wrapper" style="margin-top: 10px;">
+                        {{ form.imagem.label }} <!-- Renderiza o rótulo da imagem -->
+                        <div class="input-with-button">
+                            {{ form.imagem }} <!-- Renderiza o campo de imagem -->
+                            <button type="button" onclick="removeImage()" class="button-remove-imagem" id="remove-image-btn" style="display: none;"><i class="fa-solid fa-trash-can" style="color: black;"></i></button>
+                        </div>
+                    </div>
+
+                  <div class="publicado-check-wrapper">
+                    <label for="publicado" style="margin-left: 10px; margin-bottom: 0px !important; margin-right: 10px;">Publicado</label> <!-- Rótulo para o toggle switch -->
+                    <label class="switch">
+                        <input type="checkbox" id="publicado" name="publicado" {% if form.publicado.value %}checked{% endif %}>
+                        <span class="slider"></span>
+                    </label>
+                  </div>
+              </div>
+          </div>
+          <div class="buttons-criar-noticia-wrapper">
+            <button type="button" onclick="previewContent()" class="button-preview-noticia">Pré-visualizar</button>
+            <button type="submit" class="button-enviar-noticia">Enviar</button>
+          </div>
+      </form>
+  </div>
+
 </div>
 
 <script>
     function previewContent() {
         // Obtém o conteúdo do TinyMCE editor
         const content = tinymce.get('conteudo').getContent();
-        
+
+        // Cria um elemento temporário para remover as tags HTML e imagens
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = content;
+
+        // Remove todas as imagens do conteúdo
+        const images = tempDiv.querySelectorAll('img');
+        images.forEach(img => img.remove());
+
+        // Extrai apenas o texto, sem HTML e imagens
+        const plainText = tempDiv.textContent || tempDiv.innerText || '';
+
+        // Obtém a imagem do input
+        const imageInput = document.querySelector('input[name="imagem"]');
+        const imageUrl = imageInput.files.length > 0 ? URL.createObjectURL(imageInput.files[0]) : '';
+
+        // Obtém o título do input
+        const titleInput = document.querySelector('input[name="titulo"]');
+        const title = titleInput.value || 'Título da Notícia'; // Define um título padrão caso o campo esteja vazio
+
         // Atualiza o conteúdo da div de pré-visualização
-        document.getElementById('preview-content').innerHTML = content;
+        document.getElementById('preview-content').innerHTML = `
+            <div class="noticias-wrapper-card">
+                ${imageUrl ? `
+                    <div class="noticias-image-wrapper">
+                        <img src="${imageUrl}" alt="Imagem da Notícia" class="noticias-image">
+                    </div>
+                ` : ''}
+                <div class="noticias-infos-wrapper"> 
+                    <h4 class="noticias-infos-link">${title}</h4>
+                    <span class="noticias-infos-descricao">${plainText}</span>
+                    <span class="noticias-infos-time">${new Date().toLocaleString()}</span>
+                </div>   
+            </div>
+        `;
     }
+    const imageInput = document.querySelector('input[name="imagem"]');
+    const removeImageBtn = document.getElementById('remove-image-btn');
+
+    imageInput.addEventListener('change', function() {
+        // Mostra o botão de remover apenas se uma imagem foi selecionada
+        if (this.files.length > 0) {
+            removeImageBtn.style.display = 'inline-block'; // Mostra o botão
+        } else {
+            removeImageBtn.style.display = 'none'; // Esconde o botão
+        }
+    });
+
+    function removeImage() {
+        // Limpa o campo de input da imagem
+        imageInput.value = '';
+
+        // Esconde o botão de remover
+        removeImageBtn.style.display = 'none';
+    }
+  
 </script>
 
 {% endblock %}
