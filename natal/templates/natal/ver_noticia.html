@@ -1,16 +1,17 @@
 {% extends 'natal/template.html' %}
-
+{% block css %}
+    <link rel="stylesheet" href="/static/css/natal/ver_noticia.css">
+{% endblock %}
 {% block main %}
-<h2>Postar Notícia</h2>
-<div class="row">
-    <div class="col">
-      <h1>{{noticia.titulo}}</h1>
-      <div class="row">
-        <div class="col">
-          {{noticia.conteudo|safe}}
-        </div>
-      </div>
-    </div>
+
+
+<div class="noticia-wrapper">
+  <div class="noticia-wrapper-title">
+    <h1 class="noticia-title">{{noticia.titulo |safe}}</h1>
+  </div>
+  <div class="noticia-descricao">
+    {{noticia.conteudo|safe}}
+  </div>
 </div>
 
 {% endblock %}

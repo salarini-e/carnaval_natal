@@ -16,6 +16,12 @@
         {% endif %}
     </div>
 
+    <div class="home-top-banner-mobile-atracoes"> 
+        {% if bannerPrincipalDecoracoesMOBILE and bannerPrincipalDecoracoesMOBILE.banner_image %}
+            <img src="{{ bannerPrincipalDecoracoesMOBILE.banner_image.url }}" alt="{{ bannerPrincipalDecoracoesMOBILE.nome }}" class="home-top-banner-image-mobile-atracoes"> 
+        {% endif %}
+    </div>
+
     <div class="mid-banners">
       {% for banner in midBanners %}
       <div class="mid-banner-card">

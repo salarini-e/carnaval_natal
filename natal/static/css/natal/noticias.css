@@ -1,0 +1,126 @@
+.noticias-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 5px 30px;
+}
+.noticias-wrapper-title{
+    color: white;
+    margin-bottom: 30px;
+}
+.noticias-wrapper-card{
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+    width: 100%;
+}
+.noticias-wrapper-card::after{
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    margin-top: 15px;
+}
+
+.noticias-wrapper-card:last-child::after {
+    content: none;
+}
+.noticias-image-wrapper{
+    display: flex;
+    border-radius: 15px;
+}
+.noticias-image{
+    width: 450px;
+    border-radius: 15px;
+    height: auto;
+}
+
+.noticias-infos-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 30px;
+}
+
+.noticias-image-link, .noticias-infos-link{
+    font-weight: 400;
+    font-size: 30px;
+    color: white;
+    text-decoration: none !important;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+.noticias-infos-link:hover{
+    color: rgb(160, 160, 160);
+}
+
+.noticias-infos-descricao{
+    margin-top: 10px;
+    display: -webkit-box; /* Define um contêiner flexível */
+    -webkit-box-orient: vertical; /* Define a orientação das caixas */
+    -webkit-line-clamp: 3; /* Limita o número de linhas a 5 */
+    overflow: hidden; /* Oculta o texto excedente */
+    text-overflow: ellipsis; /* Adiciona reticências (...) */
+    color: white;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: left;
+    margin-bottom: 10px;
+    margin-right: 15px;
+}
+.noticias-infos-time{
+    color: white;
+    font-weight: 200;
+    font-size: 16px;
+}
+
+@media(max-width:1024px){
+    .noticias-image{
+        width: 350px;
+    }
+}
+
+@media(max-width:768px){
+    .noticias-wrapper-card{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .noticias-wrapper-title{
+        text-align: center;
+    }
+    .noticias-infos-link{
+        margin-top: 15px;
+        text-align: start;
+    }
+    .noticias-infos-descricao{
+        text-align: start;
+    }
+    .noticias-image{
+        width: 100%;
+        max-width: 450px;
+    }
+    .noticias-wrapper{
+        padding: 5px 16px;
+    }
+    .noticias-infos-wrapper{
+        margin-left: 0px;
+        text-align: justify;
+    }
+}
+
+.sem-noticias-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.sem-noticias-title{
+    color: white;
+    font-size:30px;
+    text-align: center;
+}
