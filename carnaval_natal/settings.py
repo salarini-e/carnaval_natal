@@ -20,7 +20,7 @@ email_pass = env_vars['email_pw']
 
 DEBUG = env_vars['debug_mode']
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['natal.novafriburgo.rj.gov.br', 'localhost', '127.0.0.1']
 
 try:
     hCAPTCHA_PUBLIC_KEY = env_vars['hCAPTCHA_Public_Key']
