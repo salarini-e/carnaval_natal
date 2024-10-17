@@ -338,7 +338,7 @@ body{
         max-width: 40vw;
     }
     .mid-banner-noticia-titulo{
-        font-size: 2em;
+        font-size: 1.3em;
     }
 }
 
@@ -484,7 +484,7 @@ body{
         flex-direction: column;
     }
     .mid-banner-noticia-titulo{
-        font-size: 2em;
+        font-size: 1.3em;
     }
     .home-top-banner-mobile{
         display: flex;
