@@ -6,7 +6,8 @@ from natal.models import *
 from django.contrib.auth.decorators import login_required
 from django.utils.text import slugify
 from .models import Noticia
-from .forms import NoticiaForm
+from .forms import NoticiaForm, ProgramacaoForm
+from django.contrib import messages
 
 def programacao(req):
     context={
@@ -203,3 +204,42 @@ def ver_todas_noticias(request):
         'noticias': noticias
     }
     return render(request, 'natal/noticias.html', context)
+
+# PROGRAMACAO
+@login_required
+def criar_programacao(request):
+    datas = ProgramacaoData.objects.all().order_by('data')
+    
+    # Lista dos dias da semana
+    dias_da_semana = [dia[0] for dia in ProgramacaoData.DIAS_DA_SEMANA]  # ['Segunda-feira', 'Terça-feira', ...]
+
+    if request.method == 'POST':
+        form = ProgramacaoForm(request.POST)
+
+        # Verifica se o formulário está válido
+        if form.is_valid():
+            # Salva a programação
+            programacao = form.save(commit=False)
+            # Lida com a nova data
+            new_data = request.POST.get('new_data')
+            new_dia_da_semana = request.POST.get('new_dia_da_semana')
+
+            if new_data and new_dia_da_semana:
+                # Cria uma nova instância de ProgramacaoData
+                nova_data = ProgramacaoData(data=new_data, dia_da_semana=new_dia_da_semana)
+                nova_data.save()  # Salva a nova data no banco de dados
+                programacao.programacao_data = nova_data  # Define a nova data na programação
+
+            programacao.save()  # Salva a programação
+            messages.success(request, "Programação criada com sucesso!")  # Mensagem de sucesso
+
+    else:
+        form = ProgramacaoForm()
+
+    context = {
+        'form': form,
+        'datas': datas,
+        'dias_da_semana': dias_da_semana,  # Adiciona a lista de dias da semana ao contexto
+    }
+
+    return render(request, 'natal/criar_programacao.html', context)

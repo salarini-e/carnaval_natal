@@ -70,3 +70,16 @@ class AtracaoImagesAdmin(admin.ModelAdmin):
     
     section_image_display.allow_tags = True  
     section_image_display.short_description = 'Imagem' 
+
+
+@admin.register(ProgramacaoData)
+class ProgramacaoDataAdmin(admin.ModelAdmin):
+    list_display = ('data', 'dia_da_semana')
+    list_filter = ('dia_da_semana',)
+    search_fields = ('data', 'dia_da_semana')
+
+@admin.register(ProgramacaoEventos)
+class ProgramacaoEventosAdmin(admin.ModelAdmin):
+    list_display = ('hora', 'titulo_evento', 'local', 'programacao_data')
+    list_filter = ('programacao_data', 'local')
+    search_fields = ('titulo_evento', 'local', 'descricao')

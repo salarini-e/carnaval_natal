@@ -19,4 +19,5 @@ urlpatterns = [
     path('noticias/', views.ver_todas_noticias, name="noticias"),
     path('criar_noticia/', views.criar_noticia, name="criar_noticia"),
     path('noticia/<slug>/', views.ver_noticia, name="ver_noticia"),
+    path('criar_programacao', views.criar_programacao, name='criar_programacao'),
 ]
