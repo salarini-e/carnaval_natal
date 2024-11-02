@@ -242,7 +242,6 @@ def criar_programacao(request):
 
 def ver_programacao(request):
     datas_eventos = ProgramacaoData.objects.annotate(evento_count=Count('eventos')).filter(evento_count__gt=0)
-    
     context = {
         'datas': datas_eventos,
     }

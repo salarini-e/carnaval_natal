@@ -12,6 +12,7 @@
 <div class="programacao-wrapper">
     <h1 class="programacao-title">Programação</h1>
     {% for data in datas %}
+    
     <div class="data-item">
         <div class="data-title-wrapper" onclick="toggleEventos('{{ data.data }}')">
             <div class="data-title">
@@ -48,11 +49,13 @@
                         {{ evento.local }}
                     </div>
                 </div>
-            {% empty %}
-                <div class="evento-item">Nenhum evento programado!</div>
             {% endfor %}
+
+                
         </div>
     </div>
+    {% empty %}
+    <div class="evento-item">Nenhum evento programado!</div>
     {% endfor %}
 </div>
 
