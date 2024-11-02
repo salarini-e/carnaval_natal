@@ -16,6 +16,14 @@ class ProgramacaoForm(forms.ModelForm):
     class Meta:
         model = ProgramacaoEventos
         fields = ['programacao_data', 'hora', 'titulo_evento', 'local', 'descricao', 'publicado']
+        labels = {
+            'programacao_data': 'Data do evento',
+            'hora': 'Hora do evento',
+            'titulo_evento': 'Título do evento',
+            'local': 'Local do evento',
+            'descricao': 'Descrição do evento',
+            'publicado': 'Publicado',
+        }
         widgets = {
             'programacao_data': forms.Select(attrs={'class': 'form-criar-programacao-item-select'}),
             'hora': forms.TimeInput(attrs={'class': 'form-criar-programacao-item-select', 'type': 'time'}),
