@@ -71,7 +71,7 @@
                 <!-- Se for uma imagem -->
                 <img src="{{ reino_de_noel.section_image.url }}" alt="{{ reino_de_noel.titulo }}" class="home-reino-noel-image-image">
                 <div class="overlay-reino-noel"></div>
-                <a href="/reinoNoel" target="_blank" class="home-reino-noel-botao-mobile">Saiba Mais</a>
+                <a href="/reinoNoel" class="home-reino-noel-botao-mobile">Saiba Mais</a>
             {% elif reino_de_noel.section_video %}
                 <!-- Se for um iframe -->
                 <div class="home-encanto-natal-video-mobile">
@@ -80,7 +80,7 @@
             {% else %}
                 <img src="/static/imgs/Home-reinoNoel.jpg" alt="reinoNoelBanner" class="home-reino-noel-image-image">
                 <div class="overlay-reino-noel"></div>
-                <a href="/reinoNoel" target="_blank" class="home-reino-noel-botao-mobile">Saiba Mais</a>
+                <a href="/reinoNoel" class="home-reino-noel-botao-mobile">Saiba Mais</a>
 
             {% endif %}
         </div>
@@ -121,7 +121,7 @@
     <div class="programacao-wrapper">
         <img src="/static/imgs/home-programacao.png" alt="banner-programacao" class="banner-programacao-image">
         <div class="overlay-programacao"></div>
-        <a class="programacao-button" id="openOverlayProgramacaoIndex">Confira a programação completa</a>
+        <a class="programacao-button" href="/programacao">Confira a programação completa</a>
     </div>
 
 
@@ -137,7 +137,7 @@
             <div class="home-reino-noel-image">
                 <img src="{{ section.section_image.url }}" alt="{{ section.titulo }}" class="home-reino-noel-image-image">
                 <div class="overlay-reino-noel"></div>
-                <a href="/{{section.slug}}" target="_blank" class="home-reino-noel-botao-mobile">Saiba Mais</a>
+                <a href="/{{section.slug}}" class="home-reino-noel-botao-mobile">Saiba Mais</a>
             </div>
         </div>
     {% elif section.section_video %}
@@ -247,9 +247,9 @@
             }, 1000);
         }
         // Event listeners para os links de Programação e Notícias
-        document.getElementById('openOverlayProgramacaoIndex').addEventListener('click', function() {
-            openOverlay('Aguarde, a Programação de Natal será divulgada em breve!');
-        });
+        // document.getElementById('openOverlayProgramacaoIndex').addEventListener('click', function() {
+        //     openOverlay('Aguarde, a Programação de Natal será divulgada em breve!');
+        // });
     
         // BOTÃO QUE FECHA O OVERLAY
         document.getElementById('closeBtn').addEventListener('click', function() {

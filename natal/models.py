@@ -154,7 +154,7 @@ class ProgramacaoData(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.data} ({self.dia_da_semana})"
+        return f"{self.data.strftime('%d/%m/%Y')} - {self.dia_da_semana}"
 
     class Meta:
         verbose_name = _("Data da Programação")
@@ -163,7 +163,7 @@ class ProgramacaoData(models.Model):
 
 class ProgramacaoEventos(models.Model):
     programacao_data = models.ForeignKey(ProgramacaoData, on_delete=models.CASCADE, related_name="eventos")
-    hora = models.CharField(max_length=10)
+    hora = models.TimeField()
     titulo_evento = models.CharField(max_length=200)
     local = models.CharField(max_length=200)
     descricao = models.TextField(blank=True, null=True)

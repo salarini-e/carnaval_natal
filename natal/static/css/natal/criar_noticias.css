@@ -226,3 +226,20 @@ input:checked + .slider:before {
     background-color: rgb(194, 194, 194);
 }
 
+.title-new-data-form{
+    margin: 0;
+    font-size: 25px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.close-new-data-form{
+    cursor: pointer;
+    color: white;
+    transition: all 0.5s ease-in-out;
+    font-size: 14px !important;
+
+}
+.close-new-data-form:hover{
+    color: rgb(194, 194, 194)
+}

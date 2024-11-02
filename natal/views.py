@@ -6,8 +6,9 @@ from natal.models import *
 from django.contrib.auth.decorators import login_required
 from django.utils.text import slugify
 from .models import Noticia
-from .forms import NoticiaForm, ProgramacaoForm
+from .forms import NoticiaForm, ProgramacaoForm, NovaDataForm
 from django.contrib import messages
+from django.db.models import Count
 
 def programacao(req):
     context={
@@ -209,37 +210,40 @@ def ver_todas_noticias(request):
 @login_required
 def criar_programacao(request):
     datas = ProgramacaoData.objects.all().order_by('data')
-    
-    # Lista dos dias da semana
-    dias_da_semana = [dia[0] for dia in ProgramacaoData.DIAS_DA_SEMANA]  # ['Segunda-feira', 'Terça-feira', ...]
+    dias_da_semana = [dia[0] for dia in ProgramacaoData.DIAS_DA_SEMANA]
 
     if request.method == 'POST':
-        form = ProgramacaoForm(request.POST)
-
-        # Verifica se o formulário está válido
-        if form.is_valid():
-            # Salva a programação
-            programacao = form.save(commit=False)
-            # Lida com a nova data
-            new_data = request.POST.get('new_data')
-            new_dia_da_semana = request.POST.get('new_dia_da_semana')
-
-            if new_data and new_dia_da_semana:
-                # Cria uma nova instância de ProgramacaoData
-                nova_data = ProgramacaoData(data=new_data, dia_da_semana=new_dia_da_semana)
-                nova_data.save()  # Salva a nova data no banco de dados
-                programacao.programacao_data = nova_data  # Define a nova data na programação
-
-            programacao.save()  # Salva a programação
-            messages.success(request, "Programação criada com sucesso!")  # Mensagem de sucesso
-
+        if 'nova_data_submit' in request.POST:
+            nova_data_form = NovaDataForm(request.POST)
+            if nova_data_form.is_valid():
+                nova_data_form.save()
+                messages.success(request, "Nova data adicionada com sucesso!")
+            form = ProgramacaoForm()
+        else:
+            form = ProgramacaoForm(request.POST)
+            nova_data_form = NovaDataForm()
+            if form.is_valid():
+                programacao = form.save(commit=False)
+                programacao.save()
+                messages.success(request, "Programação criada com sucesso!")
     else:
         form = ProgramacaoForm()
+        nova_data_form = NovaDataForm()
 
     context = {
         'form': form,
+        'nova_data_form': nova_data_form,
         'datas': datas,
-        'dias_da_semana': dias_da_semana,  # Adiciona a lista de dias da semana ao contexto
+        'dias_da_semana': dias_da_semana,
     }
 
     return render(request, 'natal/criar_programacao.html', context)
+
+
+def ver_programacao(request):
+    datas_eventos = ProgramacaoData.objects.annotate(evento_count=Count('eventos')).filter(evento_count__gt=0)
+    
+    context = {
+        'datas': datas_eventos,
+    }
+    return render(request, 'natal/programacao.html', context)

@@ -18,82 +18,85 @@
         </div>
         {% endif %}
     </div>
-    <div class="text-editor-wrapper" style="padding: 10px;">
-      <form method="POST" id="postForm" enctype="multipart/form-data" class="text-editor-form">
-          <!-- Place the first <script> tag in your HTML's <head> -->
-          <script src="https://cdn.tiny.cloud/1/7pmzktiasgia6g3jqr54uc2fit45f40gbqwt0n9jlfw08ghz/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-  
-          <!-- TinyMCE Initialization -->
-          <script>
-              tinymce.init({
-                  selector: 'textarea',
-                  plugins: [
-                      'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
-                      'checklist', 'mediaembed', 'casechange', 'export', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown',
-                  ],
-                  toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-              });
-          </script>
-        <!-- Formulário para criar nova data -->
-        <div id="new-date-fields" style="display: none; margin-top: 10px; padding: 15px; background-color: #225a14;border-radius: 30px;">
-            <h5>Criar Nova Data</h5>
-            <form method="POST" action="{% url 'criar_programacao' %}">
-                {% csrf_token %}
-                {{ nova_data_form.as_p }}  <!-- Renderiza o formulário da nova data -->
-                <div style="display: flex;align-items: center;justify-content: end;">
-                    <button type="submit" name="nova_data" class="btn btn-primary">Adicionar Nova Data</button>
-                </div>
-            </form>
-        </div>
-        {% csrf_token %}
-        <div class="row">
-            <div class="col" style="color: white;">
-                <div class="form-criar-programacao-item" style="margin-top: 10px;">
-                    <label for="programacao_data" class="form-criar-programacao-item-label">Data</label>
-                    <div class="criar-programacao-data-wrapper">
-                        {{ form.programacao_data }}  <!-- Utiliza o campo do formulário -->
-                        <button type="button" id="add-new-date" class="new-date-button" onclick="toggleNewDateFields()">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                    </div>
-                </div>
-
-                
-
-                <span style="margin-left: 5px;">{{ form.titulo_evento.label }}</span>
-                {{ form.titulo_evento }}
-
-                <div class="form-criar-programacao-item" style="margin-top: 10px;">
-                    <label for="hora_evento" class="form-criar-programacao-item-label">Hora</label>
-                    {{ form.hora }}  <!-- Campo para a Hora -->
-                </div>
-
-                <div class="form-criar-programacao-item" style="margin-top: 10px;">
-                    <label for="local_evento" class="form-criar-programacao-item-label">Local</label>
-                    {{ form.local }}  <!-- Campo para o Local -->
-                </div>
-
-                <div class="form-criar-programacao-item">
-                    <label for="descricao_evento" class="descricao-label-criar-noticia">Descrição do evento</label>
-                    {{ form.descricao }}  <!-- Campo para a Descrição -->
-                </div>
-
-                <div class="publicado-check-wrapper">
-                    <label for="publicado" style="margin-left: 10px; margin-bottom: 0px !important; margin-right: 10px;">Publicado</label>
-                    <label class="switch">
-                        {{ form.publicado }}  <!-- Checkbox para Publicado -->
-                        <span class="slider"></span>
-                    </label>
-                </div>
+    <!-- Formulário para criar nova data, fora do formulário principal -->
+    <div id="new-date-fields" style="display: none; margin-top: 10px; padding: 15px; background-color: #225a14; border-radius: 30px; margin-bottom: 20px;">
+        <div style="display: flex;justify-content: space-between;align-items: center;margin-bottom: 10px;">
+            <h5 class="title-new-data-form">Criar Nova Data</h5>
+            <div class="close-new-data-form" onclick="toggleNewDateFields()" >
+                <i class="fa-solid fa-xmark" style="font-size: 20px !important;"></i>
             </div>
         </div>
-        
-          <div class="buttons-criar-noticia-wrapper">
-            <!-- <button type="button" onclick="previewContent()" class="button-preview-noticia">Pré-visualizar</button> -->
-            <button type="submit" class="button-enviar-noticia">Enviar</button>
-          </div>
-      </form>
-  </div>
+        <form method="POST" action="{% url 'criar_programacao' %}">
+            {% csrf_token %}
+            {{ nova_data_form.as_p }}
+            <div style="display: flex; align-items: center; justify-content: end;">
+                <button type="submit" name="nova_data_submit" class="btn btn-primary">Adicionar Nova Data</button>
+            </div>
+        </form>
+    </div>
+    <div class="text-editor-wrapper" style="padding: 10px;">
+        <!-- Formulário principal -->
+        <form method="POST" id="postForm" enctype="multipart/form-data" class="text-editor-form">
+            {% csrf_token %}
+            
+            <!-- TinyMCE editor -->
+            <script src="https://cdn.tiny.cloud/1/7pmzktiasgia6g3jqr54uc2fit45f40gbqwt0n9jlfw08ghz/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+            <script>
+                tinymce.init({
+                    selector: 'textarea',
+                    plugins: [
+                        'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+                        'checklist', 'mediaembed', 'casechange', 'export', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown',
+                    ],
+                    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+                });
+            </script>
+    
+            <div class="row">
+                <div class="col" style="color: white;">
+                    <div class="form-criar-programacao-item" style="margin-top: 10px;">
+                        <label for="programacao_data" class="form-criar-programacao-item-label">Data</label>
+                        <div class="criar-programacao-data-wrapper">
+                            {{ form.programacao_data }}
+                            <button type="button" id="add-new-date" class="new-date-button" onclick="toggleNewDateFields()">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+    
+                    <span style="margin-left: 5px;">{{ form.titulo_evento.label }}</span>
+                    {{ form.titulo_evento }}
+    
+                    <div class="form-criar-programacao-item" style="margin-top: 10px;">
+                        <label for="hora_evento" class="form-criar-programacao-item-label">Hora</label>
+                        {{ form.hora }}
+                    </div>
+    
+                    <div class="form-criar-programacao-item" style="margin-top: 10px;">
+                        <label for="local_evento" class="form-criar-programacao-item-label">Local</label>
+                        {{ form.local }}
+                    </div>
+    
+                    <div class="form-criar-programacao-item">
+                        <label for="descricao_evento" class="descricao-label-criar-noticia">Descrição do evento</label>
+                        {{ form.descricao }}
+                    </div>
+    
+                    <div class="publicado-check-wrapper">
+                        <label for="publicado" style="margin-left: 10px; margin-bottom: 0px !important; margin-right: 10px;">Publicado</label>
+                        <label class="switch">
+                            {{ form.publicado }}
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="buttons-criar-noticia-wrapper">
+                <button type="submit" class="button-enviar-noticia">Enviar</button>
+            </div>
+        </form>
+    </div>
 
 </div>
 

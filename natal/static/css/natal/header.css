@@ -175,14 +175,14 @@ a {
     border-radius: 10px;
 }
 .header-link-mobile{
-    text-decoration: none;
-    color: white;
+    text-decoration: none !important;
+    color: white !important;
 }
 .header-link-mobile::after{
     content: '';
     width: 100%;
     height: 1px;
-    display: block; /* Necessário para fazer o pseudo-elemento aparecer */
+    display: block;
     background-color: white;
     margin-bottom: 5px;
 }
