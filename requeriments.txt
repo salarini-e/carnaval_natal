@@ -1,7 +1,7 @@
-asgiref==3.4.1
-Django==3.2.13
-PyMySQL==1.0.2
-pytz==2022.1
-PyYAML==6.0
-sqlparse==0.4.2
-typing-extensions==4.1.1
+asgiref
+Django
+PyMySQL
+pytz
+PyYAML
+sqlparse
+typing-extensions
