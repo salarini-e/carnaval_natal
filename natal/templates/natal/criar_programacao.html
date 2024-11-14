@@ -1,0 +1,159 @@
+{% extends 'natal/template.html' %}
+{% block css %}
+    <link rel="stylesheet" href="/static/css/natal/criar_noticias.css">
+    <link rel="stylesheet" href="/static/css/natal/noticias.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+{% endblock %}
+{% block main %}
+<div class="criar-noticia-wrapper">
+    <div class="message-wrapper">
+        {% if messages %}
+        <div class="alert-wrapper">
+            {% for message in messages %}
+                <div class="alert {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    <!-- Formulário para criar nova data, fora do formulário principal -->
+    <div id="new-date-fields" style="display: none; margin-top: 10px; padding: 15px; background-color: #225a14; border-radius: 30px; margin-bottom: 20px;">
+        <div style="display: flex;justify-content: space-between;align-items: center;margin-bottom: 10px;">
+            <h5 class="title-new-data-form">Criar Nova Data</h5>
+            <div class="close-new-data-form" onclick="toggleNewDateFields()" >
+                <i class="fa-solid fa-xmark" style="font-size: 20px !important;"></i>
+            </div>
+        </div>
+        <form method="POST" action="{% url 'criar_programacao' %}">
+            {% csrf_token %}
+            {{ nova_data_form.as_p }}
+            <div style="display: flex; align-items: center; justify-content: end;">
+                <button type="submit" name="nova_data_submit" class="btn btn-primary">Adicionar Nova Data</button>
+            </div>
+        </form>
+    </div>
+    <div class="text-editor-wrapper" style="padding: 10px;">
+        <!-- Formulário principal -->
+        <form method="POST" id="postForm" enctype="multipart/form-data" class="text-editor-form">
+            {% csrf_token %}
+            
+            <!-- TinyMCE editor -->
+            <script src="https://cdn.tiny.cloud/1/7pmzktiasgia6g3jqr54uc2fit45f40gbqwt0n9jlfw08ghz/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+            <script>
+                tinymce.init({
+                    selector: 'textarea',
+                    plugins: [
+                        'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+                        'checklist', 'mediaembed', 'casechange', 'export', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown',
+                    ],
+                    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+                });
+            </script>
+    
+            <div class="row">
+                <div class="col" style="color: white;">
+                    <div class="form-criar-programacao-item" style="margin-top: 10px;">
+                        <label for="programacao_data" class="form-criar-programacao-item-label">Data</label>
+                        <div class="criar-programacao-data-wrapper">
+                            {{ form.programacao_data }}
+                            <button type="button" id="add-new-date" class="new-date-button" onclick="toggleNewDateFields()">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+    
+                    <span style="margin-left: 5px;">{{ form.titulo_evento.label }}</span>
+                    {{ form.titulo_evento }}
+    
+                    <div class="form-criar-programacao-item" style="margin-top: 10px;">
+                        <label for="hora_evento" class="form-criar-programacao-item-label">Hora</label>
+                        {{ form.hora }}
+                    </div>
+    
+                    <div class="form-criar-programacao-item" style="margin-top: 10px;">
+                        <label for="local_evento" class="form-criar-programacao-item-label">Local</label>
+                        {{ form.local }}
+                    </div>
+    
+                    <div class="form-criar-programacao-item">
+                        <label for="descricao_evento" class="descricao-label-criar-noticia">Descrição do evento</label>
+                        {{ form.descricao }}
+                    </div>
+    
+                    <div class="publicado-check-wrapper">
+                        <label for="publicado" style="margin-left: 10px; margin-bottom: 0px !important; margin-right: 10px;">Publicado</label>
+                        <label class="switch">
+                            {{ form.publicado }}
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="buttons-criar-noticia-wrapper">
+                <button type="submit" class="button-enviar-noticia">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    function previewContent() {
+        // Obtém o conteúdo do TinyMCE editor
+        const content = tinymce.get('descricao_evento').getContent();
+
+        // Cria um elemento temporário para remover as tags HTML e imagens
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = content;
+
+        // Obtém o título do input
+        const titleInput = document.querySelector('input[name="titulo"]');
+        const title = titleInput.value || 'Título da Notícia'; // Define um título padrão caso o campo esteja vazio
+
+        // Atualiza o conteúdo da div de pré-visualização
+    }
+    function toggleNewDateFields() {
+        var newDateFields = document.getElementById("new-date-fields");
+        var buttonNewDate = document.getElementById('add-new-date');
+        if (newDateFields.style.display === "none") {
+            buttonNewDate.innerHTML= `<i class="fa-solid fa-xmark"></i>`
+
+            newDateFields.style.display = "block";
+        } else {
+            newDateFields.style.display = "none";
+            buttonNewDate.innerHTML= `<i class="fas fa-plus"></i>`
+        }
+    }
+    document.getElementById('nova-data-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Previne a validação do formulário externo
+        var formData = new FormData(this);
+
+        // Aqui você pode enviar os dados via AJAX ou simplesmente fazer o submit
+        fetch(this.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}' // Adicione o token CSRF
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json(); // Ou tratar a resposta conforme necessário
+            }
+            throw new Error('Erro ao adicionar nova data');
+        })
+        .then(data => {
+            // Aqui você pode fazer algo com a resposta, como mostrar uma mensagem de sucesso
+            console.log('Nova data adicionada:', data);
+            location.reload(); // Recarregar a página após adicionar a nova data
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+    });
+</script>
+
+{% endblock %}

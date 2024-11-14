@@ -158,3 +158,88 @@ input:checked + .slider:before {
     right: 6px;
     background-color: transparent;
 }
+
+.form-criar-programacao-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.form-criar-programacao-item-label{
+    margin-bottom: 0px !important;
+}
+
+.form-criar-programacao-item-select{
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.criar-programacao-data-wrapper{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.message-wrapper{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: #c9c9c9;
+    margin-bottom: 15px;
+    border-radius: 20px;
+}
+
+.alert{
+    margin-bottom: 0px !important;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.2;
+}
+.alert.success{
+    color: rgb(15, 182, 15);
+}
+
+.alert.error{
+    color: rgb(230, 76, 76);
+}
+.new-date-button{
+    background-color: white;
+    color: black;
+    border: none;
+    width: 37px;
+    height: 37px;
+    border-radius: 10px;
+    margin-left: 10px;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+.new-date-button:hover{
+    background-color: rgb(194, 194, 194);
+}
+
+.title-new-data-form{
+    margin: 0;
+    font-size: 25px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.close-new-data-form{
+    cursor: pointer;
+    color: white;
+    transition: all 0.5s ease-in-out;
+    font-size: 14px !important;
+
+}
+.close-new-data-form:hover{
+    color: rgb(194, 194, 194)
+}

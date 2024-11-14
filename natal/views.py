@@ -6,7 +6,9 @@ from natal.models import *
 from django.contrib.auth.decorators import login_required
 from django.utils.text import slugify
 from .models import Noticia
-from .forms import NoticiaForm
+from .forms import NoticiaForm, ProgramacaoForm, NovaDataForm
+from django.contrib import messages
+from django.db.models import Count
 
 def programacao(req):
     context={
@@ -203,3 +205,44 @@ def ver_todas_noticias(request):
         'noticias': noticias
     }
     return render(request, 'natal/noticias.html', context)
+
+# PROGRAMACAO
+@login_required
+def criar_programacao(request):
+    datas = ProgramacaoData.objects.all().order_by('data')
+    dias_da_semana = [dia[0] for dia in ProgramacaoData.DIAS_DA_SEMANA]
+
+    if request.method == 'POST':
+        if 'nova_data_submit' in request.POST:
+            nova_data_form = NovaDataForm(request.POST)
+            if nova_data_form.is_valid():
+                nova_data_form.save()
+                messages.success(request, "Nova data adicionada com sucesso!")
+            form = ProgramacaoForm()
+        else:
+            form = ProgramacaoForm(request.POST)
+            nova_data_form = NovaDataForm()
+            if form.is_valid():
+                programacao = form.save(commit=False)
+                programacao.save()
+                messages.success(request, "Programação criada com sucesso!")
+    else:
+        form = ProgramacaoForm()
+        nova_data_form = NovaDataForm()
+
+    context = {
+        'form': form,
+        'nova_data_form': nova_data_form,
+        'datas': datas,
+        'dias_da_semana': dias_da_semana,
+    }
+
+    return render(request, 'natal/criar_programacao.html', context)
+
+
+def ver_programacao(request):
+    datas_eventos = ProgramacaoData.objects.annotate(evento_count=Count('eventos')).filter(evento_count__gt=0)
+    context = {
+        'datas': datas_eventos,
+    }
+    return render(request, 'natal/programacao.html', context)

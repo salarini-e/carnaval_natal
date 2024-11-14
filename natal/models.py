@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from bs4 import BeautifulSoup
+from django.utils.translation import gettext_lazy as _
+import datetime
 
 
 class Parceiro(models.Model):
@@ -131,3 +133,46 @@ class Noticia(models.Model):
         return self.conteudo  # Se não houver conteúdo, retorna None ou uma string vazia
 
         
+class ProgramacaoData(models.Model):
+    DIAS_DA_SEMANA = [
+        ('Segunda-feira', 'Segunda-feira'),
+        ('Terça-feira', 'Terça-feira'),
+        ('Quarta-feira', 'Quarta-feira'),
+        ('Quinta-feira', 'Quinta-feira'),
+        ('Sexta-feira', 'Sexta-feira'),
+        ('Sábado', 'Sábado'),
+        ('Domingo', 'Domingo'),
+    ]
+    
+    data = models.DateField(unique=True)
+    dia_da_semana = models.CharField(max_length=15, choices=DIAS_DA_SEMANA)
+
+    def save(self, *args, **kwargs):
+        # Define o dia da semana com base na data
+        if not self.dia_da_semana:
+            self.dia_da_semana = self.DIAS_DA_SEMANA[self.data.weekday()][0]
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.data.strftime('%d/%m/%Y')} - {self.dia_da_semana}"
+
+    class Meta:
+        verbose_name = _("Data da Programação")
+        verbose_name_plural = _("Datas da Programação")
+
+
+class ProgramacaoEventos(models.Model):
+    programacao_data = models.ForeignKey(ProgramacaoData, on_delete=models.CASCADE, related_name="eventos")
+    hora = models.TimeField()
+    titulo_evento = models.CharField(max_length=200)
+    local = models.CharField(max_length=200)
+    descricao = models.TextField(blank=True, null=True)
+    publicado = models.BooleanField(default=True, verbose_name='Publicado')
+
+    def __str__(self):
+        return f"{self.titulo_evento} - {self.hora} - {self.local}"
+
+    class Meta:
+        verbose_name = _("Evento")
+        verbose_name_plural = _("Eventos")
+        ordering = ['hora']

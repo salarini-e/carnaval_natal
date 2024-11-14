@@ -249,13 +249,18 @@ body{
     border-radius: 5px;
     padding: 10px 20px;
     border: none;
-    text-decoration: none;
+    text-decoration: none !important;
     font-family: 'Sequel Sans', sans-serif;
     font-weight: bold;
     text-align: center;
-    transition: all 0.4s ease-in-out;
+    transition: all 0.6s ease-in-out;
     font-size: 2vw;
     cursor: pointer;
+}
+.programacao-button:hover{
+    background-color: rgb(160, 160, 160);
+    text-decoration: none !important;
+    color: black;
 }
 .overlay-programacao {
     display: flex;
@@ -267,9 +272,7 @@ body{
     background-color: rgba(13, 37, 7, 0.7);
 }
 
-.programacao-button:hover{
-    background-color: rgb(160, 160, 160);
-}
+
 
 .home-encanto-natal-wrapper{
     display: flex;
@@ -450,9 +453,9 @@ body{
         transform: translate(-50%, -50%); 
         align-items: center;
         justify-content: center;
-        text-decoration: none;
+        text-decoration: none !important;
         background-color: white;
-        color: black;
+        color: black !important;
         border-radius: 5px;
         height: 40px;
         font-weight: 700;
