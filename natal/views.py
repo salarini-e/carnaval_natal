@@ -49,7 +49,7 @@ def index(req):
     context = {
         'sections': sections,
         'bannerPrincipalHomeWeb': bannerPrincipalHomeWeb,
-        'bannerPrincipalHomeMOBILE': bannerPrincipalHomeMOBILE,
+        'bannerPrincipalHomeMobile': bannerPrincipalHomeMOBILE,
         'programacao': programacao,
         'parceiros': Parceiro.objects.all(),
         'atracoes': Atracao.objects.all(),
